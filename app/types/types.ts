@@ -61,13 +61,13 @@ type Klasse = {
   hinweiseKlasseA5: string
 }
 
-type ZusätzlicheAngaben = {
+type ZusaetzlicheAngaben = {
   zelle1: string
   zelle2: string
   zelle3: string
 }
 
-type Einschränkungen = {
+type Einschraenkungen = {
   zelle1: string
   zelle2: string
   zelle3: string
@@ -94,12 +94,51 @@ type WeitereAngaben = {
   smsSchulung: SmsSchulung
 }
 
-type Sprachkenntnisse = {
+type Kenntnisse = {
   bezeichnung: string
   erwerb?: Date
   letzteUeberpruefung?: Date
   naechsteUeberpruefung?: Date
   hinweise: string
+}
+
+type Aenderung = {
+  datum: Date
+  aenderungFeld3Klasse: string
+  aenderungFeld4Angaben: string
+  aenderungFeld5Sprachen: string
+  aenderungFeld6Einschraenkung: string
+  aenderungFeld7Fahrzeug: string
+  aenderungFeld8Infrastruktur: string
+  sontiges: string
+}
+
+type Aussetzung = {
+  von: Date
+  bis: Date
+  wegfallFuehrerschein: boolean
+  wegfallNachweisAllgemeinKenntnisse: boolean
+  wegfallNachweisBefaehigung: boolean
+  wegfallNachweisBetriebsverfahren: boolean
+  wegfallNachweisZugbeeinflussungSysteme: boolean
+  wegfallNachweisSignalSysteme: boolean
+  wegfallNachweisSchulung: boolean
+  wegfallNachweisSprachkenntnisse: boolean
+  sontiges: string
+}
+
+type Entziehung = {
+  datum: Date
+  wegfallFuehrerschein: boolean
+  wegfallNachweisAllgemeinKenntnisse: boolean
+  wegfallNachweisBefaehigung: boolean
+  wegfallNachweisBetriebsverfahren: boolean
+  wegfallNachweisZugbeeinflussungSysteme: boolean
+  wegfallNachweisSignalSysteme: boolean
+  wegfallNachweisSchulung: boolean
+  wegfallNachweisSprachkenntnisse: boolean
+  ausscheidenUnternehmen: boolean
+  sontiges: string
 }
 
 export type Person = {
@@ -111,16 +150,16 @@ export type Person = {
   bilder: Bilder
   verantwortlichesUnternehmen: VerantwortlichesUnternehmen
   klasse: Klasse
-  zusätzlicheAngaben: ZusätzlicheAngaben
-  einschränkungen: Einschränkungen
+  zusaetzlicheAngaben: ZusaetzlicheAngaben
+  einschraenkungen: Einschraenkungen
+  aenderung: Aenderung
+  aussetzung: Aussetzung
+  entziehung: Entziehung
   verlorenZb?: Meldung
   entwendetZb?: Meldung
   zerstoertZb?: Meldung
   weitereAngaben: WeitereAngaben
-  sprachkenntnisse: {
-    sprache1: Sprachkenntnisse
-    sprache2?: Sprachkenntnisse
-    sprache3?: Sprachkenntnisse
-    sprache4?: Sprachkenntnisse
-  }
+  sprachkenntnisse: Kenntnisse[]
+  fahrzeugkenntnisse: Kenntnisse[]
+  infrastrukturkenntnisse: Kenntnisse[]
 }

@@ -5,18 +5,17 @@ import { fakeDate } from '../fakeDate/fakeDate'
 import { useEffect } from 'react'
 import { fbTableColumns } from './fbTableColumns'
 import { Card, CardContent, Grid } from '@mui/material'
+import { ShowColumns } from '../page'
 
-export const FbTable = () => {
+export const FbTable = ({ showColumns }: { showColumns: ShowColumns[] }) => {
   const handleScrollHorizontal = () => {
     const virtualScrollerElement = document.querySelector(
       '.MuiDataGrid-virtualScroller',
     )
-    console.log('virtualScrollerElement: ', virtualScrollerElement)
     if (virtualScrollerElement) {
       const currentScrollPos = virtualScrollerElement.scrollLeft
-      console.log('currentScrollPos: ', currentScrollPos)
       const columnsHeaders = document.querySelectorAll(
-        '.MuiDataGrid-columnHeader:not(.MuiDataGrid-columnHeader:first-child)',
+        '.MuiDataGrid-columnHeader:not(.MuiDataGrid-columnHeader:nth-child(-n+2))',
       )
       columnsHeaders.forEach((columnHeader) => {
         if (columnHeader instanceof HTMLElement) {
@@ -54,40 +53,49 @@ export const FbTable = () => {
       <CardContent sx={{ height: '100%' }}>
         <DataGrid
           rows={fakeDate}
-          columns={fbTableColumns()}
+          columns={fbTableColumns(showColumns)}
           hideFooter={true}
-          // disableColumnMenu
-          // disableRowSelectionOnClick
           pageSizeOptions={[1]}
           sx={{
             width: '100%',
+            boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
             '.MuiDataGrid-virtualScroller': {
               height: '100% !important',
               overflowY: 'auto',
-              // minWidth: '600px',
             },
-            '& .MuiDataGrid-cell:first-child': {
+            '& .MuiDataGrid-cell:nth-child(1)': {
               backgroundColor: '#FFFFFF',
               position: 'sticky',
-              top: '0',
-              left: '0',
-              paddingLeft: '1.5rem',
+              left: '0px',
               zIndex: 999,
             },
-            '& .MuiDataGrid-columnHeader:first-child': {
+            '& .MuiDataGrid-cell:nth-child(2)': {
               backgroundColor: '#FFFFFF',
               position: 'sticky',
-              top: '0',
-              left: '0',
-              paddingLeft: '1.5rem',
-              border: 'none',
+              left: '100px', // Adjusted based on the width of the first column
+              zIndex: 999,
+            },
+            '& .MuiDataGrid-columnHeader:nth-child(1)': {
+              backgroundColor: '#FFFFFF',
+              position: 'sticky',
+              left: '0px',
+              zIndex: 999,
+            },
+            '& .MuiDataGrid-columnHeader:nth-child(2)': {
+              backgroundColor: '#FFFFFF',
+              position: 'sticky',
+              left: '100px', // Adjusted based on the width of the first column
               zIndex: 999,
             },
             '& .MuiDataGrid-columnHeaders': {
               '& .MuiDataGrid-columnHeadersInner': {
                 transform: 'none !important',
                 '& div': {
-                  '& .MuiDataGrid-columnHeader:first-child': {
+                  '& .MuiDataGrid-columnHeader:nth-child(1)': {
+                    backgroundColor: '#FFFFFF',
+                    zIndex: 2,
+                  },
+                  '& .MuiDataGrid-columnHeader:nth-child(2)': {
                     backgroundColor: '#FFFFFF',
                     zIndex: 2,
                   },
@@ -95,7 +103,7 @@ export const FbTable = () => {
               },
             },
           }}
-          columnBuffer={fakeDate.length}
+          // columnBuffer={fakeDate.length}
         />
       </CardContent>
     </Card>

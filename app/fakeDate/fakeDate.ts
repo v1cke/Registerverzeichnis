@@ -53,12 +53,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -138,12 +138,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: 'Nur mit Automatikgetriebe.',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -221,12 +221,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -304,12 +304,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -389,12 +389,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: 'Nur mit Automatikgetriebe.',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -472,12 +472,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -555,12 +555,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -640,12 +640,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: 'Nur mit Automatikgetriebe.',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
@@ -723,12 +723,12 @@ export const fakeDate: Person[] = [
       B2: false,
       hinweiseKlasseA5: '',
     },
-    zusätzlicheAngaben: {
+    zusaetzlicheAngaben: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
     },
-    einschränkungen: {
+    einschraenkungen: {
       zelle1: '',
       zelle2: '',
       zelle3: '',
