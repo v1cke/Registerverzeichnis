@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 } */
+
+.custom-header {
+  background-color: lightblue !important;
+}
+
+.custom-cell {
+  background-color: lightgrey !important;
+}

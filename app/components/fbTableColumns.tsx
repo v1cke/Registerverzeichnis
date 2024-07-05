@@ -1,33 +1,32 @@
 import { GridColDef } from '@mui/x-data-grid'
 import { Person } from '../types/types'
-import { makeStyles, Typography } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import { ShowColumns } from '../page'
 
-// const useStyles = makeStyles({
-//   headerName: {
-//     backgroundColor: '#f0f0f0',
-//   },
-//   headerVorname: {
-//     backgroundColor: '#d0f0c0',
-//   },
-//   headerFuehrerscheinNummer: {
-//     backgroundColor: '#f8d7da',
-//   },
-//   headerFuehrerscheinStatus: {
-//     backgroundColor: '#d1ecf1',
-//   },
-// })
+const formatDateToGermanLocale = (date?: Date) => {
+  return date
+    ? new Date(date).toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+    : ''
+}
 
 export const fbTableColumns = (
   showColumns: ShowColumns[],
 ): GridColDef<Person>[] => {
-  const columns: GridColDef<Person>[] = [
+  const theme = useTheme()
+
+  const nameColumns: GridColDef<Person>[] = [
     {
       field: 'name',
       headerName: 'Name',
       headerAlign: 'center',
       align: 'right',
       minWidth: 100,
+      headerClassName: 'custom-header',
+      cellClassName: 'custom-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -41,6 +40,8 @@ export const fbTableColumns = (
       headerName: 'Vorname',
       headerAlign: 'center',
       align: 'left',
+      headerClassName: 'custom-header',
+      cellClassName: 'custom-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -87,16 +88,7 @@ export const fbTableColumns = (
       headerName: 'Geburtstag',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => {
-        const date = row.inhaber.geburtstag
-        return date
-          ? new Date(date).toLocaleDateString('de-DE', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-            })
-          : ''
-      },
+      renderCell: ({ row }) => formatDateToGermanLocale(row.inhaber.geburtstag),
     },
     {
       field: 'geburtsort',
@@ -158,32 +150,16 @@ export const fbTableColumns = (
       headerName: 'Ausstellungs Datum',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => {
-        const date = row.zusatzbescheinigung.ausstellungsDatum
-        return date
-          ? new Date(date).toLocaleDateString('de-DE', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-            })
-          : ''
-      },
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.zusatzbescheinigung.ausstellungsDatum),
     },
     {
       field: 'zusatzbescheinigungAblaufGueltigkeit',
       headerName: 'Ablauf Gueltigkeit',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => {
-        const date = row.zusatzbescheinigung.ablaufGueltigkeit
-        return date
-          ? new Date(date).toLocaleDateString('de-DE', {
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-            })
-          : ''
-      },
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.zusatzbescheinigung.ablaufGueltigkeit),
     },
   ]
 
@@ -287,7 +263,6 @@ export const fbTableColumns = (
       headerName: 'LichtBild',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -319,7 +294,6 @@ export const fbTableColumns = (
       headerName: 'Bezeichnung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -359,7 +333,6 @@ export const fbTableColumns = (
       headerName: 'Land',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -373,7 +346,6 @@ export const fbTableColumns = (
       headerName: 'Postleitzahl',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -413,7 +385,6 @@ export const fbTableColumns = (
       headerName: 'E-Mail-Adresse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -456,7 +427,6 @@ export const fbTableColumns = (
       headerName: 'A',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -577,7 +547,6 @@ export const fbTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -620,7 +589,6 @@ export const fbTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -657,6 +625,724 @@ export const fbTableColumns = (
     },
   ]
 
+  const aenderungColumns: GridColDef<Person>[] = [
+    {
+      field: 'aenderungDatum',
+      headerName: 'Datum',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aenderung.datum),
+    },
+    {
+      field: 'aenderungFeld3Klasse',
+      headerName: 'Änderung in Feld 3 "Klasse"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld3Klasse}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungFeld4Angaben',
+      headerName: 'Änderung in Feld 4 "Zusätzliche Angaben"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld4Angaben}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungFeld5Sprachen',
+      headerName: 'Änderung in Feld 5 "Sprachen"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld5Sprachen}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungFeld6Einschraenkung',
+      headerName: 'Änderung in Feld 6 "Einschränkungen"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld6Einschraenkung}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungFeld7Fahrzeug',
+      headerName: 'Änderung in Feld 7 "Fahrzeuge"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld7Fahrzeug}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungFeld8Infrastruktur',
+      headerName: 'Änderung in Feld 8 "Infrastruktur"',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.aenderungFeld8Infrastruktur}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aenderungSontiges',
+      headerName: 'Sontiges',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aenderung.sontiges}
+          </Typography>
+        )
+      },
+    },
+  ]
+
+  const aussetzungColumns: GridColDef<Person>[] = [
+    {
+      field: 'aussetzungVon',
+      headerName: 'Von',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung.von),
+    },
+    {
+      field: 'aussetzungBis',
+      headerName: 'Bis',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung.bis),
+    },
+    {
+      field: 'aussetzungWegfallFuehrerschein',
+      headerName: 'Wegfall Führerschein',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallFuehrerschein}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisAllgemeinKenntnisse',
+      headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisAllgemeinKenntnisse}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisBefaehigung',
+      headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisBefaehigung}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisBetriebsverfahren',
+      headerName: 'Wegfall Nachweis Betriebsverfahren',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisBetriebsverfahren}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisZugbeeinflussungSysteme',
+      headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisZugbeeinflussungSysteme}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisSignalSysteme',
+      headerName: 'Wegfall Nachweis SignalSysteme',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisSignalSysteme}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisSchulung',
+      headerName: 'Wegfall Nachweis Schulung SMS',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisSchulung}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungWegfallNachweisSprachkenntnisse',
+      headerName: 'Wegfall Nachweis Sprachkenntnisse',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.wegfallNachweisSprachkenntnisse}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'aussetzungSontiges',
+      headerName: 'Sontiges',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.aussetzung.sontiges}
+          </Typography>
+        )
+      },
+    },
+  ]
+
+  const entziehungColumns: GridColDef<Person>[] = [
+    {
+      field: 'entziehungDatum',
+      headerName: 'Datum',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.entziehung.datum),
+    },
+    {
+      field: 'entziehungWegfallFuehrerschein',
+      headerName: 'Wegfall Führerschein',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallFuehrerschein}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisAllgemeinKenntnisse',
+      headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisAllgemeinKenntnisse}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisBefaehigung',
+      headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisBefaehigung}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisBetriebsverfahren',
+      headerName: 'Wegfall Nachweis Betriebsverfahren',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisBetriebsverfahren}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisZugbeeinflussungSysteme',
+      headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisZugbeeinflussungSysteme}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisSignalSysteme',
+      headerName: 'Wegfall Nachweis SignalSysteme',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisSignalSysteme}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisSchulung',
+      headerName: 'Wegfall Nachweis Schulung SMS',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisSchulung}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungWegfallNachweisSprachkenntnisse',
+      headerName: 'Wegfall Nachweis Sprachkenntnisse',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.wegfallNachweisSprachkenntnisse}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungausscheidenUnternehmen',
+      headerName: 'Ausscheiden aus Unternehmen',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.ausscheidenUnternehmen}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'entziehungSontiges',
+      headerName: 'Sontiges',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.entziehung.sontiges}
+          </Typography>
+        )
+      },
+    },
+  ]
+
+  const verlorenZbColumns: GridColDef<Person>[] = [
+    {
+      field: 'verlorenZbDatumMeldung',
+      headerName: 'Datum der Meldung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.verlorenZb?.datumMeldung),
+    },
+    {
+      field: 'verlorenZbDatumAustellungErsatzbeschinigung',
+      headerName: 'Datum der Austellung der Ersatzbescheinigung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.verlorenZb?.datumAustellungErsatzbeschinigung,
+        ),
+    },
+  ]
+  const entwendetZbColumns: GridColDef<Person>[] = [
+    {
+      field: 'entwendetZbDatumMeldung',
+      headerName: 'Datum der Meldung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.entwendetZb?.datumMeldung),
+    },
+    {
+      field: 'entwendetZbDatumAustellungErsatzbeschinigung',
+      headerName: 'Datum der Austellung der Ersatzbescheinigung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.entwendetZb?.datumAustellungErsatzbeschinigung,
+        ),
+    },
+  ]
+  const zerstoertZbColumns: GridColDef<Person>[] = [
+    {
+      field: 'zerstoertZbDatumMeldung',
+      headerName: 'Datum der Meldung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.zerstoertZb?.datumMeldung),
+    },
+    {
+      field: 'zerstoertZbDatumAustellungErsatzbeschinigung',
+      headerName: 'Datum der Austellung der Ersatzbescheinigung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.zerstoertZb?.datumAustellungErsatzbeschinigung,
+        ),
+    },
+  ]
+
+  const weitereAngabenColumns: GridColDef<Person>[] = [
+    {
+      field: 'weitereAngabenTauglichkeitLetzteUntersuchung',
+      headerName: 'Tauglichkeit letzte Untersuchung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.weitereAngaben.tauglichkeit.letzteUntersuchung,
+        ),
+    },
+    {
+      field: 'weitereAngabenTauglichkeitNaechsteUntersuchung',
+      headerName: 'Tauglichkeit nächste Untersuchung',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.weitereAngaben.tauglichkeit.naechsteUntersuchung,
+        ),
+    },
+    {
+      field: 'weitereAngabenTauglichkeitHinweise',
+      headerName: 'Tauglichkeit Hinweise',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) => {
+        return (
+          <Typography noWrap variant="body2">
+            {row.weitereAngaben.tauglichkeit.hinweise}
+          </Typography>
+        )
+      },
+    },
+    {
+      field: 'weitereAngabenSmsSchulungLetzteSchulung',
+      headerName: 'Schulung SMS letzte Schulug',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(row.weitereAngaben.smsSchulung.letzteSchulung),
+    },
+    {
+      field: 'weitereAngabenSmsSchulungNaechsteSchulung',
+      headerName: 'Schulung SMS nächste Schulug',
+      headerAlign: 'center',
+      align: 'center',
+      renderCell: ({ row }) =>
+        formatDateToGermanLocale(
+          row.weitereAngaben.smsSchulung.naechsteSchulung,
+        ),
+    },
+  ]
+
+  const generateSprachkenntnisseColumns = (index: number) => {
+    const columns: GridColDef<Person>[] = [
+      {
+        field: `sprachkenntnisseBezeichnung${index + 1}`,
+        headerName: `Sprachkenntnisse ${index + 1} Bezeichnung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.sprachkenntnisse[index]?.bezeichnung
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+      {
+        field: `sprachkenntnisseErwerb${index + 1}`,
+        headerName: `Sprachkenntnisse ${index + 1} Erwerb`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(row.sprachkenntnisse[index]?.erwerb),
+      },
+      {
+        field: `sprachkenntnisseLetzteUeberpruefung${index + 1}`,
+        headerName: `Sprachkenntnisse ${index + 1} letzte Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.sprachkenntnisse[index]?.letzteUeberpruefung,
+          ),
+      },
+      {
+        field: `sprachkenntnisseNaechsteUeberpruefung${index + 1}`,
+        headerName: `Sprachkenntnisse ${index + 1} nächste Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.sprachkenntnisse[index]?.naechsteUeberpruefung,
+          ),
+      },
+      {
+        field: `sprachkenntnisseHinweise${index + 1}`,
+        headerName: `Sprachkenntnisse ${index + 1} Hinweise`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.sprachkenntnisse[index]?.hinweise
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+    ]
+    return columns
+  }
+
+  const sprachkenntnisseColumns: GridColDef<Person>[] = Array.from(
+    { length: 4 },
+    (_, index) => generateSprachkenntnisseColumns(index),
+  ).flat()
+
+  const generateFahrzeugkenntnisseColumns = (index: number) => {
+    const columns: GridColDef<Person>[] = [
+      {
+        field: `fahrzeugkenntnisseBezeichnung${index + 1}`,
+        headerName: `Fahrzeugkenntnisse ${index + 1} Bezeichnung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.fahrzeugkenntnisse[index]?.bezeichnung
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+      {
+        field: `fahrzeugkenntnisseErwerb${index + 1}`,
+        headerName: `Fahrzeugkenntnisse ${index + 1} Erwerb`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(row.fahrzeugkenntnisse[index]?.erwerb),
+      },
+      {
+        field: `fahrzeugkenntnisseLetzteUeberpruefung${index + 1}`,
+        headerName: `Fahrzeugkenntnisse ${index + 1} letzte Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.fahrzeugkenntnisse[index]?.letzteUeberpruefung,
+          ),
+      },
+      {
+        field: `fahrzeugkenntnisseNaechsteUeberpruefung${index + 1}`,
+        headerName: `Fahrzeugkenntnisse ${index + 1} nächste Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.fahrzeugkenntnisse[index]?.naechsteUeberpruefung,
+          ),
+      },
+      {
+        field: `fahrzeugkenntnisseHinweise${index + 1}`,
+        headerName: `Fahrzeugkenntnisse ${index + 1} Hinweise`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.fahrzeugkenntnisse[index]?.hinweise
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+    ]
+    return columns
+  }
+
+  const fahrzeugkenntnisseColumns: GridColDef<Person>[] = Array.from(
+    { length: 100 },
+    (_, index) => generateFahrzeugkenntnisseColumns(index),
+  ).flat()
+
+  const generateInfrastrukturkenntnisseColumns = (index: number) => {
+    const columns: GridColDef<Person>[] = [
+      {
+        field: `infrastrukturkenntnisseBezeichnung${index + 1}`,
+        headerName: `Infrastrukturkenntnisse ${index + 1} Bezeichnung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.infrastrukturkenntnisse[index]?.bezeichnung
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+      {
+        field: `infrastrukturkenntnisseErwerb${index + 1}`,
+        headerName: `Infrastrukturkenntnisse ${index + 1} Erwerb`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(row.infrastrukturkenntnisse[index]?.erwerb),
+      },
+      {
+        field: `infrastrukturkenntnisseLetzteUeberpruefung${index + 1}`,
+        headerName: `Infrastrukturkenntnisse ${index + 1} letzte Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.infrastrukturkenntnisse[index]?.letzteUeberpruefung,
+          ),
+      },
+      {
+        field: `infrastrukturkenntnisseNaechsteUeberpruefung${index + 1}`,
+        headerName: `Infrastrukturkenntnisse ${index + 1} nächste Überpruefung`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) =>
+          formatDateToGermanLocale(
+            row.infrastrukturkenntnisse[index]?.naechsteUeberpruefung,
+          ),
+      },
+      {
+        field: `infrastrukturkenntnisseHinweise${index + 1}`,
+        headerName: `Infrastrukturkenntnisse ${index + 1} Hinweise`,
+        headerAlign: 'center',
+        align: 'center',
+        minWidth: 200,
+        renderCell: ({ row }) => {
+          const value = row.infrastrukturkenntnisse[index]?.hinweise
+          return value ? (
+            <Typography noWrap variant="body2">
+              {value}
+            </Typography>
+          ) : (
+            ''
+          )
+        },
+      },
+    ]
+    return columns
+  }
+
+  const infrastrukturkenntnisseColumns: GridColDef<Person>[] = Array.from(
+    { length: 42 },
+    (_, index) => generateInfrastrukturkenntnisseColumns(index),
+  ).flat()
+
   const fuehrerschein = showColumns.find((item) => item.value === 1)
   const inhaber = showColumns.find((item) => item.value === 2)
   const zusatzbescheinigung = showColumns.find((item) => item.value === 3)
@@ -666,7 +1352,7 @@ export const fbTableColumns = (
   const klasse = showColumns.find((item) => item.value === 7)
   const zusaetzlicheAngaben = showColumns.find((item) => item.value === 8)
   const einschraenkungen = showColumns.find((item) => item.value === 9)
-  const aenderungen = showColumns.find((item) => item.value === 10)
+  const aenderung = showColumns.find((item) => item.value === 10)
   const aussetzung = showColumns.find((item) => item.value === 11)
   const entziehung = showColumns.find((item) => item.value === 12)
   const verloren = showColumns.find((item) => item.value === 13)
@@ -678,7 +1364,7 @@ export const fbTableColumns = (
   const infrastrukturkenntnisse = showColumns.find((item) => item.value === 19)
 
   return [
-    ...columns,
+    // ...nameColumns,
     ...(fuehrerschein?.selected ? fuehrerscheinColumns : []),
     ...(inhaber?.selected ? inhaberColumns : []),
     ...(zusatzbescheinigung?.selected ? zusatzbescheinigungColumns : []),
@@ -688,17 +1374,17 @@ export const fbTableColumns = (
     ...(klasse?.selected ? klasseColumns : []),
     ...(zusaetzlicheAngaben?.selected ? zusaetzlicheAngabenColumns : []),
     ...(einschraenkungen?.selected ? einschraenkungenColumns : []),
-    // ...(aenderungen?.selected ? organisationseinheitColumns : []),
-    // ...(aussetzung?.selected ? organisationseinheitColumns : []),
-    // ...(entziehung?.selected ? organisationseinheitColumns : []),
-    // ...(verloren?.selected ? organisationseinheitColumns : []),
-    // ...(entwendet?.selected ? organisationseinheitColumns : []),
-    // ...(zerstoert?.selected ? organisationseinheitColumns : []),
-    // ...(weitereAngaben?.selected ? organisationseinheitColumns : []),
-    // ...(sprachkenntnisse?.selected ? organisationseinheitColumns : []),
-    // ...(fahrzeugkenntnisse?.selected ? organisationseinheitColumns : []),
-    // ...(infrastrukturkenntnisse?.selected ? organisationseinheitColumns : []),
+    ...(aenderung?.selected ? aenderungColumns : []),
+    ...(aussetzung?.selected ? aussetzungColumns : []),
+    ...(entziehung?.selected ? entziehungColumns : []),
+    ...(verloren?.selected ? verlorenZbColumns : []),
+    ...(entwendet?.selected ? entwendetZbColumns : []),
+    ...(zerstoert?.selected ? zerstoertZbColumns : []),
+    ...(weitereAngaben?.selected ? weitereAngabenColumns : []),
+    ...(sprachkenntnisse?.selected ? sprachkenntnisseColumns : []),
+    ...(fahrzeugkenntnisse?.selected ? fahrzeugkenntnisseColumns : []),
+    ...(infrastrukturkenntnisse?.selected
+      ? infrastrukturkenntnisseColumns
+      : []),
   ]
 }
-
-// showColumns.find((item) => item.value === 2)?.selected &&
