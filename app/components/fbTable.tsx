@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { fbTableColumns } from './fbTableColumns'
 import { Card, CardContent, Grid } from '@mui/material'
 import { ShowColumns } from '../page'
+import { nameColumns } from './nameColumns'
 
 export const FbTable = ({ showColumns }: { showColumns: ShowColumns[] }) => {
   // const handleScrollHorizontal = () => {
@@ -50,7 +51,14 @@ export const FbTable = ({ showColumns }: { showColumns: ShowColumns[] }) => {
 
   return (
     <Card sx={{ height: '100%' }}>
-      <CardContent sx={{ height: '100%' }}>
+      <CardContent className="flex" sx={{ height: '100%' }}>
+        {/* <DataGrid
+          rows={fakeDate}
+          columns={nameColumns}
+          hideFooter={true}
+          pageSizeOptions={[1]}
+          sx={{ width: '210px' }}
+        /> */}
         <DataGrid
           rows={fakeDate}
           columns={fbTableColumns(showColumns)}
@@ -58,7 +66,7 @@ export const FbTable = ({ showColumns }: { showColumns: ShowColumns[] }) => {
           pageSizeOptions={[1]}
           sx={{
             width: '100%',
-            boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+
             // '.MuiDataGrid-virtualScroller': {
             //   height: '100% !important',
             //   overflowY: 'auto',

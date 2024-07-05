@@ -1364,7 +1364,7 @@ export const fbTableColumns = (
   const infrastrukturkenntnisse = showColumns.find((item) => item.value === 19)
 
   return [
-    // ...nameColumns,
+    ...nameColumns,
     ...(fuehrerschein?.selected ? fuehrerscheinColumns : []),
     ...(inhaber?.selected ? inhaberColumns : []),
     ...(zusatzbescheinigung?.selected ? zusatzbescheinigungColumns : []),
