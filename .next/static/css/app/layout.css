@@ -602,6 +602,9 @@ video {
 .sticky {
   position: sticky;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .flex {
   display: flex;
 }
@@ -620,11 +623,17 @@ video {
 .justify-end {
   justify-content: flex-end;
 }
+.justify-center {
+  justify-content: center;
+}
 .justify-between {
   justify-content: space-between;
 }
 .p-4 {
   padding: 1rem;
+}
+.pt-2 {
+  padding-top: 0.5rem;
 }
 .shadow-none {
   --tw-shadow: 0 0 #0000;

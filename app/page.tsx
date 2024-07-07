@@ -1,9 +1,9 @@
 'use client'
 
 import { Grid } from '@mui/material'
-import { FbTable } from './components/fbTable'
+import { FbTable } from './components/fbTable/fbTable'
 import { useState } from 'react'
-import { ColumnSelect } from './components/columnSelect'
+import { ColumnSelect } from './components/fbTable/columnSelect'
 import { GroupOfButton } from './components/groupOfButton'
 
 export type ShowColumns = { selected: boolean; value: number }

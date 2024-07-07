@@ -1,4 +1,9 @@
-type Status = 'gültig' | 'ungültig' | 'abgelaufen' | 'entzogen' | 'Entwurf'
+export type Status =
+  | 'gültig'
+  | 'ungültig'
+  | 'abgelaufen'
+  | 'entzogen'
+  | 'Entwurf'
 
 type Fuehrerschein = {
   fuehrerscheinNummer: string
