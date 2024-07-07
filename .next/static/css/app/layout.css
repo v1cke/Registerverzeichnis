@@ -566,6 +566,39 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .sticky {
   position: sticky;
 }
@@ -593,50 +626,260 @@ video {
 .p-4 {
   padding: 1rem;
 }
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+.shadow-none {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-/* 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.MuiDataGrid-columnHeaderTitle {
+  transform: rotate(-90deg);
+}
+.name-header {
+  background-color: #4a148c !important;
+  color: white !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*
+.name-cell {
+  background-color: #7b1fa2 !important;
+  color: white !important;
+}
+*/
+
+.fuehrerschein-header {
+  background-color: #311b92 !important;
+  color: white !important;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/*
+.fuehrerschein-cell {
+  background-color: #5e35b1 !important;
+  color: white !important;
+}
+*/
+
+.inhaber-header {
+  background-color: #1a237e !important;
+  color: white !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
+/*
+.inhaber-cell {
+  background-color: #3949ab !important;
+  color: white !important;
+}
+*/
 
-.custom-header {
-  background-color: lightblue !important;
+.zusatzbescheinigung-header {
+  background-color: #0d47a1 !important;
+  color: white !important;
 }
 
-.custom-cell {
-  background-color: lightgrey !important;
+/*
+.zusatzbescheinigung-cell {
+  background-color: #1e88e5 !important;
+  color: white !important;
+}
+*/
+
+.organisationseinheit-header {
+  background-color: #01579b !important;
+  color: white !important;
+}
+
+/*
+.organisationseinheit-cell {
+  background-color: #039be5 !important;
+  color: white !important;
+}
+*/
+
+.bilder-header {
+  background-color: #006064 !important;
+  color: white !important;
+}
+
+/*
+.bilder-cell {
+  background-color: #00838f !important;
+  color: white !important;
+}
+*/
+
+.unternehmen-header {
+  background-color: #004d40 !important;
+  color: white !important;
+}
+
+/*
+.unternehmen-cell {
+  background-color: #00695c !important;
+  color: white !important;
+}
+*/
+
+.klasse-header {
+  background-color: #1b5e20 !important;
+  color: white !important;
+}
+
+/*
+.klasse-cell {
+  background-color: #2e7d32 !important;
+  color: white !important;
+}
+*/
+
+.zusaetzlicheAngaben-header {
+  background-color: #33691e !important;
+  color: white !important;
+}
+
+/*
+.zusaetzlicheAngaben-cell {
+  background-color: #558b2f !important;
+  color: white !important;
+}
+*/
+
+.einschraenkungen-header {
+  background-color: #827717 !important;
+  color: white !important;
+}
+
+/*
+.einschraenkungen-cell {
+  background-color: #9e9d24 !important;
+  color: white !important;
+}
+*/
+
+.aenderung-header {
+  background-color: #f57f17 !important;
+  color: white !important;
+  white-space: nowrap;
+}
+
+/*
+.aenderung-cell {
+  background-color: #ff8f00 !important;
+  color: white !important;
+}
+*/
+
+.aussetzung-header {
+  background-color: #ef6c00 !important;
+  color: white !important;
+}
+
+/*
+.aussetzung-cell {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+*/
+
+.entziehung-header {
+  background-color: #e65100 !important;
+  color: white !important;
+}
+
+/*
+.entziehung-cell {
+  background-color: #ff5722 !important;
+  color: white !important;
+}
+*/
+
+.verloren-header {
+  background-color: #b71c1c !important;
+  color: white !important;
+}
+
+/*
+.verloren-cell {
+  background-color: #e53935 !important;
+  color: white !important;
+}
+*/
+
+.entwendet-header {
+  background-color: #3e2723 !important;
+  color: white !important;
+}
+
+/*
+.entwendet-cell {
+  background-color: #5d4037 !important;
+  color: white !important;
+}
+*/
+
+.zerstoert-header {
+  background-color: #212121 !important;
+  color: white !important;
+}
+
+/*
+.zerstoert-cell {
+  background-color: #424242 !important;
+  color: white !important;
+}
+*/
+
+.weitereAngaben-header {
+  background-color: #263238 !important;
+  color: white !important;
+}
+
+/*
+.weitereAngaben-cell {
+  background-color: #37474f !important;
+  color: white !important;
+}
+*/
+
+.sprachkenntnisse-header {
+  background-color: #37474f !important;
+  color: white !important;
+}
+
+/*
+.sprachkenntnisse-cell {
+  background-color: #546e7a !important;
+  color: white !important;
+}
+*/
+
+.fahrzeugkenntnisse-header {
+  background-color: #455a64 !important;
+  color: white !important;
+}
+
+/*
+.fahrzeugkenntnisse-cell {
+  background-color: #607d8b !important;
+  color: white !important;
+}
+*/
+
+.infrastrukturkenntnisse-header {
+  background-color: #263238 !important;
+  color: white !important;
+}
+
+/*
+.infrastrukturkenntnisse-cell {
+  background-color: #37474f !important;
+  color: white !important;
+}
+*/
+
+.border-right {
+  border-right: 1px solid black !important;
 }
 

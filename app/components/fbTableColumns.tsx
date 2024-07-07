@@ -24,9 +24,9 @@ export const fbTableColumns = (
       headerName: 'Name',
       headerAlign: 'center',
       align: 'right',
-      minWidth: 100,
-      headerClassName: 'custom-header',
-      cellClassName: 'custom-cell',
+      minWidth: 200,
+      headerClassName: 'name-header',
+      cellClassName: 'name-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -40,8 +40,9 @@ export const fbTableColumns = (
       headerName: 'Vorname',
       headerAlign: 'center',
       align: 'left',
-      headerClassName: 'custom-header',
-      cellClassName: 'custom-cell',
+      minWidth: 200,
+      headerClassName: 'name-header border-right',
+      cellClassName: 'name-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -58,7 +59,9 @@ export const fbTableColumns = (
       headerName: 'Führerschein Nummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 180,
+      minWidth: 200,
+      headerClassName: 'fuehrerschein-header',
+      cellClassName: 'fuehrerschein-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -72,6 +75,9 @@ export const fbTableColumns = (
       headerName: 'Status',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'fuehrerschein-header border-right',
+      cellClassName: 'fuehrerschein-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -88,6 +94,9 @@ export const fbTableColumns = (
       headerName: 'Geburtstag',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'inhaber-header',
+      cellClassName: 'inhaber-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.inhaber.geburtstag),
     },
     {
@@ -95,6 +104,9 @@ export const fbTableColumns = (
       headerName: 'Geburtsort',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'inhaber-header',
+      cellClassName: 'inhaber-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -108,6 +120,9 @@ export const fbTableColumns = (
       headerName: 'Staatsangehoerigkeit',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'inhaber-header border-right',
+      cellClassName: 'inhaber-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -124,6 +139,9 @@ export const fbTableColumns = (
       headerName: 'Nummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusatzbescheinigung-header',
+      cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -137,6 +155,9 @@ export const fbTableColumns = (
       headerName: 'Status',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusatzbescheinigung-header',
+      cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -150,6 +171,9 @@ export const fbTableColumns = (
       headerName: 'Ausstellungs Datum',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusatzbescheinigung-header',
+      cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ausstellungsDatum),
     },
@@ -158,6 +182,9 @@ export const fbTableColumns = (
       headerName: 'Ablauf Gueltigkeit',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusatzbescheinigung-header border-right',
+      cellClassName: 'zusatzbescheinigung-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ablaufGueltigkeit),
     },
@@ -166,9 +193,12 @@ export const fbTableColumns = (
   const organisationseinheitColumns: GridColDef<Person>[] = [
     {
       field: 'organisationseinheitBezeichnung',
-      headerName: 'bezeichnung',
+      headerName: 'Bezeichnung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -182,6 +212,9 @@ export const fbTableColumns = (
       headerName: 'Strasse und Hausnummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -195,6 +228,9 @@ export const fbTableColumns = (
       headerName: 'Postleitzahl',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -208,6 +244,9 @@ export const fbTableColumns = (
       headerName: 'Telefonnummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -221,6 +260,9 @@ export const fbTableColumns = (
       headerName: 'Faxnummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -234,6 +276,9 @@ export const fbTableColumns = (
       headerName: 'E-Mail-Adresse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header',
+      cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -247,6 +292,9 @@ export const fbTableColumns = (
       headerName: 'Ablauf Gueltigkeit',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'organisationseinheit-header border-right',
+      cellClassName: 'organisationseinheit-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -259,10 +307,13 @@ export const fbTableColumns = (
 
   const bilderColumns: GridColDef<Person>[] = [
     {
-      field: 'fuehrerscheinLichtBild',
+      field: 'bilderLichtBild',
       headerName: 'LichtBild',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'bilder-header',
+      cellClassName: 'bilder-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -273,10 +324,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinUnterschrift',
+      field: 'bilderUnterschrift',
       headerName: 'Unterschrift',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'bilder-header border-right',
+      cellClassName: 'bilder-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -294,6 +348,9 @@ export const fbTableColumns = (
       headerName: 'Bezeichnung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -307,6 +364,9 @@ export const fbTableColumns = (
       headerName: 'Strasse und Hausummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -320,6 +380,9 @@ export const fbTableColumns = (
       headerName: 'Ort',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -333,6 +396,9 @@ export const fbTableColumns = (
       headerName: 'Land',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -346,6 +412,9 @@ export const fbTableColumns = (
       headerName: 'Postleitzahl',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -359,6 +428,9 @@ export const fbTableColumns = (
       headerName: 'Telefonnummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -372,6 +444,9 @@ export const fbTableColumns = (
       headerName: 'Faxnummer',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -385,6 +460,9 @@ export const fbTableColumns = (
       headerName: 'E-Mail-Adresse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -398,6 +476,9 @@ export const fbTableColumns = (
       headerName: 'Unternehmenskategorie (RU/IM)',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header',
+      cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -411,6 +492,9 @@ export const fbTableColumns = (
       headerName: 'Arbeitsort',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'unternehmen-header border-right',
+      cellClassName: 'unternehmen-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -423,10 +507,13 @@ export const fbTableColumns = (
 
   const klasseColumns: GridColDef<Person>[] = [
     {
-      field: 'fuehrerscheinA',
+      field: 'klasseA',
       headerName: 'A',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -436,10 +523,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerschein',
+      field: 'klasseA1',
       headerName: 'A1',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -449,10 +539,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinA2',
+      field: 'klasseA2',
       headerName: 'A2',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -462,10 +555,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinA3',
+      field: 'klasseA3',
       headerName: 'A3',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -475,10 +571,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinA4',
+      field: 'klasseA4',
       headerName: 'A4',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -488,10 +587,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinA5',
+      field: 'klasseA5',
       headerName: 'A5',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -501,10 +603,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinB',
+      field: 'klasseB',
       headerName: 'B',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -514,10 +619,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinB1',
+      field: 'klasseB1',
       headerName: 'B1',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header',
+      cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -527,10 +635,13 @@ export const fbTableColumns = (
       },
     },
     {
-      field: 'fuehrerscheinB2',
+      field: 'klasseB2',
       headerName: 'B2',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'klasse-header border-right',
+      cellClassName: 'klasse-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -547,6 +658,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusaetzlicheAngaben-header',
+      cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -560,6 +674,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 2',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusaetzlicheAngaben-header',
+      cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -573,6 +690,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 3',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zusaetzlicheAngaben-header border-right',
+      cellClassName: 'zusaetzlicheAngaben-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -589,6 +709,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'einschraenkungen-header',
+      cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -602,6 +725,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 2',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'einschraenkungen-header',
+      cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -615,6 +741,9 @@ export const fbTableColumns = (
       headerName: 'Zelle 3',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'einschraenkungen-header border-right',
+      cellClassName: 'einschraenkungen-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -631,17 +760,23 @@ export const fbTableColumns = (
       headerName: 'Datum',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => formatDateToGermanLocale(row.aenderung.datum),
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aenderung?.datum),
     },
     {
       field: 'aenderungFeld3Klasse',
       headerName: 'Änderung in Feld 3 "Klasse"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld3Klasse}
+            {row.aenderung?.aenderungFeld3Klasse ?? ''}
           </Typography>
         )
       },
@@ -651,10 +786,13 @@ export const fbTableColumns = (
       headerName: 'Änderung in Feld 4 "Zusätzliche Angaben"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld4Angaben}
+            {row.aenderung?.aenderungFeld4Angaben ?? ''}
           </Typography>
         )
       },
@@ -664,10 +802,13 @@ export const fbTableColumns = (
       headerName: 'Änderung in Feld 5 "Sprachen"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld5Sprachen}
+            {row.aenderung?.aenderungFeld5Sprachen ?? ''}
           </Typography>
         )
       },
@@ -677,10 +818,13 @@ export const fbTableColumns = (
       headerName: 'Änderung in Feld 6 "Einschränkungen"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld6Einschraenkung}
+            {row.aenderung?.aenderungFeld6Einschraenkung ?? ''}
           </Typography>
         )
       },
@@ -690,10 +834,13 @@ export const fbTableColumns = (
       headerName: 'Änderung in Feld 7 "Fahrzeuge"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld7Fahrzeug}
+            {row.aenderung?.aenderungFeld7Fahrzeug ?? ''}
           </Typography>
         )
       },
@@ -703,10 +850,13 @@ export const fbTableColumns = (
       headerName: 'Änderung in Feld 8 "Infrastruktur"',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header',
+      cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.aenderungFeld8Infrastruktur}
+            {row.aenderung?.aenderungFeld8Infrastruktur ?? ''}
           </Typography>
         )
       },
@@ -716,10 +866,13 @@ export const fbTableColumns = (
       headerName: 'Sontiges',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aenderung-header border-right',
+      cellClassName: 'aenderung-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aenderung.sontiges}
+            {row.aenderung?.sontiges ?? ''}
           </Typography>
         )
       },
@@ -732,24 +885,33 @@ export const fbTableColumns = (
       headerName: 'Von',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung.von),
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung?.von),
     },
     {
       field: 'aussetzungBis',
       headerName: 'Bis',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung.bis),
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung?.bis),
     },
     {
       field: 'aussetzungWegfallFuehrerschein',
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallFuehrerschein}
+            {row.aussetzung?.wegfallFuehrerschein ?? ''}
           </Typography>
         )
       },
@@ -759,10 +921,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisAllgemeinKenntnisse}
+            {row.aussetzung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
           </Typography>
         )
       },
@@ -772,10 +937,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisBefaehigung}
+            {row.aussetzung?.wegfallNachweisBefaehigung ?? ''}
           </Typography>
         )
       },
@@ -785,10 +953,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisBetriebsverfahren}
+            {row.aussetzung?.wegfallNachweisBetriebsverfahren ?? ''}
           </Typography>
         )
       },
@@ -798,10 +969,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisZugbeeinflussungSysteme}
+            {row.aussetzung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
           </Typography>
         )
       },
@@ -811,10 +985,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisSignalSysteme}
+            {row.aussetzung?.wegfallNachweisSignalSysteme ?? ''}
           </Typography>
         )
       },
@@ -824,10 +1001,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisSchulung}
+            {row.aussetzung?.wegfallNachweisSchulung ?? ''}
           </Typography>
         )
       },
@@ -837,10 +1017,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header',
+      cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.wegfallNachweisSprachkenntnisse}
+            {row.aussetzung?.wegfallNachweisSprachkenntnisse ?? ''}
           </Typography>
         )
       },
@@ -850,10 +1033,13 @@ export const fbTableColumns = (
       headerName: 'Sontiges',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'aussetzung-header border-right',
+      cellClassName: 'aussetzung-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.aussetzung.sontiges}
+            {row.aussetzung?.sontiges ?? ''}
           </Typography>
         )
       },
@@ -866,17 +1052,23 @@ export const fbTableColumns = (
       headerName: 'Datum',
       headerAlign: 'center',
       align: 'center',
-      renderCell: ({ row }) => formatDateToGermanLocale(row.entziehung.datum),
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
+      renderCell: ({ row }) => formatDateToGermanLocale(row.entziehung?.datum),
     },
     {
       field: 'entziehungWegfallFuehrerschein',
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallFuehrerschein}
+            {row.entziehung?.wegfallFuehrerschein ?? ''}
           </Typography>
         )
       },
@@ -886,10 +1078,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisAllgemeinKenntnisse}
+            {row.entziehung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
           </Typography>
         )
       },
@@ -899,10 +1094,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisBefaehigung}
+            {row.entziehung?.wegfallNachweisBefaehigung ?? ''}
           </Typography>
         )
       },
@@ -912,10 +1110,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisBetriebsverfahren}
+            {row.entziehung?.wegfallNachweisBetriebsverfahren ?? ''}
           </Typography>
         )
       },
@@ -925,10 +1126,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisZugbeeinflussungSysteme}
+            {row.entziehung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
           </Typography>
         )
       },
@@ -938,10 +1142,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisSignalSysteme}
+            {row.entziehung?.wegfallNachweisSignalSysteme ?? ''}
           </Typography>
         )
       },
@@ -951,10 +1158,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisSchulung}
+            {row.entziehung?.wegfallNachweisSchulung ?? ''}
           </Typography>
         )
       },
@@ -964,10 +1174,13 @@ export const fbTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.wegfallNachweisSprachkenntnisse}
+            {row.entziehung?.wegfallNachweisSprachkenntnisse ?? ''}
           </Typography>
         )
       },
@@ -977,10 +1190,13 @@ export const fbTableColumns = (
       headerName: 'Ausscheiden aus Unternehmen',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header',
+      cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.ausscheidenUnternehmen}
+            {row.entziehung?.ausscheidenUnternehmen ?? ''}
           </Typography>
         )
       },
@@ -990,10 +1206,13 @@ export const fbTableColumns = (
       headerName: 'Sontiges',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entziehung-header border-right',
+      cellClassName: 'entziehung-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {row.entziehung.sontiges}
+            {row.entziehung?.sontiges ?? ''}
           </Typography>
         )
       },
@@ -1006,6 +1225,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'verloren-header',
+      cellClassName: 'verloren-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.verlorenZb?.datumMeldung),
     },
@@ -1014,6 +1236,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'verloren-header',
+      cellClassName: 'verloren-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.verlorenZb?.datumAustellungErsatzbeschinigung,
@@ -1026,6 +1251,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entwendet-header',
+      cellClassName: 'entwendet-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.entwendetZb?.datumMeldung),
     },
@@ -1034,6 +1262,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'entwendet-header border-right',
+      cellClassName: 'entwendet-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.entwendetZb?.datumAustellungErsatzbeschinigung,
@@ -1046,6 +1277,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zerstoert-header',
+      cellClassName: 'zerstoert-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zerstoertZb?.datumMeldung),
     },
@@ -1054,6 +1288,9 @@ export const fbTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'zerstoert-header border-right',
+      cellClassName: 'zerstoert-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.zerstoertZb?.datumAustellungErsatzbeschinigung,
@@ -1067,6 +1304,9 @@ export const fbTableColumns = (
       headerName: 'Tauglichkeit letzte Untersuchung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'weitereAngaben-header',
+      cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.tauglichkeit.letzteUntersuchung,
@@ -1077,6 +1317,9 @@ export const fbTableColumns = (
       headerName: 'Tauglichkeit nächste Untersuchung',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'weitereAngaben-header',
+      cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.tauglichkeit.naechsteUntersuchung,
@@ -1087,6 +1330,9 @@ export const fbTableColumns = (
       headerName: 'Tauglichkeit Hinweise',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'weitereAngaben-header',
+      cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1100,6 +1346,9 @@ export const fbTableColumns = (
       headerName: 'Schulung SMS letzte Schulug',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'weitereAngaben-header',
+      cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.weitereAngaben.smsSchulung.letzteSchulung),
     },
@@ -1108,6 +1357,9 @@ export const fbTableColumns = (
       headerName: 'Schulung SMS nächste Schulug',
       headerAlign: 'center',
       align: 'center',
+      minWidth: 200,
+      headerClassName: 'weitereAngaben-header border-right',
+      cellClassName: 'weitereAngaben-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.smsSchulung.naechsteSchulung,
@@ -1123,6 +1375,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'sprachkenntnisse-header',
+        cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1140,6 +1395,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'sprachkenntnisse-header',
+        cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.sprachkenntnisse[index]?.erwerb),
       },
@@ -1149,6 +1407,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'sprachkenntnisse-header',
+        cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.sprachkenntnisse[index]?.letzteUeberpruefung,
@@ -1160,6 +1421,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'sprachkenntnisse-header',
+        cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.sprachkenntnisse[index]?.naechsteUeberpruefung,
@@ -1171,6 +1435,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'sprachkenntnisse-header border-right',
+        cellClassName: 'sprachkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.hinweise
           return value ? (
@@ -1199,6 +1466,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'fahrzeugkenntnisse-header',
+        cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1216,6 +1486,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'fahrzeugkenntnisse-header',
+        cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.fahrzeugkenntnisse[index]?.erwerb),
       },
@@ -1225,6 +1498,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'fahrzeugkenntnisse-header',
+        cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.fahrzeugkenntnisse[index]?.letzteUeberpruefung,
@@ -1236,6 +1512,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'fahrzeugkenntnisse-header',
+        cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.fahrzeugkenntnisse[index]?.naechsteUeberpruefung,
@@ -1247,6 +1526,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'fahrzeugkenntnisse-header border-right',
+        cellClassName: 'fahrzeugkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.hinweise
           return value ? (
@@ -1275,6 +1557,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'infrastrukturkenntnisse-header',
+        cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1292,6 +1577,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'infrastrukturkenntnisse-header',
+        cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.infrastrukturkenntnisse[index]?.erwerb),
       },
@@ -1301,6 +1589,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'infrastrukturkenntnisse-header',
+        cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.infrastrukturkenntnisse[index]?.letzteUeberpruefung,
@@ -1312,6 +1603,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'infrastrukturkenntnisse-header',
+        cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.infrastrukturkenntnisse[index]?.naechsteUeberpruefung,
@@ -1323,6 +1617,9 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
+        minWidth: 200,
+        headerClassName: 'infrastrukturkenntnisse-header border-right',
+        cellClassName: 'infrastrukturkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.hinweise
           return value ? (

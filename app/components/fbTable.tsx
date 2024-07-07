@@ -64,6 +64,8 @@ export const FbTable = ({ showColumns }: { showColumns: ShowColumns[] }) => {
           columns={fbTableColumns(showColumns)}
           hideFooter={true}
           pageSizeOptions={[1]}
+          columnHeaderHeight={230}
+          sortModel={[{ field: 'name', sort: 'asc' }]}
           sx={{
             width: '100%',
 

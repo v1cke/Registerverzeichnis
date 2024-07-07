@@ -26,7 +26,7 @@ type AusstellendeOrganisationseinheit = {
   plz: number
   ort: string
   telefon: string
-  fax?: string
+  fax: string
   email: string
 }
 
@@ -42,7 +42,7 @@ type VerantwortlichesUnternehmen = {
   ort: string
   land: string
   telefon: string
-  fax?: string
+  fax: string
   email: string
   unternehmensKategorie: string
   arbeitsort: string
@@ -152,9 +152,9 @@ export type Person = {
   klasse: Klasse
   zusaetzlicheAngaben: ZusaetzlicheAngaben
   einschraenkungen: Einschraenkungen
-  aenderung: Aenderung
-  aussetzung: Aussetzung
-  entziehung: Entziehung
+  aenderung?: Aenderung
+  aussetzung?: Aussetzung
+  entziehung?: Entziehung
   verlorenZb?: Meldung
   entwendetZb?: Meldung
   zerstoertZb?: Meldung
