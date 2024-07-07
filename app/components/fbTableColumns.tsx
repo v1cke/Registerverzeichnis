@@ -1375,7 +1375,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'sprachkenntnisse-header',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) => {
@@ -1395,7 +1394,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'sprachkenntnisse-header',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1406,7 +1404,6 @@ export const fbTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'sprachkenntnisse-header',
         cellClassName: 'sprachkenntnisse-cell',
@@ -1421,7 +1418,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'sprachkenntnisse-header',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1434,7 +1430,6 @@ export const fbTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} Hinweise`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'sprachkenntnisse-header border-right',
         cellClassName: 'sprachkenntnisse-cell border-right',
@@ -1466,7 +1461,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'fahrzeugkenntnisse-header',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) => {
@@ -1486,7 +1480,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'fahrzeugkenntnisse-header',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1497,7 +1490,6 @@ export const fbTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'fahrzeugkenntnisse-header',
         cellClassName: 'fahrzeugkenntnisse-cell',
@@ -1512,7 +1504,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'fahrzeugkenntnisse-header',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1525,7 +1516,6 @@ export const fbTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} Hinweise`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'fahrzeugkenntnisse-header border-right',
         cellClassName: 'fahrzeugkenntnisse-cell border-right',
@@ -1557,7 +1547,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'infrastrukturkenntnisse-header',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) => {
@@ -1577,7 +1566,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'infrastrukturkenntnisse-header',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1588,7 +1576,6 @@ export const fbTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'infrastrukturkenntnisse-header',
         cellClassName: 'infrastrukturkenntnisse-cell',
@@ -1603,7 +1590,6 @@ export const fbTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        minWidth: 200,
         headerClassName: 'infrastrukturkenntnisse-header',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
@@ -1616,7 +1602,6 @@ export const fbTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} Hinweise`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
         minWidth: 200,
         headerClassName: 'infrastrukturkenntnisse-header border-right',
         cellClassName: 'infrastrukturkenntnisse-cell border-right',
