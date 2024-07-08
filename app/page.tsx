@@ -1,9 +1,9 @@
 'use client'
 
 import { Grid } from '@mui/material'
-import { FbTable } from './components/fbTable/fbTable'
+import { SupplementaryCertificateTable } from './components/supplementaryCertificateTable/supplementaryCertificateTable'
 import { useState } from 'react'
-import { ColumnSelect } from './components/fbTable/columnSelect'
+import { ColumnSelect } from './components/supplementaryCertificateTable/columnSelect'
 import { GroupOfButton } from './components/groupOfButton'
 
 export type ShowColumns = { selected: boolean; value: number }
@@ -39,7 +39,7 @@ export default function Home() {
           showColumns={showColumns}
           setShowColumns={setShowColumns}
         />
-        <FbTable showColumns={showColumns} />
+        <SupplementaryCertificateTable showColumns={showColumns} />
       </Grid>
     </main>
   )

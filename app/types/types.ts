@@ -19,16 +19,17 @@ type Inhaber = {
 }
 
 type Zusatzbescheinigung = {
-  nummer: string
+  nummer: number
   status: Status
   ausstellungsDatum?: Date
   ablaufGueltigkeit?: Date
+  unbefristet: boolean
 }
 
 type AusstellendeOrganisationseinheit = {
   bezeichnung: string
   strasseUndNummer: string
-  plz: number
+  plz?: number
   ort: string
   telefon: string
   fax: string
@@ -43,7 +44,7 @@ type Bilder = {
 type VerantwortlichesUnternehmen = {
   bezeichnung: string
   strasseUndNummer: string
-  plz: number
+  plz?: number
   ort: string
   land: string
   telefon: string
