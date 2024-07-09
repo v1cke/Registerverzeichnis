@@ -25,6 +25,7 @@ export const LanguageSkills = ({
   const [newLanguageSkill, setNewLanguageSkill] =
     useState<Kenntnisse>(defaultKenntnisse)
 
+  console.log('userData.sprachkenntnisse: ', userData.sprachkenntnisse)
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Sprachkenntnisse">
@@ -113,14 +114,28 @@ export const LanguageSkills = ({
           </Grid>
         </Grid>
         <Box className="flex justify-end">
-          <Button>Abbrechen</Button>
-          <Button>Hinzufügen</Button>
+          <Button onClick={() => setNewLanguageSkill(defaultKenntnisse)}>
+            Abbrechen
+          </Button>
+          <Button
+            onClick={() => {
+              setUserData((prev) => ({
+                ...prev,
+                sprachkenntnisse: [...prev.sprachkenntnisse, newLanguageSkill],
+              }))
+              // userData.sprachkenntnisse.push(newLanguageSkill)
+              setNewLanguageSkill(defaultKenntnisse)
+            }}
+          >
+            Hinzufügen
+          </Button>
         </Box>
       </Box>
       <DataGrid
         rows={userData.sprachkenntnisse}
         columns={languageSkillsColumns}
-        hideFooter={true}
+        // hideFooter={true}
+        getRowId={(row) => row.bezeichnung}
       />
     </Box>
   )

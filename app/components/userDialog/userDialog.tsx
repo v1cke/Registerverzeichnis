@@ -111,7 +111,21 @@ const defaultPerson = {
       naechsteSchulung: undefined,
     },
   },
-  sprachkenntnisse: [],
+  sprachkenntnisse: [
+    {
+      bezeichnung: 'dfghfgh',
+      erwerb: new Date(
+        'Mon Jul 01 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
+      ),
+      letzteUeberpruefung: new Date(
+        'Mon Jul 08 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
+      ),
+      naechsteUeberpruefung: new Date(
+        'Mon Jul 15 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
+      ),
+      hinweise: 'fbmvbnmm',
+    },
+  ],
   fahrzeugkenntnisse: [],
   infrastrukturkenntnisse: [],
 }
