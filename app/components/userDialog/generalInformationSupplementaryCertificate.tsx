@@ -1,5 +1,5 @@
+import { Dispatch, SetStateAction } from 'react'
 import { Person, Status } from '@/app/types/types'
-import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
 import {
   Box,
   Checkbox,
@@ -25,7 +25,7 @@ export const GeneralInformationSupplementaryCertificate = ({
   setUserData,
 }: GeneralInformationSupplementaryCertificateProps) => {
   return (
-    <Box className="border-2 rounded-lg p-2">
+    <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Allgemeine Angaben zur Zusatzbescheinigung">
         0. Allgemeine Angaben zur Zusatzbescheinigung
       </DialogContentText>
@@ -151,7 +151,7 @@ export const GeneralInformationSupplementaryCertificate = ({
               control={
                 <Checkbox
                   checked={userData.zusatzbescheinigung.unbefristet}
-                  onChange={(event) =>
+                  onChange={(event) => {
                     setUserData((prev) => ({
                       ...prev,
                       zusatzbescheinigung: {
@@ -159,7 +159,16 @@ export const GeneralInformationSupplementaryCertificate = ({
                         unbefristet: event.target.checked,
                       },
                     }))
-                  }
+                    if (event.target.checked) {
+                      setUserData((prev) => ({
+                        ...prev,
+                        zusatzbescheinigung: {
+                          ...prev.zusatzbescheinigung,
+                          ablaufGueltigkeit: undefined,
+                        },
+                      }))
+                    }
+                  }}
                 />
               }
               label="unbefristet"

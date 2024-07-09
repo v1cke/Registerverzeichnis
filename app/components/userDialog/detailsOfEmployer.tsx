@@ -1,6 +1,16 @@
-import { Person } from '@/app/types/types'
-import { DialogContentText, Grid, TextField } from '@mui/material'
 import { Dispatch, SetStateAction } from 'react'
+import { Person } from '@/app/types/types'
+import {
+  Box,
+  DialogContentText,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+  TextField,
+} from '@mui/material'
 
 interface DetailsOfEmployerProps {
   userData: Person
@@ -12,18 +22,15 @@ export const DetailsOfEmployer = ({
   setUserData,
 }: DetailsOfEmployerProps) => {
   return (
-    <>
-      <DialogContentText
-        id="Ausstellende Oranisationseinheit"
-        className="mt-3 ml-2"
-      >
-        Ausstellende Oranisationseinheit
+    <Box className="border-2 border-cyan-500 rounded-lg p-2">
+      <DialogContentText id="Angaben zum Arbeitgeber">
+        1.Angaben zum Arbeitgeber / Auftraggeber
       </DialogContentText>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={3.5} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Name"
+            id="Angaben zum Arbeitgeber Name"
             label="Name"
             value={userData.verantwortlichesUnternehmen.bezeichnung}
             onChange={(event) =>
@@ -40,7 +47,7 @@ export const DetailsOfEmployer = ({
         <Grid item xs={12} sm={6} lg={3.5} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Adresse"
+            id="Angaben zum Arbeitgeber Adresse"
             label="Adresse"
             value={userData.verantwortlichesUnternehmen.strasseUndNummer}
             onChange={(event) =>
@@ -57,7 +64,7 @@ export const DetailsOfEmployer = ({
         <Grid item xs={12} sm={6} lg={2.5} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Plz"
+            id="Angaben zum Arbeitgeber Plz"
             label="Plz"
             type="number"
             value={userData.verantwortlichesUnternehmen.plz ?? ''}
@@ -75,7 +82,7 @@ export const DetailsOfEmployer = ({
         <Grid item xs={12} sm={6} lg={2.5} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Ort"
+            id="Angaben zum Arbeitgeber Ort"
             label="Ort"
             value={userData.verantwortlichesUnternehmen.ort}
             onChange={(event) =>
@@ -91,10 +98,10 @@ export const DetailsOfEmployer = ({
         </Grid>
       </Grid>
       <Grid container spacing={2} className="mt-2">
-        <Grid item xs={12} sm={6} lg={4} className="flex justify-center">
+        <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Telefonnummer"
+            id="Angaben zum Arbeitgeber Telefonnummer"
             label="Telefonnummer"
             type="tel"
             value={userData.verantwortlichesUnternehmen.telefon}
@@ -109,10 +116,10 @@ export const DetailsOfEmployer = ({
             }
           />
         </Grid>
-        <Grid item xs={12} sm={6} lg={4} className="flex justify-center">
+        <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit Faxnummer"
+            id="Angaben zum Arbeitgeber Faxnummer"
             label="Faxnummer"
             type="tel"
             value={userData.verantwortlichesUnternehmen.fax}
@@ -127,10 +134,10 @@ export const DetailsOfEmployer = ({
             }
           />
         </Grid>
-        <Grid item xs={12} sm={6} lg={4} className="flex justify-center">
+        <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
           <TextField
             fullWidth
-            id="Ausstellende Oranisationseinheit E-Mail-Adresse"
+            id="Angaben zum Arbeitgeber E-Mail-Adresse"
             label="E-Mail-Adresse"
             type="email"
             value={userData.verantwortlichesUnternehmen.email}
@@ -145,7 +152,39 @@ export const DetailsOfEmployer = ({
             }
           />
         </Grid>
+        <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
+          <FormControl>
+            <FormLabel id="Angaben zum Arbeitgeber Kategorie-label">
+              Kategorie
+            </FormLabel>
+            <RadioGroup
+              aria-labelledby="Angaben zum Arbeitgeber Kategorie"
+              name="Angaben zum Arbeitgeber Kategorie"
+              value={userData.verantwortlichesUnternehmen.unternehmensKategorie}
+              onChange={(event) =>
+                setUserData((prev) => ({
+                  ...prev,
+                  verantwortlichesUnternehmen: {
+                    ...prev.verantwortlichesUnternehmen,
+                    unternehmensKategorie: event.target.value,
+                  },
+                }))
+              }
+            >
+              <FormControlLabel
+                value="Verkehrsunternehmen"
+                control={<Radio />}
+                label="Verkehrsunternehmen / Halter (RU)"
+              />
+              <FormControlLabel
+                value="Infrastrukturunternehmen"
+                control={<Radio />}
+                label="Infrastrukturunternehmen (IM)"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
       </Grid>
-    </>
+    </Box>
   )
 }

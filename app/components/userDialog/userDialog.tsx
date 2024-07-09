@@ -1,26 +1,21 @@
 import { forwardRef, useState } from 'react'
 import {
-  Box,
   Button,
-  ButtonGroup,
-  Checkbox,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
-  FormControl,
-  FormControlLabel,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
   Slide,
-  TextField,
 } from '@mui/material'
 import { TransitionProps } from '@mui/material/transitions'
 import { Person, Status } from '@/app/types/types'
 import { GeneralInformationSupplementaryCertificate } from './generalInformationSupplementaryCertificate'
+import { DetailsOfEmployer } from './detailsOfEmployer'
+import { DetailsOfHolder } from './detailsOfHolder'
+import { Classes } from './classes'
+import { FurtherInformation } from './furtherInformation'
+import { AdditionalInformation } from './additionalInformation'
+import { Limitations } from './limitations'
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -40,7 +35,7 @@ const defaultPerson = {
   inhaber: {
     name: '',
     vorname: '',
-    geburtstag: new Date(),
+    geburtstag: new Date(new Date().setFullYear(new Date().getFullYear() - 20)),
     geburtsort: '',
     staatsangehoerigkeit: '',
   },
@@ -65,15 +60,15 @@ const defaultPerson = {
     unterschrift: '',
   },
   verantwortlichesUnternehmen: {
-    bezeichnung: '',
-    strasseUndNummer: '',
-    plz: undefined,
-    ort: '',
-    land: '',
-    telefon: '',
-    fax: '',
-    email: '',
-    unternehmensKategorie: '',
+    bezeichnung: 'Weser Ems Eisenbahn GmbH',
+    strasseUndNummer: 'Franz-Lenz-Straße 1',
+    plz: 49084,
+    ort: 'Osnabrück',
+    land: 'Deutschland',
+    telefon: '0541-4444040',
+    fax: '0541444404911',
+    email: 'info@wee.gmbh',
+    unternehmensKategorie: 'Verkehrsunternehmen',
     arbeitsort: '',
   },
   klasse: {
@@ -147,12 +142,18 @@ export const UserDialog = ({ open, handleClose }: UserDialogProps) => {
       onClose={handleClose}
       aria-describedby="dialog-slide-new"
     >
-      <DialogTitle>Neuer anlegen</DialogTitle>
-      <DialogContent>
+      <DialogTitle>Zusatzbescheinigung</DialogTitle>
+      <DialogContent className="flex flex-col gap-4">
         <GeneralInformationSupplementaryCertificate
           userData={userData}
           setUserData={setUserData}
         />
+        <DetailsOfEmployer userData={userData} setUserData={setUserData} />
+        <DetailsOfHolder userData={userData} setUserData={setUserData} />
+        <Classes userData={userData} setUserData={setUserData} />
+        <AdditionalInformation userData={userData} setUserData={setUserData} />
+        <Limitations userData={userData} setUserData={setUserData} />
+        <FurtherInformation userData={userData} setUserData={setUserData} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Abbrechen</Button>
