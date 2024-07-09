@@ -27,7 +27,7 @@ export const GeneralInformationSupplementaryCertificate = ({
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Allgemeine Angaben zur Zusatzbescheinigung">
-        0. Allgemeine Angaben zur Zusatzbescheinigung
+        1. Allgemeine Angaben zur Zusatzbescheinigung
       </DialogContentText>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
@@ -58,8 +58,7 @@ export const GeneralInformationSupplementaryCertificate = ({
               id="Registernummer der Zusatzbescheinigung"
               value={userData.zusatzbescheinigung.nummer}
               label="Registernummer der Zusatzbescheinigung"
-              onChange={(event) => {
-                console.log('event: ', event.target.value)
+              onChange={(event) =>
                 setUserData((prev) => ({
                   ...prev,
                   zusatzbescheinigung: {
@@ -67,7 +66,7 @@ export const GeneralInformationSupplementaryCertificate = ({
                     nummer: Number(event.target.value),
                   },
                 }))
-              }}
+              }
             >
               <MenuItem value={0}>0</MenuItem>
               <MenuItem value={1}>1</MenuItem>

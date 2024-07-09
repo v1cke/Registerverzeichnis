@@ -14,7 +14,7 @@ export const AdditionalInformation = ({
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Zusaetzliche Angaben">
-        4. Zusätzliche Angaben
+        5. Zusätzliche Angaben
       </DialogContentText>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={4} className="flex justify-center">

@@ -16,7 +16,7 @@ export const FurtherInformation = ({
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Weitere Angaben">
-        9. Weitere Angaben (optional)
+        10. Weitere Angaben (optional)
       </DialogContentText>
       <DialogContentText className="mt-2 ml-2">Tauglichkeit</DialogContentText>
       <Grid container spacing={2} className="mt-2">

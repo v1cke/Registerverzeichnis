@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .MuiDataGrid-columnHeaderTitle {
-  transform: rotate(-90deg);
+  /* transform: rotate(-90deg); */
 }
 .name-header {
   background-color: #4a148c !important;

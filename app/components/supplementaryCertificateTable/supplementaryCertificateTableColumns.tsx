@@ -3,7 +3,7 @@ import { Person } from '../../types/types'
 import { Typography, useTheme } from '@mui/material'
 import { ShowColumns } from '../../page'
 
-const formatDateToGermanLocale = (date?: Date) => {
+export const formatDateToGermanLocale = (date?: Date) => {
   return date
     ? new Date(date).toLocaleDateString('de-DE', {
         day: '2-digit',
@@ -16,8 +16,6 @@ const formatDateToGermanLocale = (date?: Date) => {
 export const SupplementaryCertificateTableColumns = (
   showColumns: ShowColumns[],
 ): GridColDef<Person>[] => {
-  const theme = useTheme()
-
   const nameColumns: GridColDef<Person>[] = [
     {
       field: 'name',

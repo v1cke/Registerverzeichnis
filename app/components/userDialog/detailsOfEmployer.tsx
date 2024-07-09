@@ -24,7 +24,7 @@ export const DetailsOfEmployer = ({
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Angaben zum Arbeitgeber">
-        1.Angaben zum Arbeitgeber / Auftraggeber
+        2. Angaben zum Arbeitgeber / Auftraggeber
       </DialogContentText>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={3.5} className="flex justify-center">

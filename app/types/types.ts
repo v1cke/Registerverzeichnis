@@ -100,7 +100,7 @@ type WeitereAngaben = {
   smsSchulung: SmsSchulung
 }
 
-type Kenntnisse = {
+export type Kenntnisse = {
   bezeichnung: string
   erwerb?: Date
   letzteUeberpruefung?: Date

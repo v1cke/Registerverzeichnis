@@ -135,7 +135,7 @@ export const DetailsOfHolder = ({
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <DialogContentText id="Angaben zum Inhaber">
-        2.Angaben zum Inhaber
+        3. Angaben zum Inhaber
       </DialogContentText>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={4} className="flex justify-center">

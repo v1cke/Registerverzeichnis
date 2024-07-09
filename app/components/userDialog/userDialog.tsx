@@ -16,6 +16,7 @@ import { Classes } from './classes'
 import { FurtherInformation } from './furtherInformation'
 import { AdditionalInformation } from './additionalInformation'
 import { Limitations } from './limitations'
+import { LanguageSkills } from './languageSkills'
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -153,6 +154,7 @@ export const UserDialog = ({ open, handleClose }: UserDialogProps) => {
         <Classes userData={userData} setUserData={setUserData} />
         <AdditionalInformation userData={userData} setUserData={setUserData} />
         <Limitations userData={userData} setUserData={setUserData} />
+        <LanguageSkills userData={userData} setUserData={setUserData} />
         <FurtherInformation userData={userData} setUserData={setUserData} />
       </DialogContent>
       <DialogActions>
