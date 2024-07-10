@@ -50,22 +50,29 @@ export const InfrastructureSkills = ({
   setUserData,
 }: InfrastructureSkillsProps) => {
   const [newInfrastructureSkill, setNewInfrastructureSkill] =
-    useState<Kenntnisse>(defaultKenntnisse)
-  const [open, setOpen] = useState(false)
+    useState<Kenntnisse>({ ...defaultKenntnisse })
+  const [openNewSkill, setOpenNewSkill] = useState(false)
+  const [openEditSkill, setOpenEditSkill] = useState(false)
   const [newInfrastructure, setNewInfrastructure] = useState('')
+  const [editInfrastructureSkill, setEditInfrastructureSkill] =
+    useState<Kenntnisse>()
 
-  const handleClose = () => {
-    setOpen(false)
+  const handleNewSkillClose = () => {
+    setOpenNewSkill(false)
+  }
+
+  const handleEditSkillClose = () => {
+    setOpenEditSkill(false)
   }
 
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <Dialog
-        open={open}
+        open={openNewSkill}
         TransitionComponent={TransitionRight}
         keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
+        onClose={handleNewSkillClose}
+        aria-describedby="Neue Infrastrukturkenntnisse Auswahl erstellen"
       >
         <DialogTitle>
           {'Neue Infrastrukturkenntnisse Auswahl erstellen'}
@@ -82,7 +89,7 @@ export const InfrastructureSkills = ({
         <DialogActions>
           <Button
             onClick={() => {
-              handleClose()
+              handleNewSkillClose()
               setNewInfrastructure('')
             }}
           >
@@ -90,7 +97,7 @@ export const InfrastructureSkills = ({
           </Button>
           <Button
             onClick={() => {
-              handleClose()
+              handleNewSkillClose()
               // TODO: DB speichern
               infrastructure.push(newInfrastructure)
               setNewInfrastructure('')
@@ -100,10 +107,138 @@ export const InfrastructureSkills = ({
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Dialog
+        open={openEditSkill}
+        TransitionComponent={TransitionRight}
+        keepMounted
+        maxWidth="lg"
+        onClose={handleEditSkillClose}
+        aria-describedby="Bearbeiten Infrastrukturkenntniss"
+      >
+        <DialogTitle>{'Bearbeiten Infrastrukturkenntniss'}</DialogTitle>
+        <DialogContent>
+          <Grid container spacing={2} className="mt-2 mb-2">
+            <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
+              <AutoCompleteInput
+                options={infrastructure
+                  .filter(
+                    (item) =>
+                      !userData.infrastrukturkenntnisse.some(
+                        (kenntnis) => kenntnis.bezeichnung === item,
+                      ),
+                  )
+                  .map((item) => ({
+                    text: item,
+                    value: item,
+                  }))}
+                idLabel="Bearbeiten Infrastrukturkenntniss Bezeichnung"
+                label="Bezeichnung"
+                value={{
+                  text: editInfrastructureSkill?.bezeichnung ?? '',
+                  value: editInfrastructureSkill?.bezeichnung ?? '',
+                }}
+                onChange={(_, value) => {
+                  {
+                    if (value)
+                      setEditInfrastructureSkill((prev) => ({
+                        ...prev!,
+                        bezeichnung: value?.value,
+                      }))
+                  }
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
+              <TextField
+                fullWidth
+                id="Bearbeiten Infrastrukturkenntnisse Erwerb"
+                label="Erwerb"
+                type="date"
+                value={formatDate(editInfrastructureSkill?.erwerb)}
+                InputLabelProps={{ shrink: true }}
+                onChange={(event) =>
+                  setEditInfrastructureSkill((prev) => ({
+                    ...prev!,
+                    erwerb: new Date(event.target.value),
+                  }))
+                }
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
+              <TextField
+                fullWidth
+                id="Bearbeiten Infrastrukturkenntnisse letzte Ueberpruefung"
+                label="letzte Überprüfung"
+                type="date"
+                value={formatDate(editInfrastructureSkill?.letzteUeberpruefung)}
+                InputLabelProps={{ shrink: true }}
+                onChange={(event) =>
+                  setEditInfrastructureSkill((prev) => ({
+                    ...prev!,
+                    letzteUeberpruefung: new Date(event.target.value),
+                  }))
+                }
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
+              <TextField
+                fullWidth
+                id="Bearbeiten Infrastrukturkenntnisse naechste Ueberpruefung"
+                label="nächste Überprüfung"
+                type="date"
+                value={formatDate(
+                  editInfrastructureSkill?.naechsteUeberpruefung,
+                )}
+                InputLabelProps={{ shrink: true }}
+                onChange={(event) =>
+                  setEditInfrastructureSkill((prev) => ({
+                    ...prev!,
+                    naechsteUeberpruefung: new Date(event.target.value),
+                  }))
+                }
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} lg={3.3} className="flex justify-center">
+              <TextField
+                fullWidth
+                id="Bearbeiten Infrastrukturkenntnisse Hinweise"
+                label="Hinweise"
+                value={editInfrastructureSkill?.hinweise}
+                onChange={(event) =>
+                  setEditInfrastructureSkill((prev) => ({
+                    ...prev!,
+                    hinweise: event.target.value,
+                  }))
+                }
+              />
+            </Grid>
+          </Grid>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => {}}>Löschen</Button>
+          <Button
+            onClick={() => {
+              handleEditSkillClose()
+              // setNewInfrastructure('')
+            }}
+          >
+            Abbrechen
+          </Button>
+          <Button
+            onClick={() => {
+              // setNewInfrastructure('')
+            }}
+          >
+            Speichern
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       <DialogContentText id="Infrastrukturkenntniss">
         9. Infrastrukturkenntnisse
       </DialogContentText>
-      <Box className="border-2 rounded-lg p-2 mb-3">
+      <Box className="border-2 rounded-lg p-2 mt-3 mb-3">
         <DialogContentText id="Neue Infrastrukturkenntniss">
           Neue Infrastrukturkenntnisse
         </DialogContentText>
@@ -123,12 +258,18 @@ export const InfrastructureSkills = ({
                 }))}
               idLabel="Infrastrukturkenntniss Bezeichnung"
               label="Bezeichnung"
-              onChange={(_, value) =>
-                setNewInfrastructureSkill((prev) => ({
-                  ...prev,
-                  bezeichnung: value?.value ?? '',
-                }))
-              }
+              value={{
+                text: newInfrastructureSkill.bezeichnung,
+                value: newInfrastructureSkill.bezeichnung,
+              }}
+              onChange={(_, value) => {
+                if (value) {
+                  setNewInfrastructureSkill((prev) => ({
+                    ...prev,
+                    bezeichnung: value?.value,
+                  }))
+                }
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
@@ -196,13 +337,15 @@ export const InfrastructureSkills = ({
         </Grid>
         <Box className="flex justify-between">
           <Box>
-            <Button onClick={() => setOpen(true)}>
+            <Button onClick={() => setOpenNewSkill(true)}>
               weiterer Infrastrukturkenntnisse
             </Button>
           </Box>
           <Box>
             <Button
-              onClick={() => setNewInfrastructureSkill(defaultKenntnisse)}
+              onClick={() =>
+                setNewInfrastructureSkill({ ...defaultKenntnisse })
+              }
             >
               Abbrechen
             </Button>
@@ -215,7 +358,7 @@ export const InfrastructureSkills = ({
                     newInfrastructureSkill,
                   ],
                 }))
-                setNewInfrastructureSkill(defaultKenntnisse)
+                setNewInfrastructureSkill({ ...defaultKenntnisse })
               }}
             >
               Hinzufügen
@@ -229,6 +372,17 @@ export const InfrastructureSkills = ({
         hideFooter={true}
         getRowId={(row) => row.bezeichnung}
         autoHeight
+        onRowClick={(row) => {
+          console.log('row: ', row)
+          setEditInfrastructureSkill(row.row)
+          setOpenEditSkill(true)
+        }}
+        sx={{
+          width: '100%',
+          '& .MuiDataGrid-row:hover': {
+            cursor: 'pointer',
+          },
+        }}
       />
     </Box>
   )

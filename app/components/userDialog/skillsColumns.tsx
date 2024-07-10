@@ -7,7 +7,7 @@ export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'bezeichnung',
     headerName: 'Bezeichnung',
-    headerClassName: 'super-app-theme--header',
+    headerClassName: 'skill-header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.25,
@@ -22,6 +22,7 @@ export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'erwerb',
     headerName: 'Erwerb',
+    headerClassName: 'skill-header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.15,
@@ -30,6 +31,7 @@ export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'letzteUeberpruefung',
     headerName: 'letzte Überprüfung',
+    headerClassName: 'skill-header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.15,
@@ -38,6 +40,7 @@ export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'naechsteUeberpruefung',
     headerName: 'nächste Überprüfung',
+    headerClassName: 'skill-header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.15,
@@ -47,6 +50,7 @@ export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'hinweise',
     headerName: 'Hinweise',
+    headerClassName: 'skill-header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.3,

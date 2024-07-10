@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .MuiDataGrid-columnHeaderTitleContainerContent {
-  transform: rotate(-90deg);
-} */
+.skill-header {
+  background-color: rgb(6 182 212) !important;
+  color: white !important;
+}
 
 .rotateTitle .MuiDataGrid-columnHeaderTitleContainerContent {
   transform: rotate(-90deg);

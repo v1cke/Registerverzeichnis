@@ -60,6 +60,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 130,
       headerClassName: 'fuehrerschein-header iconColor  rotateTitle',
       cellClassName: 'fuehrerschein-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Führerschein-
+            <br />
+            Nummer
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -122,6 +131,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 100,
       headerClassName: 'inhaber-header iconColor  rotateTitle border-right',
       cellClassName: 'inhaber-cell border-right',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Staatsange-
+            <br />
+            hörigkeit
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -173,6 +191,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 100,
       headerClassName: 'zusatzbescheinigung-header iconColor  rotateTitle',
       cellClassName: 'zusatzbescheinigung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Ausstellungs-
+            <br />
+            Datum
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ausstellungsDatum),
     },
@@ -185,6 +212,15 @@ export const SupplementaryCertificateTableColumns = (
       headerClassName:
         'zusatzbescheinigung-header iconColor  rotateTitle border-right',
       cellClassName: 'zusatzbescheinigung-cell border-right',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Ablauf
+            <br />
+            Gültigkeit
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ablaufGueltigkeit),
     },
@@ -799,6 +835,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 200,
       headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Änderung in Feld 4
+            <br />
+            "Zusätzliche Angaben"
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -815,6 +860,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 200,
       headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Änderung in Feld 5
+            <br />
+            "Sprachen"
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -831,6 +885,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 200,
       headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Änderung in Feld 6
+            <br />
+            "Einschränkungen"
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -847,6 +910,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 200,
       headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Änderung in Feld 7
+            <br />
+            "Fahrzeuge"
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -863,6 +935,15 @@ export const SupplementaryCertificateTableColumns = (
       minWidth: 200,
       headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Änderung in Feld 8
+            <br />
+            "Infrastruktur"
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -915,9 +996,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall
+            <br />
+            Führerschein
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -931,9 +1021,20 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Allgemeine
+            <br />
+            Kenntnisse
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -947,9 +1048,20 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Befähigung für
+            <br />
+            Fahrzeug TfZ
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -963,9 +1075,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Betriebsverfahren
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -979,9 +1100,20 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Zugbeeinflussungs-
+            <br />
+            systeme
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -995,9 +1127,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Signalsystem
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1011,9 +1152,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Schulung SMS
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1027,9 +1177,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Sprachkenntnisse
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1072,7 +1231,7 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
@@ -1088,9 +1247,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Allgemeine Kenntnisse
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1104,9 +1272,20 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Befähigung für
+            <br />
+            Fahrzeug TfZ
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1120,9 +1299,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Betriebsverfahren
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1136,9 +1324,20 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Zugbeeinflussungs-
+            <br />
+            Systeme
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1152,9 +1351,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            SignalSysteme
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1168,9 +1376,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Schulung SMS
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1184,9 +1401,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Wegfall Nachweis
+            <br />
+            Sprachkenntnisse
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1200,9 +1426,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Ausscheiden aus Unternehmen',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Ausscheiden aus
+            <br />
+            Unternehmen
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -1235,7 +1470,7 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'verloren-header iconColor  rotateTitle',
       cellClassName: 'verloren-cell',
       renderCell: ({ row }) =>
@@ -1246,9 +1481,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 175,
       headerClassName: 'verloren-header iconColor  rotateTitle',
       cellClassName: 'verloren-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Datum der Ausstellung
+            <br />
+            der Ersatzbescheinigung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.verlorenZb?.datumAustellungErsatzbeschinigung,
@@ -1261,7 +1505,7 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'entwendet-header iconColor  rotateTitle',
       cellClassName: 'entwendet-cell',
       renderCell: ({ row }) =>
@@ -1272,9 +1516,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 175,
       headerClassName: 'entwendet-header iconColor  rotateTitle border-right',
       cellClassName: 'entwendet-cell border-right',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Datum der Ausstellung
+            <br />
+            der Ersatzbescheinigung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.entwendetZb?.datumAustellungErsatzbeschinigung,
@@ -1287,7 +1540,7 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'zerstoert-header iconColor  rotateTitle',
       cellClassName: 'zerstoert-cell',
       renderCell: ({ row }) =>
@@ -1298,9 +1551,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 175,
       headerClassName: 'zerstoert-header iconColor  rotateTitle border-right',
       cellClassName: 'zerstoert-cell border-right',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Datum der Ausstellung
+            <br />
+            der Ersatzbescheinigung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.zerstoertZb?.datumAustellungErsatzbeschinigung,
@@ -1314,9 +1576,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Tauglichkeit letzte Untersuchung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Tauglichkeit
+            <br />
+            letzte Untersuchung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.tauglichkeit.letzteUntersuchung,
@@ -1327,9 +1598,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Tauglichkeit nächste Untersuchung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 160,
       headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Tauglichkeit
+            <br />
+            nächste Untersuchung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.tauglichkeit.naechsteUntersuchung,
@@ -1356,9 +1636,18 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Schulung SMS letzte Schulug',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Schulung SMS
+            <br />
+            letzte Schulung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.weitereAngaben.smsSchulung.letzteSchulung),
     },
@@ -1367,10 +1656,19 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Schulung SMS nächste Schulug',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 100,
+      minWidth: 150,
       headerClassName:
         'weitereAngaben-header iconColor  rotateTitle border-right',
       cellClassName: 'weitereAngaben-cell border-right',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Schulung SMS
+            <br />
+            nächste Schulung
+          </Typography>
+        )
+      },
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
           row.weitereAngaben.smsSchulung.naechsteSchulung,
@@ -1385,9 +1683,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 130,
         headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Sprachkenntnisse
+              <br />
+              {index + 1} Bezeichnung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1404,9 +1711,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 130,
         headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Sprachkenntnisse
+              <br />
+              {index + 1} Erwerb
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.sprachkenntnisse[index]?.erwerb),
       },
@@ -1415,9 +1731,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 150,
         headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Sprachkenntnisse
+              <br />
+              {index + 1} letzte Überprüfung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.sprachkenntnisse[index]?.letzteUeberpruefung,
@@ -1428,9 +1753,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 160,
         headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Sprachkenntnisse
+              <br />
+              {index + 1} nächste Überprüfung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.sprachkenntnisse[index]?.naechsteUeberpruefung,
@@ -1445,6 +1779,15 @@ export const SupplementaryCertificateTableColumns = (
         headerClassName:
           'sprachkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'sprachkenntnisse-cell border-right',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Sprachkenntnisse
+              <br />
+              {index + 1} Hinweis
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.hinweise
           return value ? (
@@ -1472,9 +1815,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 150,
         headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Fahrzeugkenntnisse
+              <br />
+              {index + 1} Bezeichnung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1491,9 +1843,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 150,
         headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Fahrzeugkenntnisse
+              <br />
+              {index + 1} Erwerb
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.fahrzeugkenntnisse[index]?.erwerb),
       },
@@ -1502,9 +1863,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 170,
         headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Fahrzeugkenntnisse
+              <br />
+              {index + 1} letzte Ueberpruefung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.fahrzeugkenntnisse[index]?.letzteUeberpruefung,
@@ -1515,9 +1885,18 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 180,
         headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Fahrzeugkenntnisse
+              <br />
+              {index + 1} nächste Überpruefung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.fahrzeugkenntnisse[index]?.naechsteUeberpruefung,
@@ -1532,6 +1911,15 @@ export const SupplementaryCertificateTableColumns = (
         headerClassName:
           'fahrzeugkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'fahrzeugkenntnisse-cell border-right',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Fahrzeugkenntnisse
+              <br />
+              {index + 1} Hinweise
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.hinweise
           return value ? (
@@ -1559,10 +1947,21 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 250,
+        minWidth: 200,
         headerClassName:
           'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Infrastruktur-
+              <br />
+              Kenntnisse
+              <br />
+              {index + 1} Bezeichnung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.bezeichnung
           return value ? (
@@ -1579,10 +1978,21 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 130,
         headerClassName:
           'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Infrastruktur-
+              <br />
+              Kenntnisse
+              <br />
+              {index + 1} Erwerb
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.infrastrukturkenntnisse[index]?.erwerb),
       },
@@ -1591,10 +2001,21 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 160,
         headerClassName:
           'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Infrastruktur-
+              <br />
+              Kenntnisse
+              <br />
+              {index + 1} letzte Überpruefung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.infrastrukturkenntnisse[index]?.letzteUeberpruefung,
@@ -1605,10 +2026,21 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 100,
+        minWidth: 180,
         headerClassName:
           'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Infrastruktur-
+              <br />
+              Kenntnisse
+              <br />
+              {index + 1} nächste Überpruefung
+            </Typography>
+          )
+        },
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
             row.infrastrukturkenntnisse[index]?.naechsteUeberpruefung,
@@ -1623,6 +2055,15 @@ export const SupplementaryCertificateTableColumns = (
         headerClassName:
           'infrastrukturkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'infrastrukturkenntnisse-cell border-right',
+        renderHeader: () => {
+          return (
+            <Typography noWrap variant="body2">
+              Infrastruktur-
+              <br />
+              Kenntnisse {index + 1} Hinweise
+            </Typography>
+          )
+        },
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.hinweise
           return value ? (

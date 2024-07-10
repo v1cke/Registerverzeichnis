@@ -12,6 +12,10 @@ interface AutoCompleteInputProps {
   options: Options[]
   idLabel: string
   label: string
+  value: {
+    text: string
+    value: string
+  }
   onChange: (
     event: React.SyntheticEvent<Element, Event>,
     value: Options | null,
@@ -22,6 +26,7 @@ export const AutoCompleteInput = ({
   options,
   idLabel,
   label,
+  value,
   onChange,
 }: AutoCompleteInputProps) => {
   return (
@@ -40,6 +45,7 @@ export const AutoCompleteInput = ({
           </Box>
         )
       }}
+      value={value}
       onChange={(event, value) => onChange(event, value)}
       renderInput={(params) => (
         <TextField

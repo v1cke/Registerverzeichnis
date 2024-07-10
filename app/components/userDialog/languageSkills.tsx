@@ -101,8 +101,11 @@ export const LanguageSkills = ({
   userData,
   setUserData,
 }: LanguageSkillsProps) => {
-  const [newLanguageSkill, setNewLanguageSkill] =
-    useState<Kenntnisse>(defaultKenntnisse)
+  const [newLanguageSkill, setNewLanguageSkill] = useState<Kenntnisse>({
+    ...defaultKenntnisse,
+  })
+  console.log('defaultKenntnisse: ', defaultKenntnisse)
+  console.log('newLanguageSkill: ', newLanguageSkill)
   const [open, setOpen] = useState(false)
   const [newLanguage, setNewLanguage] = useState('')
 
@@ -153,7 +156,7 @@ export const LanguageSkills = ({
       <DialogContentText id="Sprachkenntnisse">
         7. Sprachkenntnisse
       </DialogContentText>
-      <Box className="border-2 rounded-lg p-2 mb-3">
+      <Box className="border-2 rounded-lg p-2 mt-3 mb-3">
         <DialogContentText id="Neue Sprachkenntnisse">
           Neue Sprachkenntnisse
         </DialogContentText>
@@ -173,6 +176,10 @@ export const LanguageSkills = ({
                 }))}
               idLabel="Sprachkenntnisse Bezeichnung"
               label="Bezeichnung"
+              value={{
+                text: newLanguageSkill.bezeichnung,
+                value: newLanguageSkill.bezeichnung,
+              }}
               onChange={(_, value) => {
                 if (value) {
                   setNewLanguageSkill((prev) => ({
@@ -253,10 +260,13 @@ export const LanguageSkills = ({
             </Button>
           </Box>
           <Box>
-            <Button onClick={() => setNewLanguageSkill(defaultKenntnisse)}>
+            <Button
+              onClick={() => setNewLanguageSkill({ ...defaultKenntnisse })}
+            >
               Abbrechen
             </Button>
             <Button
+              disabled={!newLanguageSkill.bezeichnung}
               onClick={() => {
                 setUserData((prev) => ({
                   ...prev,
@@ -265,7 +275,7 @@ export const LanguageSkills = ({
                     newLanguageSkill,
                   ],
                 }))
-                setNewLanguageSkill(defaultKenntnisse)
+                setNewLanguageSkill({ ...defaultKenntnisse })
               }}
             >
               Hinzufügen

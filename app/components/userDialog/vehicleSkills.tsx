@@ -28,8 +28,9 @@ export const VehicleSkills = ({
   userData,
   setUserData,
 }: VehicleSkillsProps) => {
-  const [newVehicleSkill, setNewVehicleSkill] =
-    useState<Kenntnisse>(defaultKenntnisse)
+  const [newVehicleSkill, setNewVehicleSkill] = useState<Kenntnisse>({
+    ...defaultKenntnisse,
+  })
   const [open, setOpen] = useState(false)
   const [newVehicle, setNewVehicle] = useState('')
 
@@ -80,7 +81,7 @@ export const VehicleSkills = ({
       <DialogContentText id="Fahrzeugkenntnisse">
         8. Fahrzeugkenntnisse
       </DialogContentText>
-      <Box className="border-2 rounded-lg p-2 mb-3">
+      <Box className="border-2 rounded-lg p-2 mt-3 mb-3">
         <DialogContentText id="Neue Fahrzeugkenntnisse">
           Neue Fahrzeugkenntnisse
         </DialogContentText>
@@ -100,12 +101,18 @@ export const VehicleSkills = ({
                 }))}
               idLabel="Fahrzeugkenntnisse Bezeichnung"
               label="Bezeichnung"
-              onChange={(_, value) =>
-                setNewVehicleSkill((prev) => ({
-                  ...prev,
-                  bezeichnung: value?.value ?? '',
-                }))
-              }
+              value={{
+                text: newVehicleSkill.bezeichnung,
+                value: newVehicleSkill.bezeichnung,
+              }}
+              onChange={(_, value) => {
+                if (value) {
+                  setNewVehicleSkill((prev) => ({
+                    ...prev,
+                    bezeichnung: value?.value,
+                  }))
+                }
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
@@ -178,7 +185,9 @@ export const VehicleSkills = ({
             </Button>
           </Box>
           <Box>
-            <Button onClick={() => setNewVehicleSkill(defaultKenntnisse)}>
+            <Button
+              onClick={() => setNewVehicleSkill({ ...defaultKenntnisse })}
+            >
               Abbrechen
             </Button>
             <Button
@@ -190,7 +199,7 @@ export const VehicleSkills = ({
                     newVehicleSkill,
                   ],
                 }))
-                setNewVehicleSkill(defaultKenntnisse)
+                setNewVehicleSkill({ ...defaultKenntnisse })
               }}
             >
               Hinzufügen

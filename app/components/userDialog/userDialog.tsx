@@ -138,9 +138,10 @@ export const UserDialog = ({
   handleClose,
   selectedColumnId,
 }: UserDialogProps) => {
-  const selectetPerson = fakeData.find((item) => item.id === selectedColumnId)
-
   const [userData, setUserData] = useState<Person>(defaultPerson)
+  console.log('userData: ', userData)
+
+  const selectetPerson = fakeData.find((item) => item.id === selectedColumnId)
   useEffect(() => {
     if (selectetPerson) {
       setUserData(selectetPerson)
