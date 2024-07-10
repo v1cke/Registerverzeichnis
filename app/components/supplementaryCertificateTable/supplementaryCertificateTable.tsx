@@ -1,18 +1,24 @@
 'use client'
 
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { fakeData } from '../../fakeData/fakeData'
-import { useEffect } from 'react'
 import { SupplementaryCertificateTableColumns } from './supplementaryCertificateTableColumns'
 import { Card, CardContent, Grid } from '@mui/material'
 import { ShowColumns } from '../../page'
 import { nameColumns } from './nameColumns'
 
+interface SupplementaryCertificateTableProps {
+  showColumns: ShowColumns[]
+  setOpenDialog: Dispatch<SetStateAction<boolean>>
+  setSetselectedColumnId: Dispatch<SetStateAction<number | undefined>>
+}
+
 export const SupplementaryCertificateTable = ({
   showColumns,
-}: {
-  showColumns: ShowColumns[]
-}) => {
+  setOpenDialog,
+  setSetselectedColumnId,
+}: SupplementaryCertificateTableProps) => {
   // const handleScrollHorizontal = () => {
   //   const virtualScrollerElement = document.querySelector(
   //     '.MuiDataGrid-virtualScroller',
@@ -64,15 +70,23 @@ export const SupplementaryCertificateTable = ({
           sx={{ width: '210px' }}
         /> */}
         <DataGrid
-          rows={fakeData}
+          rows={fakeData.filter(
+            (item) => item.zusatzbescheinigung.status === 'gültig',
+          )}
           columns={SupplementaryCertificateTableColumns(showColumns)}
           hideFooter={true}
           pageSizeOptions={[1]}
           columnHeaderHeight={230}
-          sortModel={[{ field: 'name', sort: 'asc' }]}
+          // sortModel={[{ field: 'name', sort: 'asc' }]}
+          onRowClick={(row) => {
+            setSetselectedColumnId(Number(row.id))
+            setOpenDialog(true)
+          }}
           sx={{
             width: '100%',
-
+            '& .MuiDataGrid-row:hover': {
+              cursor: 'pointer',
+            },
             // '.MuiDataGrid-virtualScroller': {
             //   height: '100% !important',
             //   overflowY: 'auto',

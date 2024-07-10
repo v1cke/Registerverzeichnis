@@ -107,7 +107,6 @@ export const DetailsOfHolder = ({
   userData,
   setUserData,
 }: DetailsOfHolderProps) => {
-  console.log('userData: ', userData)
   const handleImageUpload = (key: string, file: File) => {
     const reader = new FileReader()
     reader.onloadend = () => {

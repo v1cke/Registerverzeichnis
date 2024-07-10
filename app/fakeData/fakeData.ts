@@ -29,8 +29,8 @@ export const fakeData: Person[] = [
       email: 'info@strassenverkehrsamt-musterstadt.de',
     },
     bilder: {
-      lichtBild: 'path/to/lichtbild.jpg',
-      unterschrift: 'path/to/unterschrift.jpg',
+      lichtBild: '',
+      unterschrift: '',
     },
     verantwortlichesUnternehmen: {
       bezeichnung: 'Musterfirma GmbH',

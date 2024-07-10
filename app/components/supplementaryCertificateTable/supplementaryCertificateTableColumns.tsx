@@ -22,8 +22,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Name',
       headerAlign: 'center',
       align: 'right',
-      minWidth: 200,
-      headerClassName: 'name-header',
+      minWidth: 130,
+      headerClassName: 'name-header iconColor  rotateTitle',
       cellClassName: 'name-cell',
       renderCell: ({ row }) => {
         return (
@@ -38,8 +38,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Vorname',
       headerAlign: 'center',
       align: 'left',
-      minWidth: 200,
-      headerClassName: 'name-header border-right',
+      minWidth: 100,
+      headerClassName: 'name-header iconColor  rotateTitle border-right',
       cellClassName: 'name-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -57,8 +57,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Führerschein Nummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'fuehrerschein-header',
+      minWidth: 130,
+      headerClassName: 'fuehrerschein-header iconColor  rotateTitle',
       cellClassName: 'fuehrerschein-cell',
       renderCell: ({ row }) => {
         return (
@@ -73,8 +73,9 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Status',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'fuehrerschein-header border-right',
+      minWidth: 100,
+      headerClassName:
+        'fuehrerschein-header iconColor  rotateTitle border-right',
       cellClassName: 'fuehrerschein-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -92,8 +93,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Geburtstag',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'inhaber-header',
+      minWidth: 100,
+      headerClassName: 'inhaber-header iconColor  rotateTitle',
       cellClassName: 'inhaber-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.inhaber.geburtstag),
     },
@@ -102,8 +103,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Geburtsort',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'inhaber-header',
+      minWidth: 100,
+      headerClassName: 'inhaber-header iconColor  rotateTitle',
       cellClassName: 'inhaber-cell',
       renderCell: ({ row }) => {
         return (
@@ -118,8 +119,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Staatsangehoerigkeit',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'inhaber-header border-right',
+      minWidth: 100,
+      headerClassName: 'inhaber-header iconColor  rotateTitle border-right',
       cellClassName: 'inhaber-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -137,8 +138,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Nummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusatzbescheinigung-header',
+      minWidth: 100,
+      headerClassName: 'zusatzbescheinigung-header iconColor  rotateTitle',
       cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
@@ -153,8 +154,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Status',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusatzbescheinigung-header',
+      minWidth: 100,
+      headerClassName: 'zusatzbescheinigung-header iconColor  rotateTitle',
       cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
@@ -169,8 +170,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Ausstellungs Datum',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusatzbescheinigung-header',
+      minWidth: 100,
+      headerClassName: 'zusatzbescheinigung-header iconColor  rotateTitle',
       cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ausstellungsDatum),
@@ -180,8 +181,9 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Ablauf Gueltigkeit',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusatzbescheinigung-header border-right',
+      minWidth: 100,
+      headerClassName:
+        'zusatzbescheinigung-header iconColor  rotateTitle border-right',
       cellClassName: 'zusatzbescheinigung-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zusatzbescheinigung.ablaufGueltigkeit),
@@ -194,8 +196,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Bezeichnung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      minWidth: 250,
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -211,7 +213,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -226,8 +228,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Postleitzahl',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      minWidth: 100,
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -242,8 +244,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Telefonnummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      minWidth: 130,
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -258,8 +260,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Faxnummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      minWidth: 130,
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -274,8 +276,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'E-Mail-Adresse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'organisationseinheit-header',
+      minWidth: 250,
+      headerClassName: 'organisationseinheit-header iconColor  rotateTitle',
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
@@ -291,7 +293,8 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'organisationseinheit-header border-right',
+      headerClassName:
+        'organisationseinheit-header iconColor  rotateTitle border-right',
       cellClassName: 'organisationseinheit-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -309,14 +312,13 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'LichtBild',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'bilder-header',
+      minWidth: 150,
+      headerClassName: 'bilder-header iconColor  rotateTitle',
       cellClassName: 'bilder-cell',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {/* {row.bilder.lichtBild} */}
-            lichtBild
+            {row.bilder.lichtBild ? 'vorhanden' : 'nicht vorhanden'}
           </Typography>
         )
       },
@@ -326,14 +328,13 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Unterschrift',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'bilder-header border-right',
+      minWidth: 150,
+      headerClassName: 'bilder-header iconColor  rotateTitle border-right',
       cellClassName: 'bilder-cell border-right',
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
-            {/* {row.bilder.unterschrift} */}
-            unterschrift
+            {row.bilder.unterschrift ? 'vorhanden' : 'nicht vorhanden'}
           </Typography>
         )
       },
@@ -347,7 +348,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -363,7 +364,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -378,8 +379,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Ort',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      minWidth: 150,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -394,8 +395,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Land',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      minWidth: 150,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -410,8 +411,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Postleitzahl',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      minWidth: 100,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -427,7 +428,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -442,8 +443,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Faxnummer',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      minWidth: 150,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -458,8 +459,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'E-Mail-Adresse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      minWidth: 250,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
@@ -475,8 +476,17 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'unternehmen-header',
+      headerClassName: 'unternehmen-header iconColor  rotateTitle',
       cellClassName: 'unternehmen-cell',
+      renderHeader: () => {
+        return (
+          <Typography noWrap variant="body2">
+            Unternehmenskategorie
+            <br />
+            (RU/IM)
+          </Typography>
+        )
+      },
       renderCell: ({ row }) => {
         return (
           <Typography noWrap variant="body2">
@@ -490,8 +500,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Arbeitsort',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'unternehmen-header border-right',
+      minWidth: 150,
+      headerClassName: 'unternehmen-header iconColor  rotateTitle border-right',
       cellClassName: 'unternehmen-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -509,8 +519,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -525,8 +535,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -541,8 +551,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A2',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -557,8 +567,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A3',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -573,8 +583,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A4',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -589,8 +599,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'A5',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -605,8 +615,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'B',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -621,8 +631,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'B1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle',
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
@@ -637,8 +647,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'B2',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'klasse-header border-right',
+      minWidth: 50,
+      headerClassName: 'klasse-header iconColor  rotateTitle border-right',
       cellClassName: 'klasse-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -656,8 +666,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusaetzlicheAngaben-header',
+      minWidth: 100,
+      headerClassName: 'zusaetzlicheAngaben-header iconColor  rotateTitle',
       cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
@@ -672,8 +682,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 2',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusaetzlicheAngaben-header',
+      minWidth: 100,
+      headerClassName: 'zusaetzlicheAngaben-header iconColor  rotateTitle',
       cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
@@ -688,8 +698,9 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 3',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zusaetzlicheAngaben-header border-right',
+      minWidth: 100,
+      headerClassName:
+        'zusaetzlicheAngaben-header iconColor  rotateTitle border-right',
       cellClassName: 'zusaetzlicheAngaben-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -707,8 +718,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 1',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'einschraenkungen-header',
+      minWidth: 100,
+      headerClassName: 'einschraenkungen-header iconColor  rotateTitle',
       cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
@@ -723,8 +734,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 2',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'einschraenkungen-header',
+      minWidth: 100,
+      headerClassName: 'einschraenkungen-header iconColor  rotateTitle',
       cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
@@ -739,8 +750,9 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Zelle 3',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'einschraenkungen-header border-right',
+      minWidth: 100,
+      headerClassName:
+        'einschraenkungen-header iconColor  rotateTitle border-right',
       cellClassName: 'einschraenkungen-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -758,8 +770,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aenderung-header',
+      minWidth: 100,
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.aenderung?.datum),
     },
@@ -769,7 +781,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -785,7 +797,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -801,7 +813,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -817,7 +829,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -833,7 +845,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -849,7 +861,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header',
+      headerClassName: 'aenderung-header iconColor  rotateTitle',
       cellClassName: 'aenderung-cell',
       renderCell: ({ row }) => {
         return (
@@ -865,7 +877,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aenderung-header border-right',
+      headerClassName: 'aenderung-header iconColor  rotateTitle border-right',
       cellClassName: 'aenderung-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -883,8 +895,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Von',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung?.von),
     },
@@ -893,8 +905,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Bis',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.aussetzung?.bis),
     },
@@ -903,8 +915,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -919,8 +931,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -935,8 +947,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -951,8 +963,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -967,8 +979,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -983,8 +995,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -999,8 +1011,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1015,8 +1027,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'aussetzung-header',
+      minWidth: 100,
+      headerClassName: 'aussetzung-header iconColor  rotateTitle',
       cellClassName: 'aussetzung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1032,7 +1044,7 @@ export const SupplementaryCertificateTableColumns = (
       headerAlign: 'center',
       align: 'center',
       minWidth: 200,
-      headerClassName: 'aussetzung-header border-right',
+      headerClassName: 'aussetzung-header iconColor  rotateTitle border-right',
       cellClassName: 'aussetzung-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -1050,8 +1062,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => formatDateToGermanLocale(row.entziehung?.datum),
     },
@@ -1060,8 +1072,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Führerschein',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1076,8 +1088,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Allgemeine Kenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1092,8 +1104,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Befähigung für Fahrzeug Tfz',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1108,8 +1120,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Betriebsverfahren',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1124,8 +1136,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Zugbeeinflussungssysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1140,8 +1152,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis SignalSysteme',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1156,8 +1168,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Schulung SMS',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1172,8 +1184,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Wegfall Nachweis Sprachkenntnisse',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1188,8 +1200,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Ausscheiden aus Unternehmen',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header',
+      minWidth: 100,
+      headerClassName: 'entziehung-header iconColor  rotateTitle',
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
@@ -1204,8 +1216,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Sontiges',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entziehung-header border-right',
+      minWidth: 250,
+      headerClassName: 'entziehung-header iconColor  rotateTitle border-right',
       cellClassName: 'entziehung-cell border-right',
       renderCell: ({ row }) => {
         return (
@@ -1223,8 +1235,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'verloren-header',
+      minWidth: 100,
+      headerClassName: 'verloren-header iconColor  rotateTitle',
       cellClassName: 'verloren-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.verlorenZb?.datumMeldung),
@@ -1234,8 +1246,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'verloren-header',
+      minWidth: 100,
+      headerClassName: 'verloren-header iconColor  rotateTitle',
       cellClassName: 'verloren-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1249,8 +1261,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entwendet-header',
+      minWidth: 100,
+      headerClassName: 'entwendet-header iconColor  rotateTitle',
       cellClassName: 'entwendet-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.entwendetZb?.datumMeldung),
@@ -1260,8 +1272,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'entwendet-header border-right',
+      minWidth: 100,
+      headerClassName: 'entwendet-header iconColor  rotateTitle border-right',
       cellClassName: 'entwendet-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1275,8 +1287,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Meldung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zerstoert-header',
+      minWidth: 100,
+      headerClassName: 'zerstoert-header iconColor  rotateTitle',
       cellClassName: 'zerstoert-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.zerstoertZb?.datumMeldung),
@@ -1286,8 +1298,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Datum der Austellung der Ersatzbescheinigung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'zerstoert-header border-right',
+      minWidth: 100,
+      headerClassName: 'zerstoert-header iconColor  rotateTitle border-right',
       cellClassName: 'zerstoert-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1302,8 +1314,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Tauglichkeit letzte Untersuchung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'weitereAngaben-header',
+      minWidth: 100,
+      headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1315,8 +1327,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Tauglichkeit nächste Untersuchung',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'weitereAngaben-header',
+      minWidth: 100,
+      headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1328,8 +1340,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Tauglichkeit Hinweise',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'weitereAngaben-header',
+      minWidth: 250,
+      headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) => {
         return (
@@ -1344,8 +1356,8 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Schulung SMS letzte Schulug',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'weitereAngaben-header',
+      minWidth: 100,
+      headerClassName: 'weitereAngaben-header iconColor  rotateTitle',
       cellClassName: 'weitereAngaben-cell',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(row.weitereAngaben.smsSchulung.letzteSchulung),
@@ -1355,8 +1367,9 @@ export const SupplementaryCertificateTableColumns = (
       headerName: 'Schulung SMS nächste Schulug',
       headerAlign: 'center',
       align: 'center',
-      minWidth: 200,
-      headerClassName: 'weitereAngaben-header border-right',
+      minWidth: 100,
+      headerClassName:
+        'weitereAngaben-header iconColor  rotateTitle border-right',
       cellClassName: 'weitereAngaben-cell border-right',
       renderCell: ({ row }) =>
         formatDateToGermanLocale(
@@ -1372,8 +1385,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'sprachkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.bezeichnung
@@ -1391,8 +1404,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'sprachkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.sprachkenntnisse[index]?.erwerb),
@@ -1402,8 +1415,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'sprachkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1415,8 +1428,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Sprachkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'sprachkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'sprachkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'sprachkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1429,7 +1442,8 @@ export const SupplementaryCertificateTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        headerClassName: 'sprachkenntnisse-header border-right',
+        headerClassName:
+          'sprachkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'sprachkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.hinweise
@@ -1458,8 +1472,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'fahrzeugkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.bezeichnung
@@ -1477,8 +1491,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'fahrzeugkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.fahrzeugkenntnisse[index]?.erwerb),
@@ -1488,8 +1502,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'fahrzeugkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1501,8 +1515,8 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Fahrzeugkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'fahrzeugkenntnisse-header',
+        minWidth: 100,
+        headerClassName: 'fahrzeugkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1515,7 +1529,8 @@ export const SupplementaryCertificateTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        headerClassName: 'fahrzeugkenntnisse-header border-right',
+        headerClassName:
+          'fahrzeugkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'fahrzeugkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.hinweise
@@ -1544,8 +1559,9 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} Bezeichnung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'infrastrukturkenntnisse-header',
+        minWidth: 250,
+        headerClassName:
+          'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.bezeichnung
@@ -1563,8 +1579,9 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} Erwerb`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'infrastrukturkenntnisse-header',
+        minWidth: 100,
+        headerClassName:
+          'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(row.infrastrukturkenntnisse[index]?.erwerb),
@@ -1574,8 +1591,9 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} letzte Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'infrastrukturkenntnisse-header',
+        minWidth: 100,
+        headerClassName:
+          'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1587,8 +1605,9 @@ export const SupplementaryCertificateTableColumns = (
         headerName: `Infrastrukturkenntnisse ${index + 1} nächste Überpruefung`,
         headerAlign: 'center',
         align: 'center',
-        minWidth: 200,
-        headerClassName: 'infrastrukturkenntnisse-header',
+        minWidth: 100,
+        headerClassName:
+          'infrastrukturkenntnisse-header iconColor  rotateTitle',
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderCell: ({ row }) =>
           formatDateToGermanLocale(
@@ -1601,7 +1620,8 @@ export const SupplementaryCertificateTableColumns = (
         headerAlign: 'center',
         align: 'center',
         minWidth: 200,
-        headerClassName: 'infrastrukturkenntnisse-header border-right',
+        headerClassName:
+          'infrastrukturkenntnisse-header iconColor  rotateTitle border-right',
         cellClassName: 'infrastrukturkenntnisse-cell border-right',
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.hinweise

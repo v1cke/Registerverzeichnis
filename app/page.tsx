@@ -30,16 +30,27 @@ export default function Home() {
     { selected: true, value: 18 },
     { selected: true, value: 19 },
   ])
+  const [selectedColumnId, setSetselectedColumnId] = useState<number>()
+  const [openDialog, setOpenDialog] = useState(false)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4">
       <Grid className="flex flex-col" sx={{ width: '100%', height: '100vh' }}>
-        <GroupOfButton />
+        <GroupOfButton
+          openDialog={openDialog}
+          setOpenDialog={setOpenDialog}
+          selectedColumnId={selectedColumnId}
+          setSetselectedColumnId={setSetselectedColumnId}
+        />
         <ColumnSelect
           showColumns={showColumns}
           setShowColumns={setShowColumns}
         />
-        <SupplementaryCertificateTable showColumns={showColumns} />
+        <SupplementaryCertificateTable
+          showColumns={showColumns}
+          setOpenDialog={setOpenDialog}
+          setSetselectedColumnId={setSetselectedColumnId}
+        />
       </Grid>
     </main>
   )

@@ -3,10 +3,11 @@ import { Kenntnisse } from '@/app/types/types'
 import { Typography } from '@mui/material'
 import { formatDateToGermanLocale } from '../supplementaryCertificateTable/supplementaryCertificateTableColumns'
 
-export const languageSkillsColumns: GridColDef<Kenntnisse>[] = [
+export const skillsColumns: GridColDef<Kenntnisse>[] = [
   {
     field: 'bezeichnung',
     headerName: 'Bezeichnung',
+    headerClassName: 'super-app-theme--header',
     headerAlign: 'center',
     align: 'center',
     flex: 0.25,

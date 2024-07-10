@@ -5,25 +5,33 @@ import Autocomplete from '@mui/material/Autocomplete'
 
 type Options = {
   text: string
-  value: number
+  value: string
 }
 
 interface AutoCompleteInputProps {
   options: Options[]
+  idLabel: string
   label: string
+  onChange: (
+    event: React.SyntheticEvent<Element, Event>,
+    value: Options | null,
+  ) => void
 }
 
 export const AutoCompleteInput = ({
   options,
+  idLabel,
   label,
+  onChange,
 }: AutoCompleteInputProps) => {
   return (
     <Autocomplete
-      id={label}
+      id={idLabel}
       sx={{ width: 350 }}
       options={options}
       autoHighlight
       getOptionLabel={(option) => option.text}
+      isOptionEqualToValue={(option, value) => option.value === value.value}
       renderOption={(props, option) => {
         const { key, ...optionProps } = props
         return (
@@ -32,6 +40,7 @@ export const AutoCompleteInput = ({
           </Box>
         )
       }}
+      onChange={(event, value) => onChange(event, value)}
       renderInput={(params) => (
         <TextField
           {...params}

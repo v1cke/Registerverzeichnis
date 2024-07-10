@@ -1,4 +1,4 @@
-import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { Kenntnisse, Person } from '@/app/types/types'
 import {
   Box,
@@ -9,102 +9,50 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
-  Slide,
   TextField,
 } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { skillsColumns } from './skillsColumns'
 import { formatDate } from './userDialog'
 import { AutoCompleteInput } from './autoCompleteInput'
-import { TransitionProps } from '@mui/material/transitions'
+import { defaultKenntnisse, TransitionRight } from './languageSkills'
 
-const languages = [
-  'Deutsch',
-  'Englisch',
-  'Französisch',
-  'Spanisch',
-  'Italienisch',
-  'Niederländisch',
-  'Portugiesisch',
-  'Russisch',
-  'Chinesisch',
-  'Japanisch',
-  'Koreanisch',
-  'Arabisch',
-  'Türkisch',
-  'Hindi',
-  'Bengalisch',
-  'Punjabi',
-  'Urdu',
-  'Vietnamesisch',
-  'Persisch',
-  'Thai',
-  'Griechisch',
-  'Schwedisch',
-  'Norwegisch',
-  'Dänisch',
-  'Finnisch',
-  'Ungarisch',
-  'Tschechisch',
-  'Slowakisch',
-  'Polnisch',
-  'Rumänisch',
-  'Bulgarisch',
-  'Serbisch',
-  'Kroatisch',
-  'Slowenisch',
-  'Litauisch',
-  'Lettisch',
-  'Estnisch',
-  'Maltesisch',
-  'Isländisch',
-  'Irisch',
-  'Walisisch',
-  'Schottisch-Gälisch',
-  'Hebräisch',
-  'Jiddisch',
-  'Afrikaans',
-  'Swahili',
-  'Zulu',
-  'Xhosa',
-  'Igbo',
-  'Yoruba',
-  'Hausa',
-  'Amharisch',
-  'Somali',
-  'Madagassisch',
+const infrastructure = [
+  'FV-DB',
+  'FV-NE',
+  'ZLB',
+  'SZB',
+  'Steilstreckenbetrieb',
+  'PZB',
+  'LZB',
+  'LZB CE',
+  'GNT',
+  'FFB',
+  'ETCS Stufe 1',
+  'ETCS Stufe 2',
+  'ETCS Stufe 3',
+  'ZBS',
+  'H/V',
+  'Hl',
+  'Ks',
+  'Sv',
+  'Sk',
+  // 'GNT',
 ]
 
-export const TransitionRight = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="right" ref={ref} {...props} />
-})
-
-export const defaultKenntnisse: Kenntnisse = {
-  bezeichnung: '',
-  erwerb: undefined,
-  letzteUeberpruefung: undefined,
-  naechsteUeberpruefung: undefined,
-  hinweise: '',
-}
-
-interface LanguageSkillsProps {
+interface InfrastructureSkillsProps {
   userData: Person
   setUserData: Dispatch<SetStateAction<Person>>
 }
 
-export const LanguageSkills = ({
+export const InfrastructureSkills = ({
   userData,
   setUserData,
-}: LanguageSkillsProps) => {
-  const [newLanguageSkill, setNewLanguageSkill] =
+}: InfrastructureSkillsProps) => {
+  const [newInfrastructureSkill, setNewInfrastructureSkill] =
     useState<Kenntnisse>(defaultKenntnisse)
   const [open, setOpen] = useState(false)
-  const [newLanguage, setNewLanguage] = useState('')
+  const [newInfrastructure, setNewInfrastructure] = useState('')
 
   const handleClose = () => {
     setOpen(false)
@@ -119,21 +67,23 @@ export const LanguageSkills = ({
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{'Neue Sprachkenntnisse Auswahl erstellen'}</DialogTitle>
+        <DialogTitle>
+          {'Neue Infrastrukturkenntnisse Auswahl erstellen'}
+        </DialogTitle>
         <DialogContent>
           <TextField
             fullWidth
-            id="Sprachkenntniss Bezeichnung"
-            label="Sprachkenntniss Bezeichnung"
-            value={newLanguage}
-            onChange={(event) => setNewLanguage(event.target.value)}
+            id="Infrastrukturkenntnisse Bezeichnung"
+            label="Infrastrukturkenntnisse Bezeichnung"
+            value={newInfrastructure}
+            onChange={(event) => setNewInfrastructure(event.target.value)}
           />
         </DialogContent>
         <DialogActions>
           <Button
             onClick={() => {
               handleClose()
-              setNewLanguage('')
+              setNewInfrastructure('')
             }}
           >
             Abbrechen
@@ -142,28 +92,28 @@ export const LanguageSkills = ({
             onClick={() => {
               handleClose()
               // TODO: DB speichern
-              languages.push(newLanguage)
-              setNewLanguage('')
+              infrastructure.push(newInfrastructure)
+              setNewInfrastructure('')
             }}
           >
             Speichern
           </Button>
         </DialogActions>
       </Dialog>
-      <DialogContentText id="Sprachkenntnisse">
-        7. Sprachkenntnisse
+      <DialogContentText id="Infrastrukturkenntniss">
+        9. Infrastrukturkenntnisse
       </DialogContentText>
       <Box className="border-2 rounded-lg p-2 mb-3">
-        <DialogContentText id="Neue Sprachkenntnisse">
-          Neue Sprachkenntnisse
+        <DialogContentText id="Neue Infrastrukturkenntniss">
+          Neue Infrastrukturkenntnisse
         </DialogContentText>
         <Grid container spacing={2} className="mt-2 mb-2">
           <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
             <AutoCompleteInput
-              options={languages
+              options={infrastructure
                 .filter(
                   (item) =>
-                    !userData.sprachkenntnisse.some(
+                    !userData.infrastrukturkenntnisse.some(
                       (kenntnis) => kenntnis.bezeichnung === item,
                     ),
                 )
@@ -171,28 +121,26 @@ export const LanguageSkills = ({
                   text: item,
                   value: item,
                 }))}
-              idLabel="Sprachkenntnisse Bezeichnung"
+              idLabel="Infrastrukturkenntniss Bezeichnung"
               label="Bezeichnung"
-              onChange={(_, value) => {
-                if (value) {
-                  setNewLanguageSkill((prev) => ({
-                    ...prev,
-                    bezeichnung: value?.value,
-                  }))
-                }
-              }}
+              onChange={(_, value) =>
+                setNewInfrastructureSkill((prev) => ({
+                  ...prev,
+                  bezeichnung: value?.value ?? '',
+                }))
+              }
             />
           </Grid>
           <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
             <TextField
               fullWidth
-              id="Sprachkenntnisse Erwerb"
+              id="Infrastrukturkenntnisse Erwerb"
               label="Erwerb"
               type="date"
-              value={formatDate(newLanguageSkill.erwerb)}
+              value={formatDate(newInfrastructureSkill.erwerb)}
               InputLabelProps={{ shrink: true }}
               onChange={(event) =>
-                setNewLanguageSkill((prev) => ({
+                setNewInfrastructureSkill((prev) => ({
                   ...prev,
                   erwerb: new Date(event.target.value),
                 }))
@@ -202,13 +150,13 @@ export const LanguageSkills = ({
           <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
             <TextField
               fullWidth
-              id="Sprachkenntnisse letzte Ueberpruefung"
+              id="Infrastrukturkenntnisse letzte Ueberpruefung"
               label="letzte Überprüfung"
               type="date"
-              value={formatDate(newLanguageSkill.letzteUeberpruefung)}
+              value={formatDate(newInfrastructureSkill.letzteUeberpruefung)}
               InputLabelProps={{ shrink: true }}
               onChange={(event) =>
-                setNewLanguageSkill((prev) => ({
+                setNewInfrastructureSkill((prev) => ({
                   ...prev,
                   letzteUeberpruefung: new Date(event.target.value),
                 }))
@@ -218,13 +166,13 @@ export const LanguageSkills = ({
           <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
             <TextField
               fullWidth
-              id="Sprachkenntnisse naechste Ueberpruefung"
+              id="Infrastrukturkenntnisse naechste Ueberpruefung"
               label="nächste Überprüfung"
               type="date"
-              value={formatDate(newLanguageSkill.naechsteUeberpruefung)}
+              value={formatDate(newInfrastructureSkill.naechsteUeberpruefung)}
               InputLabelProps={{ shrink: true }}
               onChange={(event) =>
-                setNewLanguageSkill((prev) => ({
+                setNewInfrastructureSkill((prev) => ({
                   ...prev,
                   naechsteUeberpruefung: new Date(event.target.value),
                 }))
@@ -234,11 +182,11 @@ export const LanguageSkills = ({
           <Grid item xs={12} sm={6} lg={3.3} className="flex justify-center">
             <TextField
               fullWidth
-              id="Sprachkenntnisse Hinweise"
+              id="Infrastrukturkenntnisse Hinweise"
               label="Hinweise"
-              value={newLanguageSkill.hinweise}
+              value={newInfrastructureSkill.hinweise}
               onChange={(event) =>
-                setNewLanguageSkill((prev) => ({
+                setNewInfrastructureSkill((prev) => ({
                   ...prev,
                   hinweise: event.target.value,
                 }))
@@ -249,23 +197,25 @@ export const LanguageSkills = ({
         <Box className="flex justify-between">
           <Box>
             <Button onClick={() => setOpen(true)}>
-              weiterer Sprachkenntnisse
+              weiterer Infrastrukturkenntnisse
             </Button>
           </Box>
           <Box>
-            <Button onClick={() => setNewLanguageSkill(defaultKenntnisse)}>
+            <Button
+              onClick={() => setNewInfrastructureSkill(defaultKenntnisse)}
+            >
               Abbrechen
             </Button>
             <Button
               onClick={() => {
                 setUserData((prev) => ({
                   ...prev,
-                  sprachkenntnisse: [
-                    ...prev.sprachkenntnisse,
-                    newLanguageSkill,
+                  infrastrukturkenntnisse: [
+                    ...prev.infrastrukturkenntnisse,
+                    newInfrastructureSkill,
                   ],
                 }))
-                setNewLanguageSkill(defaultKenntnisse)
+                setNewInfrastructureSkill(defaultKenntnisse)
               }}
             >
               Hinzufügen
@@ -274,7 +224,7 @@ export const LanguageSkills = ({
         </Box>
       </Box>
       <DataGrid
-        rows={userData.sprachkenntnisse}
+        rows={userData.infrastrukturkenntnisse}
         columns={skillsColumns}
         hideFooter={true}
         getRowId={(row) => row.bezeichnung}

@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import {
   Button,
   Dialog,
@@ -17,6 +17,9 @@ import { FurtherInformation } from './furtherInformation'
 import { AdditionalInformation } from './additionalInformation'
 import { Limitations } from './limitations'
 import { LanguageSkills } from './languageSkills'
+import { VehicleSkills } from './vehicleSkills'
+import { InfrastructureSkills } from './infrastructureSkills'
+import { fakeData } from '@/app/fakeData/fakeData'
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
@@ -111,21 +114,7 @@ const defaultPerson = {
       naechsteSchulung: undefined,
     },
   },
-  sprachkenntnisse: [
-    {
-      bezeichnung: 'dfghfgh',
-      erwerb: new Date(
-        'Mon Jul 01 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
-      ),
-      letzteUeberpruefung: new Date(
-        'Mon Jul 08 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
-      ),
-      naechsteUeberpruefung: new Date(
-        'Mon Jul 15 2024 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)',
-      ),
-      hinweise: 'fbmvbnmm',
-    },
-  ],
+  sprachkenntnisse: [],
   fahrzeugkenntnisse: [],
   infrastrukturkenntnisse: [],
 }
@@ -141,10 +130,22 @@ export const formatDate = (date: Date | undefined): string => {
 interface UserDialogProps {
   open: boolean
   handleClose: () => void
+  selectedColumnId?: number
 }
 
-export const UserDialog = ({ open, handleClose }: UserDialogProps) => {
+export const UserDialog = ({
+  open,
+  handleClose,
+  selectedColumnId,
+}: UserDialogProps) => {
+  const selectetPerson = fakeData.find((item) => item.id === selectedColumnId)
+
   const [userData, setUserData] = useState<Person>(defaultPerson)
+  useEffect(() => {
+    if (selectetPerson) {
+      setUserData(selectetPerson)
+    }
+  }, [selectetPerson])
 
   return (
     <Dialog
@@ -169,6 +170,8 @@ export const UserDialog = ({ open, handleClose }: UserDialogProps) => {
         <AdditionalInformation userData={userData} setUserData={setUserData} />
         <Limitations userData={userData} setUserData={setUserData} />
         <LanguageSkills userData={userData} setUserData={setUserData} />
+        <VehicleSkills userData={userData} setUserData={setUserData} />
+        <InfrastructureSkills userData={userData} setUserData={setUserData} />
         <FurtherInformation userData={userData} setUserData={setUserData} />
       </DialogContent>
       <DialogActions>
