@@ -1,5 +1,12 @@
-import { forwardRef, useEffect, useState } from 'react'
 import {
+  Dispatch,
+  forwardRef,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react'
+import {
+  Box,
   Button,
   Dialog,
   DialogActions,
@@ -16,12 +23,15 @@ import { Classes } from './classes'
 import { FurtherInformation } from './furtherInformation'
 import { AdditionalInformation } from './additionalInformation'
 import { Limitations } from './limitations'
-import { LanguageSkills } from './languageSkills'
-import { VehicleSkills } from './vehicleSkills'
-import { InfrastructureSkills } from './infrastructureSkills'
-import { fakeData } from '@/app/fakeData/fakeData'
+import {
+  fakeData,
+  infrastructure,
+  languages,
+  vehicle,
+} from '@/app/fakeData/fakeData'
+import { SkillsComponent } from './skillsComponent'
 
-const Transition = forwardRef(function Transition(
+const TransitionDown = forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>
   },
@@ -128,57 +138,103 @@ export const formatDate = (date: Date | undefined): string => {
 }
 
 interface UserDialogProps {
-  open: boolean
-  handleClose: () => void
+  openDialog: boolean
+  setOpenDialog: Dispatch<SetStateAction<boolean>>
   selectedColumnId?: number
+  setSetselectedColumnId: Dispatch<SetStateAction<number | undefined>>
 }
 
 export const UserDialog = ({
-  open,
-  handleClose,
+  openDialog,
+  setOpenDialog,
   selectedColumnId,
+  setSetselectedColumnId,
 }: UserDialogProps) => {
-  const [userData, setUserData] = useState<Person>(defaultPerson)
-  console.log('userData: ', userData)
+  const [userData, setUserData] = useState<Person>({ ...defaultPerson })
 
-  const selectetPerson = fakeData.find((item) => item.id === selectedColumnId)
+  const handleClose = () => {
+    setOpenDialog(false)
+  }
+
+  const clearDataAndClose = () => {
+    setUserData({ ...defaultPerson })
+    handleClose()
+  }
+
+  const selectedPerson = fakeData.find((item) => item.id === selectedColumnId)
   useEffect(() => {
-    if (selectetPerson) {
-      setUserData(selectetPerson)
+    if (selectedPerson) {
+      setUserData({ ...selectedPerson })
     }
-  }, [selectetPerson])
+  }, [selectedPerson])
 
   return (
-    <Dialog
-      open={open}
-      TransitionComponent={Transition}
-      // TODO: was macht das?
-      keepMounted
-      fullWidth
-      maxWidth="xl"
-      onClose={handleClose}
-      aria-describedby="dialog-slide-new"
-    >
-      <DialogTitle>Zusatzbescheinigung</DialogTitle>
-      <DialogContent className="flex flex-col gap-4">
-        <GeneralInformationSupplementaryCertificate
-          userData={userData}
-          setUserData={setUserData}
-        />
-        <DetailsOfEmployer userData={userData} setUserData={setUserData} />
-        <DetailsOfHolder userData={userData} setUserData={setUserData} />
-        <Classes userData={userData} setUserData={setUserData} />
-        <AdditionalInformation userData={userData} setUserData={setUserData} />
-        <Limitations userData={userData} setUserData={setUserData} />
-        <LanguageSkills userData={userData} setUserData={setUserData} />
-        <VehicleSkills userData={userData} setUserData={setUserData} />
-        <InfrastructureSkills userData={userData} setUserData={setUserData} />
-        <FurtherInformation userData={userData} setUserData={setUserData} />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Abbrechen</Button>
-        <Button onClick={handleClose}>Speichern</Button>
-      </DialogActions>
-    </Dialog>
+    <Box>
+      <Dialog
+        open={openDialog}
+        TransitionComponent={TransitionDown}
+        // TODO: was macht das?
+        keepMounted
+        fullWidth
+        maxWidth="xl"
+        onClose={handleClose}
+        aria-describedby="dialog-slide-new"
+      >
+        <DialogTitle>Zusatzbescheinigung</DialogTitle>
+        <DialogContent className="flex flex-col gap-4">
+          <GeneralInformationSupplementaryCertificate
+            userData={userData}
+            setUserData={setUserData}
+          />
+          <DetailsOfEmployer userData={userData} setUserData={setUserData} />
+          <DetailsOfHolder userData={userData} setUserData={setUserData} />
+          <Classes userData={userData} setUserData={setUserData} />
+          <AdditionalInformation
+            userData={userData}
+            setUserData={setUserData}
+          />
+          <Limitations userData={userData} setUserData={setUserData} />
+          <SkillsComponent
+            userData={userData}
+            setUserData={setUserData}
+            label="Sprach"
+            labelNumber={7}
+            selectableSkills={languages}
+            skillKey="sprachkenntnisse"
+          />
+          <SkillsComponent
+            userData={userData}
+            setUserData={setUserData}
+            label="Fahrzeug"
+            labelNumber={8}
+            selectableSkills={vehicle}
+            skillKey="fahrzeugkenntnisse"
+          />
+          <SkillsComponent
+            userData={userData}
+            setUserData={setUserData}
+            label="Infrastruktur"
+            labelNumber={9}
+            selectableSkills={infrastructure}
+            skillKey="infrastrukturkenntnisse"
+          />
+          <FurtherInformation userData={userData} setUserData={setUserData} />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={clearDataAndClose}>Abbrechen</Button>
+          <Button onClick={handleClose}>Speichern</Button>
+        </DialogActions>
+      </Dialog>
+      <Button
+        variant="contained"
+        className="w-32"
+        onClick={() => {
+          setSetselectedColumnId(undefined)
+          setOpenDialog(true)
+        }}
+      >
+        Neu
+      </Button>
+    </Box>
   )
 }

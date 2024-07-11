@@ -67,38 +67,36 @@ export const ColumnSelect = ({
   }
 
   return (
-    <div className="flex justify-end">
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="Anzeige auswählen-label">Anzeige auswählen</InputLabel>
-        <Select
-          labelId="demo-multiple-checkbox-label"
-          id="demo-multiple-checkbox"
-          multiple
-          value={showColumns
-            .filter((item) => item.selected)
-            .map((item) => item.value)}
-          onChange={handleChange}
-          input={<OutlinedInput label="Anzeige auswählen" />}
-          renderValue={(selected) =>
-            columnChoices
-              .filter((choice) => selected.includes(choice.value))
-              .map((choice) => choice.text)
-              .join(', ')
-          }
-          MenuProps={MenuProps}
-        >
-          {columnChoices.map((choice) => (
-            <MenuItem key={choice.value} value={choice.value}>
-              <Checkbox
-                checked={showColumns.some(
-                  (column) => column.value === choice.value && column.selected,
-                )}
-              />
-              <ListItemText primary={choice.text} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+    <FormControl sx={{ m: 1, width: 300 }}>
+      <InputLabel id="Anzeige auswählen-label">Anzeige auswählen</InputLabel>
+      <Select
+        labelId="demo-multiple-checkbox-label"
+        id="demo-multiple-checkbox"
+        multiple
+        value={showColumns
+          .filter((item) => item.selected)
+          .map((item) => item.value)}
+        onChange={handleChange}
+        input={<OutlinedInput label="Anzeige auswählen" />}
+        renderValue={(selected) =>
+          columnChoices
+            .filter((choice) => selected.includes(choice.value))
+            .map((choice) => choice.text)
+            .join(', ')
+        }
+        MenuProps={MenuProps}
+      >
+        {columnChoices.map((choice) => (
+          <MenuItem key={choice.value} value={choice.value}>
+            <Checkbox
+              checked={showColumns.some(
+                (column) => column.value === choice.value && column.selected,
+              )}
+            />
+            <ListItemText primary={choice.text} />
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   )
 }

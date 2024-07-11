@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 
 type Options = {
-  text: string
+  // text: string
   value: string
 }
 
@@ -35,13 +35,13 @@ export const AutoCompleteInput = ({
       sx={{ width: 350 }}
       options={options}
       autoHighlight
-      getOptionLabel={(option) => option.text}
+      getOptionLabel={(option) => option.value}
       isOptionEqualToValue={(option, value) => option.value === value.value}
       renderOption={(props, option) => {
         const { key, ...optionProps } = props
         return (
           <Box key={option.value} component="li" {...optionProps}>
-            {option.text}
+            {option.value}
           </Box>
         )
       }}

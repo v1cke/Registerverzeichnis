@@ -1,10 +1,11 @@
 'use client'
 
-import { Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import { SupplementaryCertificateTable } from './components/supplementaryCertificateTable/supplementaryCertificateTable'
 import { useState } from 'react'
 import { ColumnSelect } from './components/supplementaryCertificateTable/columnSelect'
-import { GroupOfButton } from './components/groupOfButton'
+import { UserDialog } from './components/userDialog/userDialog'
+import { ViewButtons } from './components/viewButtons/viewButtons'
 
 export type ShowColumns = { selected: boolean; value: number }
 
@@ -32,23 +33,30 @@ export default function Home() {
   ])
   const [selectedColumnId, setSetselectedColumnId] = useState<number>()
   const [openDialog, setOpenDialog] = useState(false)
+  const [tableView, setTableView] = useState<'activ' | 'draft' | 'history'>(
+    'activ',
+  )
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4">
       <Grid className="flex flex-col" sx={{ width: '100%', height: '100vh' }}>
-        <GroupOfButton
+        <UserDialog
           openDialog={openDialog}
           setOpenDialog={setOpenDialog}
           selectedColumnId={selectedColumnId}
           setSetselectedColumnId={setSetselectedColumnId}
         />
-        <ColumnSelect
-          showColumns={showColumns}
-          setShowColumns={setShowColumns}
-        />
+        <Box className="flex justify-between items-center">
+          <ViewButtons tableView={tableView} setTableView={setTableView} />
+          <ColumnSelect
+            showColumns={showColumns}
+            setShowColumns={setShowColumns}
+          />
+        </Box>
         <SupplementaryCertificateTable
           showColumns={showColumns}
           setOpenDialog={setOpenDialog}
+          tableView={tableView}
           setSetselectedColumnId={setSetselectedColumnId}
         />
       </Grid>

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.css-yrdy0g-MuiDataGrid-columnHeaderRow .columnGroupingHeader {
+  height: 60px !important;
+}
+/* .css-1kwdphh-MuiDataGrid-virtualScrollerContent {
+  min-height: 600px !important;
+} */
+
 .skill-header {
   background-color: rgb(6 182 212) !important;
   color: white !important;
@@ -9,6 +16,13 @@
 
 .rotateTitle .MuiDataGrid-columnHeaderTitleContainerContent {
   transform: rotate(-90deg);
+}
+
+.columnGroupingHeader {
+  border-right: 1px solid black !important;
+  /* height: 50px !important;
+  margin-bottom: -50px !important;
+  background-color: blue !important; */
 }
 
 .name-header {
