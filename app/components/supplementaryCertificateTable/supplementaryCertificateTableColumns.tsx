@@ -1,6 +1,6 @@
 import { GridColDef } from '@mui/x-data-grid'
 import { Person } from '../../types/types'
-import { Typography, useTheme } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import { ShowColumns } from '../../page'
 
 export const formatDateToGermanLocale = (date?: Date) => {
@@ -27,9 +27,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'name-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.inhaber.name}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.inhaber.name}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -43,9 +45,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'name-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.inhaber.vorname}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.inhaber.vorname}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -62,20 +66,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'fuehrerschein-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Nummer des
-            <br />
-            Triebfahrzeug-
-            <br />
-            führerschein
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Nummer des
+              <br />
+              Triebfahrzeug-
+              <br />
+              führerschein
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.fuehrerschein.fuehrerscheinNummer}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.fuehrerschein.fuehrerscheinNummer}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -89,9 +97,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'fuehrerschein-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.fuehrerschein.status}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.fuehrerschein.status}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -118,9 +128,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'inhaber-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.inhaber.geburtsort}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.inhaber.geburtsort}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -134,18 +146,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'inhaber-cell border-right',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Staatsange-
-            <br />
-            hörigkeit
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Staatsange-
+              <br />
+              hörigkeit
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.inhaber.staatsangehoerigkeit}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.inhaber.staatsangehoerigkeit}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -162,9 +178,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.zusatzbescheinigung.nummer}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.zusatzbescheinigung.nummer}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -178,9 +196,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusatzbescheinigung-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.zusatzbescheinigung.status}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.zusatzbescheinigung.status}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -194,11 +214,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusatzbescheinigung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Ausstellungs-
-            <br />
-            Datum
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Ausstellungs-
+              <br />
+              Datum
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -215,11 +237,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusatzbescheinigung-cell border-right',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Ablauf
-            <br />
-            Gültigkeit
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Ablauf
+              <br />
+              Gültigkeit
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -238,9 +262,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.bezeichnung}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.bezeichnung}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -254,9 +280,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.strasseUndNummer}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.strasseUndNummer}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -270,9 +298,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.plz}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.plz}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -286,9 +316,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.ort}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.ort}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -302,9 +334,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.telefon}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.telefon}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -318,9 +352,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.ausstellendeOrganisationseinheit.fax}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.fax}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -335,13 +371,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography
-            // className="flex h-full items-center"
-            noWrap
-            variant="body2"
-          >
-            {row.ausstellendeOrganisationseinheit.email}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.ausstellendeOrganisationseinheit.email}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -358,9 +392,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'bilder-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.bilder.lichtBild ? 'vorhanden' : 'nicht vorhanden'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.bilder.lichtBild ? 'vorhanden' : 'nicht vorhanden'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -374,9 +410,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'bilder-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.bilder.unterschrift ? 'vorhanden' : 'nicht vorhanden'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.bilder.unterschrift ? 'vorhanden' : 'nicht vorhanden'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -393,9 +431,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.bezeichnung}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.bezeichnung}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -409,9 +449,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.strasseUndNummer}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.strasseUndNummer}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -425,9 +467,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.ort}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.ort}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -441,9 +485,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.land}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.land}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -457,9 +503,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.plz}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.plz}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -473,9 +521,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.telefon}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.telefon}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -489,9 +539,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.fax}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.fax}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -505,9 +557,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.email}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.email}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -521,18 +575,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Unternehmenskategorie
-            <br />
-            (RU/IM)
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Unternehmenskategorie
+              <br />
+              (RU/IM)
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.unternehmensKategorie}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.unternehmensKategorie}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -546,9 +604,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'unternehmen-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.verantwortlichesUnternehmen.arbeitsort}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.verantwortlichesUnternehmen.arbeitsort}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -565,9 +625,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -581,9 +643,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A1 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A1 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -597,9 +661,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A2 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A2 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -613,9 +679,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A3 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A3 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -629,9 +697,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A4 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A4 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -645,9 +715,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.A5 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.A5 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -661,9 +733,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.B ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.B ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -677,9 +751,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.B1 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.B1 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -693,9 +769,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'klasse-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.klasse.B2 ? 'ja' : 'nein'}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.klasse.B2 ? 'ja' : 'nein'}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -712,9 +790,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.zusaetzlicheAngaben.zelle1}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.zusaetzlicheAngaben.zelle1}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -728,9 +808,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusaetzlicheAngaben-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.zusaetzlicheAngaben.zelle2}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.zusaetzlicheAngaben.zelle2}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -745,9 +827,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zusaetzlicheAngaben-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.zusaetzlicheAngaben.zelle3}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.zusaetzlicheAngaben.zelle3}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -764,9 +848,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.einschraenkungen.zelle1}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.einschraenkungen.zelle1}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -780,9 +866,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'einschraenkungen-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.einschraenkungen.zelle2}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.einschraenkungen.zelle2}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -797,9 +885,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'einschraenkungen-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.einschraenkungen.zelle3}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.einschraenkungen.zelle3}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -826,18 +916,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 3
-            <br />
-            "Klasse"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 3
+              <br />
+              "Klasse"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld3Klasse ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld3Klasse ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -851,18 +945,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 4
-            <br />
-            "Zusätzliche Angaben"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 4
+              <br />
+              "Zusätzliche Angaben"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld4Angaben ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld4Angaben ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -876,18 +974,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 5
-            <br />
-            "Sprachen"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 5
+              <br />
+              "Sprachen"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld5Sprachen ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld5Sprachen ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -901,18 +1003,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 6
-            <br />
-            "Einschränkungen"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 6
+              <br />
+              "Einschränkungen"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld6Einschraenkung ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld6Einschraenkung ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -926,18 +1032,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 7
-            <br />
-            "Fahrzeuge"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 7
+              <br />
+              "Fahrzeuge"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld7Fahrzeug ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld7Fahrzeug ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -951,18 +1061,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Änderung in Feld 8
-            <br />
-            "Infrastruktur"
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Änderung in Feld 8
+              <br />
+              "Infrastruktur"
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.aenderungFeld8Infrastruktur ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.aenderungFeld8Infrastruktur ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -976,9 +1090,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aenderung-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aenderung?.sontiges ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aenderung?.sontiges ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1015,20 +1131,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall
-            <br />
-            Führerschein
-            <br />
-            §5 Abs. 2 S. 1 Nr. 1 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall
+              <br />
+              Führerschein
+              <br />
+              §5 Abs. 2 S. 1 Nr. 1 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallFuehrerschein ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallFuehrerschein ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1042,20 +1162,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Allgemeine Kenntnisse
-            <br />
-            §5 Abs. 2 S. 1 Nr. 2 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Allgemeine Kenntnisse
+              <br />
+              §5 Abs. 2 S. 1 Nr. 2 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1069,22 +1193,26 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Befähigung für
-            <br />
-            Fahrzeug TfZ
-            <br />
-            §5 Abs. 2 S. 1 Nr. 2 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Befähigung für
+              <br />
+              Fahrzeug TfZ
+              <br />
+              §5 Abs. 2 S. 1 Nr. 2 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisBefaehigung ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisBefaehigung ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1098,20 +1226,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Betriebsverfahren
-            <br />
-            §5 Abs. 2 S. 1 Nr. 3 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Betriebsverfahren
+              <br />
+              §5 Abs. 2 S. 1 Nr. 3 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisBetriebsverfahren ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisBetriebsverfahren ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1125,22 +1257,26 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Zugbeeinflussungs-
-            <br />
-            systeme
-            <br />
-            §5 Abs. 2 S. 1 Nr. 3 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Zugbeeinflussungs-
+              <br />
+              systeme
+              <br />
+              §5 Abs. 2 S. 1 Nr. 3 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1154,20 +1290,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Signalsystem
-            <br />
-            §5 Abs. 2 S. 1 Nr. 3 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Signalsystem
+              <br />
+              §5 Abs. 2 S. 1 Nr. 3 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisSignalSysteme ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisSignalSysteme ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1181,20 +1321,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Schulung SMS
-            <br />
-            §5 Abs. 2 S. 1 Nr. 4 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Schulung SMS
+              <br />
+              §5 Abs. 2 S. 1 Nr. 4 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisSchulung ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisSchulung ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1208,20 +1352,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Sprachkenntnisse
-            <br />
-            §5 Abs. 2 S. 2 TfV
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Sprachkenntnisse
+              <br />
+              §5 Abs. 2 S. 2 TfV
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.wegfallNachweisSprachkenntnisse ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.wegfallNachweisSprachkenntnisse ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1235,9 +1383,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'aussetzung-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.aussetzung?.sontiges ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.aussetzung?.sontiges ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1264,9 +1414,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallFuehrerschein ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallFuehrerschein ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1280,18 +1432,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Allgemeine Kenntnisse
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Allgemeine Kenntnisse
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisAllgemeinKenntnisse ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1305,20 +1461,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Befähigung für
-            <br />
-            Fahrzeug TfZ
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Befähigung für
+              <br />
+              Fahrzeug TfZ
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisBefaehigung ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisBefaehigung ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1332,18 +1492,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Betriebsverfahren
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Betriebsverfahren
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisBetriebsverfahren ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisBetriebsverfahren ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1357,20 +1521,24 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Zugbeeinflussungs-
-            <br />
-            Systeme
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Zugbeeinflussungs-
+              <br />
+              Systeme
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisZugbeeinflussungSysteme ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1384,18 +1552,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            SignalSysteme
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              SignalSysteme
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisSignalSysteme ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisSignalSysteme ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1409,18 +1581,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Schulung SMS
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Schulung SMS
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisSchulung ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisSchulung ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1434,18 +1610,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Wegfall Nachweis
-            <br />
-            Sprachkenntnisse
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Wegfall Nachweis
+              <br />
+              Sprachkenntnisse
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.wegfallNachweisSprachkenntnisse ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.wegfallNachweisSprachkenntnisse ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1459,18 +1639,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Ausscheiden aus
-            <br />
-            Unternehmen
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Ausscheiden aus
+              <br />
+              Unternehmen
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.ausscheidenUnternehmen ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.ausscheidenUnternehmen ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1484,9 +1668,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entziehung-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.entziehung?.sontiges ?? ''}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.entziehung?.sontiges ?? ''}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1514,11 +1700,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'verloren-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Datum der Ausstellung
-            <br />
-            der Ersatzbescheinigung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Datum der Ausstellung
+              <br />
+              der Ersatzbescheinigung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1549,11 +1737,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'entwendet-cell border-right',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Datum der Ausstellung
-            <br />
-            der Ersatzbescheinigung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Datum der Ausstellung
+              <br />
+              der Ersatzbescheinigung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1584,11 +1774,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'zerstoert-cell border-right',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Datum der Ausstellung
-            <br />
-            der Ersatzbescheinigung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Datum der Ausstellung
+              <br />
+              der Ersatzbescheinigung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1609,11 +1801,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'weitereAngaben-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Tauglichkeit
-            <br />
-            letzte Untersuchung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Tauglichkeit
+              <br />
+              letzte Untersuchung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1631,11 +1825,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'weitereAngaben-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Tauglichkeit
-            <br />
-            nächste Untersuchung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Tauglichkeit
+              <br />
+              nächste Untersuchung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1653,18 +1849,22 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'weitereAngaben-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Tauglichkeit
-            <br />
-            Hinweise
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Tauglichkeit
+              <br />
+              Hinweise
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
-            {row.weitereAngaben.tauglichkeit.hinweise}
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              {row.weitereAngaben.tauglichkeit.hinweise}
+            </Typography>
+          </Box>
         )
       },
     },
@@ -1678,11 +1878,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'weitereAngaben-cell',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Schulung SMS
-            <br />
-            letzte Schulung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Schulung SMS
+              <br />
+              letzte Schulung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1699,11 +1901,13 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'weitereAngaben-cell border-right',
       renderHeader: () => {
         return (
-          <Typography noWrap variant="body2">
-            Schulung SMS
-            <br />
-            nächste Schulung
-          </Typography>
+          <Box className="flex h-full items-center justify-center">
+            <Typography noWrap variant="body2">
+              Schulung SMS
+              <br />
+              nächste Schulung
+            </Typography>
+          </Box>
         )
       },
       renderCell: ({ row }) =>
@@ -1725,19 +1929,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'sprachkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Sprache {index + 1}
-              <br />
-              Bezeichnung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Sprache {index + 1}
+                <br />
+                Bezeichnung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.bezeichnung
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )
@@ -1753,11 +1961,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'sprachkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Sprache {index + 1}
-              <br />
-              Erwerb
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Sprache {index + 1}
+                <br />
+                Erwerb
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1773,11 +1983,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'sprachkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Sprache {index + 1}
-              <br />
-              letzte Überprüfung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Sprache {index + 1}
+                <br />
+                letzte Überprüfung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1795,11 +2007,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'sprachkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Sprache {index + 1}
-              <br />
-              nächste Überprüfung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Sprache {index + 1}
+                <br />
+                nächste Überprüfung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1818,19 +2032,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'sprachkenntnisse-cell border-right',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Sprache {index + 1}
-              <br />
-              Hinweis
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Sprache {index + 1}
+                <br />
+                Hinweis
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.sprachkenntnisse[index]?.hinweise
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )
@@ -1857,19 +2075,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Triebfahrzeug {index + 1}
-              <br />
-              Bezeichnung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Triebfahrzeug {index + 1}
+                <br />
+                Bezeichnung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.bezeichnung
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )
@@ -1885,11 +2107,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Triebfahrzeug {index + 1}
-              <br />
-              Erwerb
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Triebfahrzeug {index + 1}
+                <br />
+                Erwerb
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1905,11 +2129,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Triebfahrzeug {index + 1}
-              <br />
-              letzte Ueberpruefung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Triebfahrzeug {index + 1}
+                <br />
+                letzte Ueberpruefung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1927,11 +2153,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'fahrzeugkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Triebfahrzeug {index + 1}
-              <br />
-              nächste Überpruefung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Triebfahrzeug {index + 1}
+                <br />
+                nächste Überpruefung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -1950,19 +2178,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'fahrzeugkenntnisse-cell border-right',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Triebfahrzeug {index + 1}
-              <br />
-              Hinweise
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Triebfahrzeug {index + 1}
+                <br />
+                Hinweise
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.fahrzeugkenntnisse[index]?.hinweise
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )
@@ -1990,19 +2222,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Infrastruktur {index + 1}
-              <br />
-              Bezeichnung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Infrastruktur {index + 1}
+                <br />
+                Bezeichnung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.bezeichnung
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )
@@ -2019,11 +2255,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Infrastruktur {index + 1}
-              <br />
-              Erwerb
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Infrastruktur {index + 1}
+                <br />
+                Erwerb
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -2040,11 +2278,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Infrastruktur {index + 1}
-              <br />
-              letzte Überpruefung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Infrastruktur {index + 1}
+                <br />
+                letzte Überpruefung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -2063,11 +2303,13 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'infrastrukturkenntnisse-cell',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Infrastruktur {index + 1}
-              <br />
-              nächste Überpruefung
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Infrastruktur {index + 1}
+                <br />
+                nächste Überpruefung
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) =>
@@ -2086,19 +2328,23 @@ export const SupplementaryCertificateTableColumns = (
         cellClassName: 'infrastrukturkenntnisse-cell border-right',
         renderHeader: () => {
           return (
-            <Typography noWrap variant="body2">
-              Infrastruktur {index + 1}
-              <br />
-              Hinweise
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                Infrastruktur {index + 1}
+                <br />
+                Hinweise
+              </Typography>
+            </Box>
           )
         },
         renderCell: ({ row }) => {
           const value = row.infrastrukturkenntnisse[index]?.hinweise
           return value ? (
-            <Typography noWrap variant="body2">
-              {value}
-            </Typography>
+            <Box className="flex h-full items-center justify-center">
+              <Typography noWrap variant="body2">
+                {value}
+              </Typography>
+            </Box>
           ) : (
             ''
           )

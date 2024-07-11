@@ -30,6 +30,7 @@ import {
   vehicle,
 } from '@/app/fakeData/fakeData'
 import { SkillsComponent } from './skillsComponent'
+import { CreatePdf } from './createPdf'
 
 const TransitionDown = forwardRef(function Transition(
   props: TransitionProps & {
@@ -170,6 +171,7 @@ export const UserDialog = ({
 
   return (
     <Box>
+      <CreatePdf />
       <Dialog
         open={openDialog}
         TransitionComponent={TransitionDown}
@@ -221,6 +223,7 @@ export const UserDialog = ({
           <FurtherInformation userData={userData} setUserData={setUserData} />
         </DialogContent>
         <DialogActions>
+          <Button onClick={() => {}}>Drucken</Button>
           <Button onClick={clearDataAndClose}>Abbrechen</Button>
           <Button onClick={handleClose}>Speichern</Button>
         </DialogActions>
