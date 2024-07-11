@@ -335,7 +335,11 @@ export const SupplementaryCertificateTableColumns = (
       cellClassName: 'organisationseinheit-cell border-right',
       renderCell: ({ row }) => {
         return (
-          <Typography noWrap variant="body2">
+          <Typography
+            // className="flex h-full items-center"
+            noWrap
+            variant="body2"
+          >
             {row.ausstellendeOrganisationseinheit.email}
           </Typography>
         )
