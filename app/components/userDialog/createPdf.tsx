@@ -11,9 +11,10 @@ export const CreatePdf = () => {
       // TODO: was macht das?
       keepMounted
       fullWidth
-      maxWidth="xl"
+      maxWidth="lg"
       // onClose={handleClose}
-      aria-describedby="dialog-slide-new"
+      aria-describedby="CreatePdf-dialog"
+      className=""
     >
       <PDFViewer
         width={'90%'}

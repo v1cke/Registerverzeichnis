@@ -22,7 +22,6 @@ export const infrastructure = [
   'Ks',
   'Sv',
   'Sk',
-  // 'GNT',
 ]
 
 export const languages = [
