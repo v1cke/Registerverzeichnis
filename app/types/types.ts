@@ -5,6 +5,107 @@ export type Status =
   | 'entzogen'
   | 'Entwurf'
 
+export type Vehicle = {
+  id: number
+  value: string
+  clusterA: '' | 'D' | 'E' | 'V'
+  clusterB:
+    | ''
+    | 'D'
+    | 'EA'
+    | 'ED'
+    | 'ET'
+    | 'VS'
+    | 'VR'
+    | 'VT'
+    | 'ICE'
+    | 'Stwg'
+    | 'Nfz'
+}
+
+export type Infrastructure = {
+  id: number
+  value:
+    | 'FV-DB'
+    | 'FV-NE'
+    | 'ZLB'
+    | 'SZB'
+    | 'Steilstreckenbetrieb'
+    | 'PZB'
+    | 'LZB'
+    | 'LZB CE'
+    | 'GNT'
+    | 'FFB'
+    | 'ETCS Stufe 1'
+    | 'ETCS Stufe 2'
+    | 'ETCS Stufe 3'
+    | 'ZBS'
+    | 'H/V'
+    | 'Hl'
+    | 'Ks'
+    | 'Sv'
+    | 'Sk'
+}
+
+export type Language = {
+  id: number
+  value:
+    | 'Deutsch'
+    | 'Englisch'
+    | 'Französisch'
+    | 'Spanisch'
+    | 'Italienisch'
+    | 'Niederländisch'
+    | 'Portugiesisch'
+    | 'Russisch'
+    | 'Chinesisch'
+    | 'Japanisch'
+    | 'Koreanisch'
+    | 'Arabisch'
+    | 'Türkisch'
+    | 'Hindi'
+    | 'Bengalisch'
+    | 'Punjabi'
+    | 'Urdu'
+    | 'Vietnamesisch'
+    | 'Persisch'
+    | 'Thai'
+    | 'Griechisch'
+    | 'Schwedisch'
+    | 'Norwegisch'
+    | 'Dänisch'
+    | 'Finnisch'
+    | 'Ungarisch'
+    | 'Tschechisch'
+    | 'Slowakisch'
+    | 'Polnisch'
+    | 'Rumänisch'
+    | 'Bulgarisch'
+    | 'Serbisch'
+    | 'Kroatisch'
+    | 'Slowenisch'
+    | 'Litauisch'
+    | 'Lettisch'
+    | 'Estnisch'
+    | 'Maltesisch'
+    | 'Isländisch'
+    | 'Irisch'
+    | 'Walisisch'
+    | 'Schottisch-Gälisch'
+    | 'Hebräisch'
+    | 'Jiddisch'
+    | 'Afrikaans'
+    | 'Swahili'
+    | 'Zulu'
+    | 'Xhosa'
+    | 'Igbo'
+    | 'Yoruba'
+    | 'Hausa'
+    | 'Amharisch'
+    | 'Somali'
+    | 'Madagassisch'
+}
+
 type Fuehrerschein = {
   fuehrerscheinNummer: string
   status: Status

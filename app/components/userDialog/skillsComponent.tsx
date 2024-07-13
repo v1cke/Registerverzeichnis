@@ -1,5 +1,11 @@
 import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
-import { Kenntnisse, Person } from '@/app/types/types'
+import {
+  Infrastructure,
+  Kenntnisse,
+  Language,
+  Person,
+  Vehicle,
+} from '@/app/types/types'
 import {
   Box,
   Button,
@@ -49,7 +55,7 @@ interface SkillsComponentProps {
   setUserData: Dispatch<SetStateAction<Person>>
   label: string
   labelNumber: number
-  selectableSkills: string[]
+  selectableSkills: Vehicle[] | Infrastructure[] | Language[]
   skillKey:
     | 'sprachkenntnisse'
     | 'fahrzeugkenntnisse'
@@ -107,10 +113,12 @@ export const SkillsComponent = ({
   const options = selectableSkills
     .filter(
       (item) =>
-        !userData[skillKey].some((kenntnis) => kenntnis.bezeichnung === item),
+        !userData[skillKey].some(
+          (kenntnis) => kenntnis.bezeichnung === item.value,
+        ),
     )
     .map((item) => ({
-      value: item,
+      value: item.value,
     }))
 
   return (
@@ -147,7 +155,11 @@ export const SkillsComponent = ({
             onClick={() => {
               handleNewSkillClose()
               // TODO: DB speichern
-              selectableSkills.push(newCreateSkill)
+
+              if (skillKey === 'fahrzeugkenntnisse') {
+              }
+
+              // selectableSkills.push({id: -1, value: newCreateSkill})
               setNewCreateSkill('')
             }}
           >

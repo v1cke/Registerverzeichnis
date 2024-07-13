@@ -247,18 +247,18 @@ export const DetailsOfHolder = ({
       </Grid>
       <Grid container spacing={2} className="mt-2">
         <Grid item xs={12} sm={6} lg={6} className="flex justify-center">
-          <Box width="100%">
+          {/* <Box width="100%">
             <DialogContentText gutterBottom>Unterschrift</DialogContentText>
             <ImageUpload
               onImageUpload={(file) => handleImageUpload('unterschrift', file)}
               imageSrc={userData.bilder.unterschrift}
             />
-          </Box>
+          </Box> */}
           {/* TODO: vorbereitet für Unterschrifts Feld */}
-          {/* <SignatureInput
+          <SignatureInput
             onSignatureChange={handleSignatureChange}
             signatureSrc={userData.bilder.unterschrift}
-          /> */}
+          />
         </Grid>
         <Grid item xs={12} sm={6} lg={6} className="flex justify-center">
           <Box width="100%">
