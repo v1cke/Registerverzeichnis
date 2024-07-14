@@ -1,26 +1,34 @@
-export type Status =
+export type FuehrerscheinStatus = 'gültig' | 'ausgesetzt' | 'entzogen'
+
+export type ZusatzbescheinigungStatus =
   | 'gültig'
-  | 'ungültig'
-  | 'abgelaufen'
+  | 'verloren'
+  | 'entwendet'
+  | 'zerstört'
+  | 'ausgesetzt'
   | 'entzogen'
   | 'Entwurf'
+
+export type ClusterA = '' | 'D' | 'E' | 'V'
+
+export type ClusterB =
+  | ''
+  | 'D'
+  | 'EA'
+  | 'ED'
+  | 'ET'
+  | 'VS'
+  | 'VR'
+  | 'VT'
+  | 'ICE'
+  | 'Stwg'
+  | 'Nfz'
 
 export type Vehicle = {
   id: number
   value: string
-  clusterA: '' | 'D' | 'E' | 'V'
-  clusterB:
-    | ''
-    | 'D'
-    | 'EA'
-    | 'ED'
-    | 'ET'
-    | 'VS'
-    | 'VR'
-    | 'VT'
-    | 'ICE'
-    | 'Stwg'
-    | 'Nfz'
+  clusterA: ClusterA
+  clusterB: ClusterB
 }
 
 export type Infrastructure = {
@@ -108,7 +116,7 @@ export type Language = {
 
 type Fuehrerschein = {
   fuehrerscheinNummer: string
-  status: Status
+  status: FuehrerscheinStatus
 }
 
 type Inhaber = {
@@ -121,7 +129,7 @@ type Inhaber = {
 
 type Zusatzbescheinigung = {
   nummer: number
-  status: Status
+  status: ZusatzbescheinigungStatus
   ausstellungsDatum?: Date
   ablaufGueltigkeit?: Date
   unbefristet: boolean
@@ -151,7 +159,7 @@ type VerantwortlichesUnternehmen = {
   telefon: string
   fax: string
   email: string
-  unternehmensKategorie: string
+  unternehmensKategorie: 'Verkehrsunternehmen' | 'Infrastrukturunternehmen'
   arbeitsort: string
 }
 

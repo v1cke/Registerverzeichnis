@@ -55,24 +55,22 @@ const styles = StyleSheet.create({
     fontSize: 7,
     textAlign: 'justify',
     paddingBottom: 3.5,
-    // marginBottom: 1.5,
     marginTop: 3,
     borderBottom: '1px solid green',
   },
-  inputField: {
-    marginBottom: 10,
-  },
-  inputLabel: {
-    fontWeight: 'bold',
-  },
-  table: {
-    // display: 'table',
-    width: 'auto',
-    marginBottom: 10,
-  },
-  tableRow: {
-    flexDirection: 'row',
-  },
+  // inputField: {
+  //   marginBottom: 10,
+  // },
+  // inputLabel: {
+  //   fontWeight: 'bold',
+  // },
+  // table: {
+  //   width: 'auto',
+  //   marginBottom: 10,
+  // },
+  // tableRow: {
+  //   flexDirection: 'row',
+  // },
   tableCol: {
     width: '100%',
     paddingLeft: '2px',
@@ -94,10 +92,10 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: '0px 3px',
   },
-  tableCell: {
-    textAlign: 'left',
-  },
-  vehicleData: { display: 'flex', flexDirection: 'row', gap: 5 },
+  // tableCell: {
+  //   textAlign: 'left',
+  // },
+  skillData: { display: 'flex', flexDirection: 'row', gap: 5 },
   klasse: {
     display: 'flex',
     textAlign: 'center',
@@ -192,6 +190,13 @@ export const SupplementaryCertificate = ({
     return dateString.charAt(position - 1)
   }
 
+  const getCharacter = (
+    position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+    stringInput: string,
+  ) => {
+    return stringInput.charAt(position - 1)
+  }
+
   return (
     <Document>
       <Page orientation="landscape" size="A5" style={styles.page}>
@@ -278,50 +283,21 @@ export const SupplementaryCertificate = ({
               <Text style={{ width: '25%', fontSize: 6 }}>Sprache</Text>
               <Text style={{ width: '55%', fontSize: 6 }}>Hinweis</Text>
             </View>
-            <View style={styles.dottedInput}>
-              <Text style={{ color: 'black', width: '20%', fontSize: 6 }}>
-                {formatDate(userData.sprachkenntnisse.at(0)?.erwerb)}
-              </Text>
-              <Text style={{ color: 'black', width: '25%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(0)?.bezeichnung ?? ''}
-              </Text>
-              <Text style={{ color: 'black', width: '55%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(0)?.hinweise ?? ''}
-              </Text>
-            </View>
-            <View style={styles.dottedInput}>
-              <Text style={{ color: 'black', width: '20%', fontSize: 6 }}>
-                {formatDate(userData.sprachkenntnisse.at(1)?.erwerb)}
-              </Text>
-              <Text style={{ color: 'black', width: '25%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(1)?.bezeichnung ?? ''}
-              </Text>
-              <Text style={{ color: 'black', width: '55%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(1)?.hinweise ?? ''}
-              </Text>
-            </View>
-            <View style={styles.dottedInput}>
-              <Text style={{ color: 'black', width: '20%', fontSize: 6 }}>
-                {formatDate(userData.sprachkenntnisse.at(2)?.erwerb)}
-              </Text>
-              <Text style={{ color: 'black', width: '25%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(2)?.bezeichnung ?? ''}
-              </Text>
-              <Text style={{ color: 'black', width: '55%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(2)?.hinweise ?? ''}
-              </Text>
-            </View>
-            <View style={styles.dottedInput}>
-              <Text style={{ color: 'black', width: '20%', fontSize: 6 }}>
-                {formatDate(userData.sprachkenntnisse.at(3)?.erwerb)}
-              </Text>
-              <Text style={{ color: 'black', width: '25%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(3)?.bezeichnung ?? ''}
-              </Text>
-              <Text style={{ color: 'black', width: '55%', fontSize: 6 }}>
-                {userData.sprachkenntnisse.at(3)?.hinweise ?? ''}
-              </Text>
-            </View>
+
+            {Array.from({ length: 4 }).map((_, index) => (
+              <View key={index} style={styles.dottedInput}>
+                <Text style={{ color: 'black', width: '20%', fontSize: 6 }}>
+                  {formatDate(userData.sprachkenntnisse.at(index)?.erwerb)}
+                </Text>
+                <Text style={{ color: 'black', width: '25%', fontSize: 6 }}>
+                  {userData.sprachkenntnisse.at(index)?.bezeichnung ?? ''}
+                </Text>
+                <Text style={{ color: 'black', width: '55%', fontSize: 6 }}>
+                  {userData.sprachkenntnisse.at(index)?.hinweise ?? ''}
+                </Text>
+              </View>
+            ))}
+
             <Text style={styles.header}>6. Einschränkungen</Text>
             <Text style={styles.text}>{userData.einschraenkungen.zelle1}</Text>
             <Text style={styles.text}>{userData.einschraenkungen.zelle2}</Text>
@@ -337,7 +313,7 @@ export const SupplementaryCertificate = ({
               <Text
                 style={{ width: '100%', color: 'black', textAlign: 'center' }}
               >
-                Weser Ems Eisenbahn Gmbh
+                {userData.verantwortlichesUnternehmen.bezeichnung}
               </Text>
             </View>
             <Text style={{ textAlign: 'center' }}>Name des Unternehmens</Text>
@@ -362,14 +338,21 @@ export const SupplementaryCertificate = ({
                 </Text>
                 <Text
                   style={{
-                    padding: '1px 1px 1px 2.5px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    paddingTop: 1,
                     width: '10px',
                     height: '10px',
                     border: '1px solid green',
                     color: 'black',
                   }}
                 >
-                  X
+                  {userData.verantwortlichesUnternehmen
+                    .unternehmensKategorie === 'Verkehrsunternehmen'
+                    ? 'X'
+                    : ''}
                 </Text>
               </View>
               <View
@@ -383,27 +366,42 @@ export const SupplementaryCertificate = ({
                 <Text style={{ fontSize: 6.5 }}>Infrastrukturunternehmen</Text>
                 <Text
                   style={{
-                    padding: '1px 1px 1px 2.5px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    paddingTop: 1,
                     width: '10px',
                     height: '10px',
                     border: '1px solid green',
                     color: 'black',
                   }}
-                ></Text>
+                >
+                  {userData.verantwortlichesUnternehmen
+                    .unternehmensKategorie === 'Infrastrukturunternehmen'
+                    ? 'X'
+                    : ''}
+                </Text>
               </View>
             </View>
-            <Text style={styles.dottedInputWithPadding}>BA ITX</Text>
+            <Text style={styles.dottedInputWithPadding}>
+              {userData.verantwortlichesUnternehmen.arbeitsort}
+            </Text>
             <Text style={{ paddingLeft: '4px' }}>Arbeitsort</Text>
             <Text style={styles.dottedInputWithPadding}>
-              Franz-Lenz-Straße 1
+              {userData.verantwortlichesUnternehmen.strasseUndNummer}
             </Text>
             <Text style={{ paddingLeft: '4px' }}>Postanschrift</Text>
             <Text style={styles.dottedInputWithPadding}>
-              49084 Osnabrück - Deutschland
+              {userData.verantwortlichesUnternehmen.plz}{' '}
+              {userData.verantwortlichesUnternehmen.ort} -{' '}
+              {userData.verantwortlichesUnternehmen.land}
             </Text>
             <Text style={{ paddingLeft: '4px' }}>Ort/Land</Text>
             <Text style={styles.header}>2. Angaben zum Inhaber</Text>
-            <Text style={styles.dottedInputWithPadding}>Dessau</Text>
+            <Text style={styles.dottedInputWithPadding}>
+              {userData.inhaber.geburtsort}
+            </Text>
             <Text style={{ paddingLeft: '4px' }}>Geburtsort</Text>
             <View
               style={{
@@ -417,20 +415,38 @@ export const SupplementaryCertificate = ({
             >
               <Text style={{}}>Geburtsdatum</Text>
               <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>2</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(1, userData.inhaber.geburtstag)}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(2, userData.inhaber.geburtstag)}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(3, userData.inhaber.geburtstag)}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(4, userData.inhaber.geburtstag)}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>3</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(5, userData.inhaber.geburtstag)}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(6, userData.inhaber.geburtstag)}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>3</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(7, userData.inhaber.geburtstag)}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(8, userData.inhaber.geburtstag)}
+                </Text>
               </View>
             </View>
 
-            <Text style={styles.dottedInputWithPadding}>Deutsch</Text>
+            <Text style={styles.dottedInputWithPadding}>
+              {userData.inhaber.staatsangehoerigkeit}
+            </Text>
             <Text style={{ paddingLeft: '4px' }}>Staatsangehörigkeit</Text>
 
             <View style={{ display: 'flex', flexDirection: 'row', gap: '3px' }}>
@@ -451,7 +467,7 @@ export const SupplementaryCertificate = ({
                     textAlign: 'center',
                   }}
                 >
-                  {/* Image */}
+                  {/* TODO: Unterschrieft Image umwandeln */}
                   <Image
                     style={{ height: 'auto', width: '90%' }}
                     src={'/testImages/unterschrift.png'}
@@ -482,7 +498,7 @@ export const SupplementaryCertificate = ({
                   alignItems: 'center',
                 }}
               >
-                {/* Image */}
+                {/* TODO: Lichtbild Image umwandeln  */}
                 <Image
                   style={{ height: 'auto', width: '90%' }}
                   src={'/testImages/testImage.png'}
@@ -563,26 +579,43 @@ export const SupplementaryCertificate = ({
                 paddingBottom: '3px',
               }}
             >
-              <Text style={styles.block}>D</Text>
-              <Text style={styles.block}>E</Text>
-              <Text style={styles.block}>7</Text>
-              <Text style={styles.block}>1</Text>
-              <Text style={styles.block}>2</Text>
-              <Text style={styles.block}>0</Text>
-              <Text style={styles.block}>2</Text>
-              <Text style={styles.block}>2</Text>
-              <Text style={styles.block}>1</Text>
-              <Text style={styles.block}>2</Text>
-              <Text style={styles.block}>7</Text>
-              <Text style={styles.block}>6</Text>
+              <Text style={styles.block}>
+                {getCharacter(1, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(2, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(3, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(4, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(5, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(6, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(7, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(8, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(9, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(10, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(11, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
+              <Text style={styles.block}>
+                {getCharacter(12, userData.fuehrerschein.fuehrerscheinNummer)}
+              </Text>
             </View>
-            {/* <Text
-              style={{
-                borderBottom: '1px solid green',
-                marginTop: '3px',
-                // marginBottom: '3px',
-              }}
-            /> */}
             <Text style={styles.header}>Zusatzbescheinigung</Text>
             <Text style={styles.description}>
               für die Infrastruktur, auf der der Triebfahrzeugführer fahren
@@ -600,7 +633,7 @@ export const SupplementaryCertificate = ({
                 textAlign: 'center',
               }}
             >
-              Becker
+              {userData.inhaber.name}
             </Text>
             <Text style={{ textAlign: 'center' }}>Name</Text>
             <Text
@@ -612,7 +645,7 @@ export const SupplementaryCertificate = ({
                 textAlign: 'center',
               }}
             >
-              Florian
+              {userData.inhaber.vorname}
             </Text>
             <Text style={{ textAlign: 'center' }}>Vorname</Text>
 
@@ -628,16 +661,56 @@ export const SupplementaryCertificate = ({
             >
               <Text style={{ fontSize: 5 }}>Ausstellungsdatum</Text>
               <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>4</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    1,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    2,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    3,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    4,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>5</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    5,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    6,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>8</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    7,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    8,
+                    userData.zusatzbescheinigung.ausstellungsDatum,
+                  )}
+                </Text>
               </View>
             </View>
 
@@ -653,28 +726,70 @@ export const SupplementaryCertificate = ({
             >
               <Text style={{ fontSize: 5 }}>Ablauf der Gültigkeit</Text>
               <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>2</Text>
-                <Text style={styles.block}>7</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    1,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    2,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    3,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    4,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>6</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    5,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    6,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
                 <Text style={styles.blockStroke}>-</Text>
-                <Text style={styles.block}>0</Text>
-                <Text style={styles.block}>7</Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    7,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
+                <Text style={styles.block}>
+                  {getDateCharacter(
+                    8,
+                    userData.zusatzbescheinigung.ablaufGueltigkeit,
+                  )}
+                </Text>
               </View>
             </View>
 
             <Text style={styles.dottedInputWithPadding}>
-              Weser Ems Eisenbahn GmbH
+              {userData.ausstellendeOrganisationseinheit.bezeichnung}
             </Text>
             <Text style={{ paddingLeft: '4px' }}>
               Ausstellende Oranisationseinheit
             </Text>
 
             <Text style={styles.dottedInputWithPadding}>
-              Franz-Lenz-Straße 1 - 49084 Osnabrück
+              {userData.ausstellendeOrganisationseinheit.strasseUndNummer} -{' '}
+              {userData.ausstellendeOrganisationseinheit.plz}{' '}
+              {userData.ausstellendeOrganisationseinheit.ort}
             </Text>
             <Text style={{ paddingLeft: '4px', fontSize: 5 }}>
               Postanschrift
@@ -703,7 +818,7 @@ export const SupplementaryCertificate = ({
                       color: 'black',
                     }}
                   >
-                    1
+                    {userData.zusatzbescheinigung.nummer}
                   </Text>
                 </View>
               </View>
@@ -740,10 +855,16 @@ export const SupplementaryCertificate = ({
             </View>
 
             {Array.from({ length: 15 }).map((_, index) => (
-              <View key={index} style={styles.vehicleData}>
-                <Text style={styles.data30}></Text>
-                <Text style={styles.data40}></Text>
-                <Text style={styles.data30}></Text>
+              <View key={index} style={styles.skillData}>
+                <Text style={styles.data30}>
+                  {formatDate(userData.fahrzeugkenntnisse.at(index)?.erwerb)}
+                </Text>
+                <Text style={styles.data40}>
+                  {userData.fahrzeugkenntnisse.at(index)?.bezeichnung ?? ''}
+                </Text>
+                <Text style={styles.data30}>
+                  {userData.fahrzeugkenntnisse.at(index)?.hinweise ?? ''}
+                </Text>
               </View>
             ))}
           </View>
@@ -761,10 +882,19 @@ export const SupplementaryCertificate = ({
               <Text style={{ width: '30%' }}>Hinweis</Text>
             </View>
             {Array.from({ length: 15 }).map((_, index) => (
-              <View key={index} style={styles.vehicleData}>
-                <Text style={styles.data30}></Text>
-                <Text style={styles.data40}></Text>
-                <Text style={styles.data30}></Text>
+              <View key={index} style={styles.skillData}>
+                <Text style={styles.data30}>
+                  {formatDate(
+                    userData.infrastrukturkenntnisse.at(index)?.erwerb,
+                  )}
+                </Text>
+                <Text style={styles.data40}>
+                  {userData.infrastrukturkenntnisse.at(index)?.bezeichnung ??
+                    ''}
+                </Text>
+                <Text style={styles.data30}>
+                  {userData.infrastrukturkenntnisse.at(index)?.hinweise ?? ''}
+                </Text>
               </View>
             ))}
           </View>
@@ -783,10 +913,20 @@ export const SupplementaryCertificate = ({
             </View>
 
             {Array.from({ length: 15 }).map((_, index) => (
-              <View key={index} style={styles.vehicleData}>
-                <Text style={styles.data30}></Text>
-                <Text style={styles.data40}></Text>
-                <Text style={styles.data30}></Text>
+              <View key={index} style={styles.skillData}>
+                <Text style={styles.data30}>
+                  {formatDate(
+                    userData.infrastrukturkenntnisse.at(index + 15)?.erwerb,
+                  )}
+                </Text>
+                <Text style={styles.data40}>
+                  {userData.infrastrukturkenntnisse.at(index + 15)
+                    ?.bezeichnung ?? ''}
+                </Text>
+                <Text style={styles.data30}>
+                  {userData.infrastrukturkenntnisse.at(index + 15)?.hinweise ??
+                    ''}
+                </Text>
               </View>
             ))}
           </View>

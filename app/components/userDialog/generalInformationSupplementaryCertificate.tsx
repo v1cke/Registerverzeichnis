@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { Person, Status } from '@/app/types/types'
+import { Person, ZusatzbescheinigungStatus } from '@/app/types/types'
 import {
   Box,
   Checkbox,
@@ -36,15 +36,18 @@ export const GeneralInformationSupplementaryCertificate = ({
             id="Nummer des Triebfahrzeugführerscheins"
             label="Nummer des Triebfahrzeugführerscheins"
             value={userData.fuehrerschein.fuehrerscheinNummer}
-            onChange={(event) =>
+            onChange={(event) => {
+              const inputValue = event.target.value
+              const transformedValue =
+                inputValue.slice(0, 2).toUpperCase() + inputValue.slice(2)
               setUserData((prev) => ({
                 ...prev,
                 fuehrerschein: {
                   ...prev.fuehrerschein,
-                  fuehrerscheinNummer: event.target.value,
+                  fuehrerscheinNummer: transformedValue,
                 },
               }))
-            }
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={6} lg={1.5} className="flex justify-center">
@@ -92,7 +95,7 @@ export const GeneralInformationSupplementaryCertificate = ({
                   ...prev,
                   zusatzbescheinigung: {
                     ...prev.zusatzbescheinigung,
-                    status: event.target.value as Status,
+                    status: event.target.value as ZusatzbescheinigungStatus,
                   },
                 }))
               }

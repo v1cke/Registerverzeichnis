@@ -153,7 +153,7 @@ export const fakeData: Person[] = [
   {
     id: 1,
     fuehrerschein: {
-      fuehrerscheinNummer: '0',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -164,8 +164,10 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 0,
+      nummer: 1,
       status: 'gültig',
+      ausstellungsDatum: new Date('2024-01-01'),
+      ablaufGueltigkeit: new Date('2027-01-01'),
       unbefristet: false,
     },
     ausstellendeOrganisationseinheit: {
@@ -190,7 +192,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma.de',
-      unternehmensKategorie: 'Dienstleistungen',
+      unternehmensKategorie: 'Verkehrsunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -314,8 +316,8 @@ export const fakeData: Person[] = [
   {
     id: 2,
     fuehrerschein: {
-      fuehrerscheinNummer: '1',
-      status: 'ungültig',
+      fuehrerscheinNummer: 'DE1234567890',
+      status: 'gültig',
     },
     inhaber: {
       name: 'Müller',
@@ -325,8 +327,8 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 1,
-      status: 'abgelaufen',
+      nummer: 2,
+      status: 'gültig',
       unbefristet: false,
       ausstellungsDatum: new Date('2020-01-01'),
       ablaufGueltigkeit: new Date('2021-01-01'),
@@ -353,7 +355,7 @@ export const fakeData: Person[] = [
       telefon: '01234-98765',
       fax: '01234-56789',
       email: 'info@musterfirma-logistik.de',
-      unternehmensKategorie: 'Logistik',
+      unternehmensKategorie: 'Verkehrsunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -477,7 +479,7 @@ export const fakeData: Person[] = [
   {
     id: 3,
     fuehrerschein: {
-      fuehrerscheinNummer: '2',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -488,7 +490,7 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 2,
+      nummer: 3,
       status: 'Entwurf',
       unbefristet: false,
     },
@@ -514,7 +516,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma-bau.de',
-      unternehmensKategorie: 'Bauwesen',
+      unternehmensKategorie: 'Verkehrsunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -638,7 +640,7 @@ export const fakeData: Person[] = [
   {
     id: 4,
     fuehrerschein: {
-      fuehrerscheinNummer: '3',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -649,7 +651,7 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 3,
+      nummer: 4,
       status: 'gültig',
       unbefristet: false,
     },
@@ -675,7 +677,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma.de',
-      unternehmensKategorie: 'Dienstleistungen',
+      unternehmensKategorie: 'Verkehrsunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -799,8 +801,8 @@ export const fakeData: Person[] = [
   {
     id: 5,
     fuehrerschein: {
-      fuehrerscheinNummer: '4',
-      status: 'ungültig',
+      fuehrerscheinNummer: 'DE1234567890',
+      status: 'gültig',
     },
     inhaber: {
       name: 'Müller',
@@ -810,8 +812,8 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 4,
-      status: 'abgelaufen',
+      nummer: 1,
+      status: 'gültig',
       unbefristet: false,
       ausstellungsDatum: new Date('2020-01-01'),
       ablaufGueltigkeit: new Date('2021-01-01'),
@@ -838,7 +840,7 @@ export const fakeData: Person[] = [
       telefon: '01234-98765',
       fax: '01234-56789',
       email: 'info@musterfirma-logistik.de',
-      unternehmensKategorie: 'Logistik',
+      unternehmensKategorie: 'Infrastrukturunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -962,7 +964,7 @@ export const fakeData: Person[] = [
   {
     id: 6,
     fuehrerschein: {
-      fuehrerscheinNummer: '0',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -973,7 +975,7 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 0,
+      nummer: 2,
       status: 'Entwurf',
       unbefristet: false,
     },
@@ -999,7 +1001,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma-bau.de',
-      unternehmensKategorie: 'Bauwesen',
+      unternehmensKategorie: 'Infrastrukturunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -1123,7 +1125,7 @@ export const fakeData: Person[] = [
   {
     id: 7,
     fuehrerschein: {
-      fuehrerscheinNummer: '1',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -1134,7 +1136,7 @@ export const fakeData: Person[] = [
       staatsangehoerigkeit: 'Deutsch',
     },
     zusatzbescheinigung: {
-      nummer: 1,
+      nummer: 3,
       status: 'gültig',
       unbefristet: false,
     },
@@ -1160,7 +1162,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma.de',
-      unternehmensKategorie: 'Dienstleistungen',
+      unternehmensKategorie: 'Infrastrukturunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -1284,8 +1286,8 @@ export const fakeData: Person[] = [
   {
     id: 8,
     fuehrerschein: {
-      fuehrerscheinNummer: '2',
-      status: 'ungültig',
+      fuehrerscheinNummer: 'DE1234567890',
+      status: 'gültig',
     },
     inhaber: {
       name: 'Müller',
@@ -1296,7 +1298,7 @@ export const fakeData: Person[] = [
     },
     zusatzbescheinigung: {
       nummer: 2,
-      status: 'abgelaufen',
+      status: 'gültig',
       unbefristet: false,
       ausstellungsDatum: new Date('2020-01-01'),
       ablaufGueltigkeit: new Date('2021-01-01'),
@@ -1323,7 +1325,7 @@ export const fakeData: Person[] = [
       telefon: '01234-98765',
       fax: '01234-56789',
       email: 'info@musterfirma-logistik.de',
-      unternehmensKategorie: 'Logistik',
+      unternehmensKategorie: 'Infrastrukturunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {
@@ -1447,7 +1449,7 @@ export const fakeData: Person[] = [
   {
     id: 9,
     fuehrerschein: {
-      fuehrerscheinNummer: '3',
+      fuehrerscheinNummer: 'DE1234567890',
       status: 'gültig',
     },
     inhaber: {
@@ -1484,7 +1486,7 @@ export const fakeData: Person[] = [
       telefon: '09876-54321',
       fax: '01234-56789',
       email: 'info@musterfirma-bau.de',
-      unternehmensKategorie: 'Bauwesen',
+      unternehmensKategorie: 'Verkehrsunternehmen',
       arbeitsort: 'Musterstadt',
     },
     klasse: {

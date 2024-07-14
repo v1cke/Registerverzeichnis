@@ -15,7 +15,11 @@ import {
   Slide,
 } from '@mui/material'
 import { TransitionProps } from '@mui/material/transitions'
-import { Person, Status } from '@/app/types/types'
+import {
+  FuehrerscheinStatus,
+  Person,
+  ZusatzbescheinigungStatus,
+} from '@/app/types/types'
 import { GeneralInformationSupplementaryCertificate } from './generalInformationSupplementaryCertificate'
 import { DetailsOfEmployer } from './detailsOfEmployer'
 import { DetailsOfHolder } from './detailsOfHolder'
@@ -41,11 +45,11 @@ const TransitionDown = forwardRef(function Transition(
   return <Slide direction="down" ref={ref} {...props} />
 })
 
-const defaultPerson = {
+const defaultPerson: Person = {
   id: -1,
   fuehrerschein: {
     fuehrerscheinNummer: '',
-    status: 'gültig' as Status,
+    status: 'gültig' as FuehrerscheinStatus,
   },
   inhaber: {
     name: '',
@@ -56,7 +60,7 @@ const defaultPerson = {
   },
   zusatzbescheinigung: {
     nummer: 0,
-    status: 'Entwurf' as Status,
+    status: 'Entwurf' as ZusatzbescheinigungStatus,
     ausstellungsDatum: undefined,
     ablaufGueltigkeit: undefined,
     unbefristet: false,
@@ -152,6 +156,7 @@ export const UserDialog = ({
   setSetselectedColumnId,
 }: UserDialogProps) => {
   const [userData, setUserData] = useState<Person>({ ...defaultPerson })
+  const [openPdf, setOpenPdf] = useState(false)
 
   const handleClose = () => {
     setOpenDialog(false)
@@ -171,16 +176,20 @@ export const UserDialog = ({
 
   return (
     <Box>
-      <CreatePdf />
+      <CreatePdf
+        openPdf={openPdf}
+        setOpenPdf={setOpenPdf}
+        userData={userData}
+      />
       <Dialog
         open={openDialog}
         TransitionComponent={TransitionDown}
-        // TODO: was macht das?
         keepMounted
         fullWidth
         maxWidth="xl"
         onClose={handleClose}
         aria-describedby="dialog-slide-new"
+        className="z-10"
       >
         <DialogTitle>Zusatzbescheinigung</DialogTitle>
         <DialogContent className="flex flex-col gap-4">
@@ -223,9 +232,10 @@ export const UserDialog = ({
           <FurtherInformation userData={userData} setUserData={setUserData} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => {}}>Drucken</Button>
+          <Button onClick={() => setOpenPdf(true)}>Drucken</Button>
           <Button onClick={clearDataAndClose}>Abbrechen</Button>
-          <Button onClick={handleClose}>Speichern</Button>
+          {/* TODO: DB speichern! */}
+          <Button onClick={clearDataAndClose}>Speichern</Button>
         </DialogActions>
       </Dialog>
       <Button

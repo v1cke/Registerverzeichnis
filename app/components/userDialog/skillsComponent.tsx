@@ -1,4 +1,4 @@
-import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import {
   Infrastructure,
   Kenntnisse,
@@ -6,23 +6,14 @@ import {
   Person,
   Vehicle,
 } from '@/app/types/types'
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Grid,
-  Slide,
-  TextField,
-} from '@mui/material'
+import { Box, Button, DialogContentText, Grid, TextField } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { skillsColumns } from './skillsColumns'
 import { formatDate } from './userDialog'
 import { AutoCompleteInput } from './autoCompleteInput'
-import { TransitionProps } from '@mui/material/transitions'
+import { CreateSkillDialog } from './createSkillDialog'
+import { EditSkillDialog } from './editSkillDialog'
+import { CreateVehicleSkillDialog } from './createVehicleSkillDialog'
 
 export const defaultKenntnisse: Kenntnisse = {
   bezeichnung: '',
@@ -32,83 +23,39 @@ export const defaultKenntnisse: Kenntnisse = {
   hinweise: '',
 }
 
-export const TransitionRight = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="right" ref={ref} {...props} />
-})
+type SkillKey =
+  | 'sprachkenntnisse'
+  | 'fahrzeugkenntnisse'
+  | 'infrastrukturkenntnisse'
 
-export const TransitionLeft = forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction="left" ref={ref} {...props} />
-})
+type SelectableSkillsMap = {
+  sprachkenntnisse: Language[]
+  fahrzeugkenntnisse: Vehicle[]
+  infrastrukturkenntnisse: Infrastructure[]
+}
 
-interface SkillsComponentProps {
+interface SkillsComponentProps<K extends SkillKey> {
   userData: Person
   setUserData: Dispatch<SetStateAction<Person>>
   label: string
   labelNumber: number
-  selectableSkills: Vehicle[] | Infrastructure[] | Language[]
-  skillKey:
-    | 'sprachkenntnisse'
-    | 'fahrzeugkenntnisse'
-    | 'infrastrukturkenntnisse'
+  selectableSkills: SelectableSkillsMap[K]
+  skillKey: K
 }
 
-export const SkillsComponent = ({
+export const SkillsComponent = <K extends SkillKey>({
   userData,
   setUserData,
   label,
   labelNumber,
   selectableSkills,
   skillKey,
-}: SkillsComponentProps) => {
+}: SkillsComponentProps<K>) => {
   const [newSkill, setNewSkill] = useState<Kenntnisse>({ ...defaultKenntnisse })
   const [openNewSkill, setOpenNewSkill] = useState(false)
   const [openEditSkill, setOpenEditSkill] = useState(false)
-  const [newCreateSkill, setNewCreateSkill] = useState('')
+  const [openNewVehicleSkill, setOpenNewVehicleSkill] = useState(false)
   const [editSkill, setEditSkill] = useState<Kenntnisse>()
-
-  const handleNewSkillClose = () => {
-    setOpenNewSkill(false)
-  }
-
-  const handleEditSkillClose = () => {
-    setOpenEditSkill(false)
-  }
-
-  const saveEditSkill = () => {
-    if (editSkill) {
-      setUserData((prev) => ({
-        ...prev,
-        [skillKey]: prev[skillKey].map((skill) =>
-          skill.bezeichnung === editSkill.bezeichnung
-            ? { ...editSkill }
-            : skill,
-        ),
-      }))
-      handleEditSkillClose()
-    }
-  }
-
-  const deleteSkill = () => {
-    if (editSkill) {
-      setUserData((prev) => ({
-        ...prev,
-        [skillKey]: prev[skillKey].filter(
-          (skill) => skill.bezeichnung !== editSkill.bezeichnung,
-        ),
-      }))
-      handleEditSkillClose()
-    }
-  }
 
   const options = selectableSkills
     .filter(
@@ -123,149 +70,25 @@ export const SkillsComponent = ({
 
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
-      <Dialog
-        open={openNewSkill}
-        TransitionComponent={TransitionRight}
-        keepMounted
-        onClose={handleNewSkillClose}
-        aria-describedby={`Neue ${label}kenntniss Auswahl erstellen`}
-      >
-        <DialogTitle>{`Neue ${label}kenntniss Auswahl erstellen`}</DialogTitle>
-        <DialogContent>
-          <TextField
-            fullWidth
-            className="mt-3"
-            id={`${label}kenntniss Bezeichnung`}
-            label={`${label}kenntniss Bezeichnung`}
-            value={newCreateSkill}
-            onChange={(event) => setNewCreateSkill(event.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={() => {
-              handleNewSkillClose()
-              setNewCreateSkill('')
-            }}
-          >
-            Abbrechen
-          </Button>
-          <Button
-            disabled={!newCreateSkill}
-            onClick={() => {
-              handleNewSkillClose()
-              // TODO: DB speichern
+      <CreateSkillDialog
+        openNewSkill={openNewSkill}
+        setOpenNewSkill={setOpenNewSkill}
+        label={label}
+      />
 
-              if (skillKey === 'fahrzeugkenntnisse') {
-              }
+      <EditSkillDialog
+        openEditSkill={openEditSkill}
+        setOpenEditSkill={setOpenEditSkill}
+        label={label}
+        editSkill={editSkill}
+        setEditSkill={setEditSkill}
+      />
 
-              // selectableSkills.push({id: -1, value: newCreateSkill})
-              setNewCreateSkill('')
-            }}
-          >
-            Speichern
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      <Dialog
-        open={openEditSkill}
-        TransitionComponent={TransitionLeft}
-        keepMounted
-        maxWidth="lg"
-        onClose={handleEditSkillClose}
-        aria-describedby={`Bearbeiten ${label}kenntniss`}
-      >
-        <DialogTitle>{`Bearbeiten ${label}kenntniss`}</DialogTitle>
-        <DialogContent>
-          <Grid container spacing={2} className="mt-2 mb-2">
-            <Grid item xs={12} sm={6} lg={3} className="flex justify-center">
-              <TextField
-                fullWidth
-                id={`Bearbeiten ${label}kenntniss Bezeichnung`}
-                label="Bezeichnung"
-                disabled
-                InputLabelProps={{ shrink: true }}
-                value={editSkill?.bezeichnung}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
-              <TextField
-                fullWidth
-                id={`Bearbeiten ${label}kenntniss Erwerb`}
-                label="Erwerb"
-                type="date"
-                value={formatDate(editSkill?.erwerb)}
-                InputLabelProps={{ shrink: true }}
-                onChange={(event) =>
-                  setEditSkill((prev) => ({
-                    ...prev!,
-                    erwerb: new Date(event.target.value),
-                  }))
-                }
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
-              <TextField
-                fullWidth
-                id={`Bearbeiten ${label}kenntniss letzte Ueberpruefung`}
-                label="letzte Überprüfung"
-                type="date"
-                value={formatDate(editSkill?.letzteUeberpruefung)}
-                InputLabelProps={{ shrink: true }}
-                onChange={(event) =>
-                  setEditSkill((prev) => ({
-                    ...prev!,
-                    letzteUeberpruefung: new Date(event.target.value),
-                  }))
-                }
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={1.9} className="flex justify-center">
-              <TextField
-                fullWidth
-                id={`Bearbeiten ${label}kenntniss naechste Ueberpruefung`}
-                label="nächste Überprüfung"
-                type="date"
-                value={formatDate(editSkill?.naechsteUeberpruefung)}
-                InputLabelProps={{ shrink: true }}
-                onChange={(event) =>
-                  setEditSkill((prev) => ({
-                    ...prev!,
-                    naechsteUeberpruefung: new Date(event.target.value),
-                  }))
-                }
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={3.3} className="flex justify-center">
-              <TextField
-                fullWidth
-                id={`Bearbeiten ${label}kenntniss Hinweise`}
-                label="Hinweise"
-                value={editSkill?.hinweise}
-                InputLabelProps={{ shrink: true }}
-                onChange={(event) =>
-                  setEditSkill((prev) => ({
-                    ...prev!,
-                    hinweise: event.target.value,
-                  }))
-                }
-              />
-            </Grid>
-          </Grid>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={deleteSkill}>Löschen</Button>
-          <Button
-            onClick={() => {
-              handleEditSkillClose()
-            }}
-          >
-            Abbrechen
-          </Button>
-          <Button onClick={saveEditSkill}>Speichern</Button>
-        </DialogActions>
-      </Dialog>
+      <CreateVehicleSkillDialog
+        openNewVehicleSkill={openNewVehicleSkill}
+        setOpenNewVehicleSkill={setOpenNewVehicleSkill}
+        label={label}
+      />
 
       <DialogContentText id={`${label}kenntniss`}>
         {labelNumber}. {label}kenntnisse
@@ -359,7 +182,15 @@ export const SkillsComponent = ({
         </Grid>
         <Box className="flex justify-between">
           <Box>
-            <Button onClick={() => setOpenNewSkill(true)}>
+            <Button
+              onClick={() => {
+                if (skillKey === 'fahrzeugkenntnisse') {
+                  setOpenNewVehicleSkill(true)
+                } else {
+                  setOpenNewSkill(true)
+                }
+              }}
+            >
               weiterer {label}strukturkenntnisse
             </Button>
           </Box>

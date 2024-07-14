@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useRef } from 'react'
-import { Person, Status } from '@/app/types/types'
+import { Person, ZusatzbescheinigungStatus } from '@/app/types/types'
 import {
   Box,
   Button,

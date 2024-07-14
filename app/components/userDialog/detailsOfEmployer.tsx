@@ -166,7 +166,9 @@ export const DetailsOfEmployer = ({
                   ...prev,
                   verantwortlichesUnternehmen: {
                     ...prev.verantwortlichesUnternehmen,
-                    unternehmensKategorie: event.target.value,
+                    unternehmensKategorie: event.target.value as
+                      | 'Verkehrsunternehmen'
+                      | 'Infrastrukturunternehmen',
                   },
                 }))
               }
