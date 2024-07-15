@@ -31,28 +31,6 @@ export const ColumnSelect = ({
   showColumns,
   setShowColumns,
 }: ColumnSelectProps) => {
-  const columnChoices = [
-    { text: 'Füherschein', value: 1 },
-    { text: 'Angaben zum Inhaber', value: 2 },
-    { text: 'Angaben zur Zusatzbescheinigung', value: 3 },
-    { text: 'Ausstellende Organisationseinheit', value: 4 },
-    { text: 'Bilder', value: 5 },
-    { text: 'Verantwortliches Unternehmen', value: 6 },
-    { text: 'Klasse', value: 7 },
-    { text: 'Zusätzliche Angaben', value: 8 },
-    { text: 'Einschränkungen', value: 9 },
-    { text: 'Änderungen', value: 10 },
-    { text: 'Aussetzung', value: 11 },
-    { text: 'Entziehung', value: 12 },
-    { text: 'Als verloren gemeldete Zusatzbescheinigung', value: 13 },
-    { text: 'Als entwendet gemeldete Zusatzbescheinigung', value: 14 },
-    { text: 'Als zerstoert gemeldete Zusatzbescheinigung', value: 15 },
-    { text: 'Weitere Angaben', value: 16 },
-    { text: 'Sprachkenntnisse', value: 17 },
-    { text: 'Fahrzeugkenntnisse', value: 18 },
-    { text: 'Infrastrukturkenntnisse', value: 19 },
-  ]
-
   const handleChange = (event: SelectChangeEvent<number[]>) => {
     const {
       target: { value },
@@ -79,14 +57,14 @@ export const ColumnSelect = ({
         onChange={handleChange}
         input={<OutlinedInput label="Anzeige auswählen" />}
         renderValue={(selected) =>
-          columnChoices
+          showColumns
             .filter((choice) => selected.includes(choice.value))
             .map((choice) => choice.text)
             .join(', ')
         }
         MenuProps={MenuProps}
       >
-        {columnChoices.map((choice) => (
+        {showColumns.map((choice) => (
           <MenuItem key={choice.value} value={choice.value}>
             <Checkbox
               checked={showColumns.some(

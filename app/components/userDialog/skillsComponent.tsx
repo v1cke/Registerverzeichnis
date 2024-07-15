@@ -68,6 +68,16 @@ export const SkillsComponent = <K extends SkillKey>({
       value: item.value,
     }))
 
+  const addThreeYears = (date: string) => {
+    // Neues Datum basierend auf dem Eingabedatum erstellen
+    let newDate = new Date(date)
+
+    // Drei Jahre hinzufügen
+    newDate.setFullYear(newDate.getFullYear() + 3)
+
+    return newDate
+  }
+
   return (
     <Box className="border-2 border-cyan-500 rounded-lg p-2">
       <CreateSkillDialog
@@ -129,6 +139,8 @@ export const SkillsComponent = <K extends SkillKey>({
                 setNewSkill((prev) => ({
                   ...prev,
                   erwerb: new Date(event.target.value),
+                  letzteUeberpruefung: new Date(event.target.value),
+                  naechsteUeberpruefung: addThreeYears(event.target.value),
                 }))
               }
             />
@@ -145,6 +157,7 @@ export const SkillsComponent = <K extends SkillKey>({
                 setNewSkill((prev) => ({
                   ...prev,
                   letzteUeberpruefung: new Date(event.target.value),
+                  naechsteUeberpruefung: addThreeYears(event.target.value),
                 }))
               }
             />
@@ -191,7 +204,7 @@ export const SkillsComponent = <K extends SkillKey>({
                 }
               }}
             >
-              weiterer {label}strukturkenntnisse
+              weiterer {label}kenntnisse
             </Button>
           </Box>
           <Box>

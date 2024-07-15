@@ -146,14 +146,14 @@ interface UserDialogProps {
   openDialog: boolean
   setOpenDialog: Dispatch<SetStateAction<boolean>>
   selectedColumnId?: number
-  setSetselectedColumnId: Dispatch<SetStateAction<number | undefined>>
+  setSelectedColumnId: Dispatch<SetStateAction<number | undefined>>
 }
 
 export const UserDialog = ({
   openDialog,
   setOpenDialog,
   selectedColumnId,
-  setSetselectedColumnId,
+  setSelectedColumnId,
 }: UserDialogProps) => {
   const [userData, setUserData] = useState<Person>({ ...defaultPerson })
   const [openPdf, setOpenPdf] = useState(false)
@@ -165,6 +165,7 @@ export const UserDialog = ({
   const clearDataAndClose = () => {
     setUserData({ ...defaultPerson })
     handleClose()
+    setSelectedColumnId(undefined)
   }
 
   const selectedPerson = fakeData.find((item) => item.id === selectedColumnId)
@@ -242,7 +243,7 @@ export const UserDialog = ({
         variant="contained"
         className="w-32"
         onClick={() => {
-          setSetselectedColumnId(undefined)
+          setSelectedColumnId(undefined)
           setOpenDialog(true)
         }}
       >

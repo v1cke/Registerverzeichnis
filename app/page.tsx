@@ -7,31 +7,23 @@ import { ColumnSelect } from './components/supplementaryCertificateTable/columnS
 import { UserDialog } from './components/userDialog/userDialog'
 import { ViewButtons } from './components/viewButtons/viewButtons'
 
-export type ShowColumns = { selected: boolean; value: number }
+export type ShowColumns = { selected: boolean; value: number; text: string }
 
 export default function Home() {
   const [showColumns, setShowColumns] = useState<ShowColumns[]>([
-    { selected: true, value: 1 },
-    { selected: true, value: 2 },
-    { selected: true, value: 3 },
-    { selected: true, value: 4 },
-    { selected: true, value: 5 },
-    { selected: true, value: 6 },
-    { selected: true, value: 7 },
-    { selected: true, value: 8 },
-    { selected: true, value: 9 },
-    { selected: true, value: 10 },
-    { selected: true, value: 11 },
-    { selected: true, value: 12 },
-    { selected: true, value: 13 },
-    { selected: true, value: 14 },
-    { selected: true, value: 15 },
-    { selected: true, value: 16 },
-    { selected: true, value: 17 },
-    { selected: true, value: 18 },
-    { selected: true, value: 19 },
+    { selected: true, value: 1, text: 'Füherschein' },
+    { selected: true, value: 2, text: 'Zusatzbescheinigung & Organisationen' },
+    { selected: true, value: 3, text: 'Klasse' },
+    { selected: true, value: 4, text: 'Änderungen/Entziehung/Aussetzung' },
+    {
+      selected: true,
+      value: 5,
+      text: 'Verlust Zusatzbescheinigung',
+    },
+    { selected: true, value: 6, text: 'Weitere Angaben' },
+    { selected: true, value: 7, text: 'Kenntnisse' },
   ])
-  const [selectedColumnId, setSetselectedColumnId] = useState<number>()
+  const [selectedColumnId, setSelectedColumnId] = useState<number>()
   const [openDialog, setOpenDialog] = useState(false)
   const [tableView, setTableView] = useState<'activ' | 'draft' | 'history'>(
     'activ',
@@ -44,7 +36,7 @@ export default function Home() {
           openDialog={openDialog}
           setOpenDialog={setOpenDialog}
           selectedColumnId={selectedColumnId}
-          setSetselectedColumnId={setSetselectedColumnId}
+          setSelectedColumnId={setSelectedColumnId}
         />
         <Box className="flex justify-between items-center">
           <ViewButtons tableView={tableView} setTableView={setTableView} />
@@ -57,7 +49,7 @@ export default function Home() {
           showColumns={showColumns}
           setOpenDialog={setOpenDialog}
           tableView={tableView}
-          setSetselectedColumnId={setSetselectedColumnId}
+          setSetselectedColumnId={setSelectedColumnId}
         />
       </Grid>
     </main>

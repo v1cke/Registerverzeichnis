@@ -15,6 +15,9 @@ export const formatDateToGermanLocale = (date?: Date) => {
 
 export const SupplementaryCertificateTableColumns = (
   showColumns: ShowColumns[],
+  maxLanguageSkillLength: number,
+  maxVehicleSkillLength: number,
+  maxInfrastructureSkillLength: number,
 ): GridColDef<Person>[] => {
   const nameColumns: GridColDef<Person>[] = [
     {
@@ -2059,7 +2062,7 @@ export const SupplementaryCertificateTableColumns = (
   }
 
   const sprachkenntnisseColumns: GridColDef<Person>[] = Array.from(
-    { length: 4 },
+    { length: maxLanguageSkillLength },
     (_, index) => generateSprachkenntnisseColumns(index),
   ).flat()
 
@@ -2205,7 +2208,7 @@ export const SupplementaryCertificateTableColumns = (
   }
 
   const fahrzeugkenntnisseColumns: GridColDef<Person>[] = Array.from(
-    { length: 100 },
+    { length: maxVehicleSkillLength },
     (_, index) => generateFahrzeugkenntnisseColumns(index),
   ).flat()
 
@@ -2355,52 +2358,50 @@ export const SupplementaryCertificateTableColumns = (
   }
 
   const infrastrukturkenntnisseColumns: GridColDef<Person>[] = Array.from(
-    { length: 42 },
+    { length: maxInfrastructureSkillLength },
     (_, index) => generateInfrastrukturkenntnisseColumns(index),
   ).flat()
 
   const fuehrerschein = showColumns.find((item) => item.value === 1)
-  const inhaber = showColumns.find((item) => item.value === 2)
-  const zusatzbescheinigung = showColumns.find((item) => item.value === 3)
-  const organisationseinheit = showColumns.find((item) => item.value === 4)
-  const bilder = showColumns.find((item) => item.value === 5)
-  const unternehmen = showColumns.find((item) => item.value === 6)
-  const klasse = showColumns.find((item) => item.value === 7)
-  const zusaetzlicheAngaben = showColumns.find((item) => item.value === 8)
-  const einschraenkungen = showColumns.find((item) => item.value === 9)
-  const aenderung = showColumns.find((item) => item.value === 10)
-  const aussetzung = showColumns.find((item) => item.value === 11)
-  const entziehung = showColumns.find((item) => item.value === 12)
-  const verloren = showColumns.find((item) => item.value === 13)
-  const entwendet = showColumns.find((item) => item.value === 14)
-  const zerstoert = showColumns.find((item) => item.value === 15)
-  const weitereAngaben = showColumns.find((item) => item.value === 16)
-  const sprachkenntnisse = showColumns.find((item) => item.value === 17)
-  const fahrzeugkenntnisse = showColumns.find((item) => item.value === 18)
-  const infrastrukturkenntnisse = showColumns.find((item) => item.value === 19)
+  const zusatzbescheinigung = showColumns.find((item) => item.value === 2)
+  const klasse = showColumns.find((item) => item.value === 3)
+  const aenderung = showColumns.find((item) => item.value === 4)
+  const verlust = showColumns.find((item) => item.value === 5)
+  const weitereAngaben = showColumns.find((item) => item.value === 6)
+  const kenntnisse = showColumns.find((item) => item.value === 7)
 
   return [
     ...nameColumns,
-    ...(fuehrerschein?.selected ? fuehrerscheinColumns : []),
-    ...(inhaber?.selected ? inhaberColumns : []),
-    ...(zusatzbescheinigung?.selected ? zusatzbescheinigungColumns : []),
-    ...(organisationseinheit?.selected ? organisationseinheitColumns : []),
-    ...(bilder?.selected ? bilderColumns : []),
-    ...(unternehmen?.selected ? unternehmenColumns : []),
-    ...(klasse?.selected ? klasseColumns : []),
-    ...(zusaetzlicheAngaben?.selected ? zusaetzlicheAngabenColumns : []),
-    ...(einschraenkungen?.selected ? einschraenkungenColumns : []),
-    ...(aenderung?.selected ? aenderungColumns : []),
-    ...(aussetzung?.selected ? aussetzungColumns : []),
-    ...(entziehung?.selected ? entziehungColumns : []),
-    ...(verloren?.selected ? verlorenZbColumns : []),
-    ...(entwendet?.selected ? entwendetZbColumns : []),
-    ...(zerstoert?.selected ? zerstoertZbColumns : []),
+    ...(fuehrerschein?.selected
+      ? [...fuehrerscheinColumns, ...inhaberColumns, ...bilderColumns]
+      : []),
+    ...(zusatzbescheinigung?.selected
+      ? [
+          ...zusatzbescheinigungColumns,
+          ...organisationseinheitColumns,
+          ...unternehmenColumns,
+        ]
+      : []),
+    ...(klasse?.selected
+      ? [
+          ...klasseColumns,
+          ...zusaetzlicheAngabenColumns,
+          ...einschraenkungenColumns,
+        ]
+      : []),
+    ...(aenderung?.selected
+      ? [...aenderungColumns, ...aussetzungColumns, ...entziehungColumns]
+      : []),
+    ...(verlust?.selected
+      ? [...verlorenZbColumns, ...entwendetZbColumns, ...zerstoertZbColumns]
+      : []),
     ...(weitereAngaben?.selected ? weitereAngabenColumns : []),
-    ...(sprachkenntnisse?.selected ? sprachkenntnisseColumns : []),
-    ...(fahrzeugkenntnisse?.selected ? fahrzeugkenntnisseColumns : []),
-    ...(infrastrukturkenntnisse?.selected
-      ? infrastrukturkenntnisseColumns
+    ...(kenntnisse?.selected
+      ? [
+          ...sprachkenntnisseColumns,
+          ...fahrzeugkenntnisseColumns,
+          ...infrastrukturkenntnisseColumns,
+        ]
       : []),
   ]
 }

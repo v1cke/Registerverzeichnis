@@ -7,6 +7,7 @@ import { SupplementaryCertificateTableColumns } from './supplementaryCertificate
 import { Box } from '@mui/material'
 import { ShowColumns } from '../../page'
 import { columnGroupingModel } from './columnGroupingModel'
+import { Person } from '@/app/types/types'
 
 interface SupplementaryCertificateTableProps {
   showColumns: ShowColumns[]
@@ -41,6 +42,36 @@ export const SupplementaryCertificateTable = ({
     return activRow
   }
 
+  const findMaxLengths = (users: Person[]) => {
+    let maxLanguageSkillLength = 1
+    let maxVehicleSkillLength = 1
+    let maxInfrastructureSkillLength = 1
+
+    users.forEach((user) => {
+      if (user.sprachkenntnisse.length > maxLanguageSkillLength) {
+        maxLanguageSkillLength = user.sprachkenntnisse.length
+      }
+      if (user.fahrzeugkenntnisse.length > maxVehicleSkillLength) {
+        maxVehicleSkillLength = user.fahrzeugkenntnisse.length
+      }
+      if (user.infrastrukturkenntnisse.length > maxInfrastructureSkillLength) {
+        maxInfrastructureSkillLength = user.infrastrukturkenntnisse.length
+      }
+    })
+
+    return {
+      maxLanguageSkillLength,
+      maxVehicleSkillLength,
+      maxInfrastructureSkillLength,
+    }
+  }
+
+  const {
+    maxLanguageSkillLength,
+    maxVehicleSkillLength,
+    maxInfrastructureSkillLength,
+  } = findMaxLengths(fakeData)
+
   return (
     <Box
       sx={{
@@ -49,7 +80,12 @@ export const SupplementaryCertificateTable = ({
     >
       <DataGrid
         rows={getRows()}
-        columns={SupplementaryCertificateTableColumns(showColumns)}
+        columns={SupplementaryCertificateTableColumns(
+          showColumns,
+          maxLanguageSkillLength,
+          maxVehicleSkillLength,
+          maxInfrastructureSkillLength,
+        )}
         hideFooter={true}
         pageSizeOptions={[1]}
         columnHeaderHeight={230}
@@ -57,7 +93,11 @@ export const SupplementaryCertificateTable = ({
           setSetselectedColumnId(Number(row.id))
           setOpenDialog(true)
         }}
-        columnGroupingModel={columnGroupingModel}
+        columnGroupingModel={columnGroupingModel(
+          maxLanguageSkillLength,
+          maxVehicleSkillLength,
+          maxInfrastructureSkillLength,
+        )}
         sx={{
           width: '100%',
           '& .MuiDataGrid-row:hover': {
